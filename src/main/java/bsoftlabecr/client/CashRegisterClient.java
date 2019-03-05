@@ -57,7 +57,7 @@ import javax.crypto.spec.SecretKeySpec;
 
 import org.bouncycastle.jce.provider.BouncyCastleProvider;
 
-public class ECRClient {
+public class CashRegisterClient {
 
     private static final String TRIPLE_DES_ALG = "DESede";
     private static final String CIPHER_ALGORITHM_SPEC = TRIPLE_DES_ALG + "/ECB/PKCS7Padding";
@@ -99,7 +99,7 @@ public class ECRClient {
     /**
      * @throws NoSuchAlgorithmException If the "3DES/ECB/PKCS7Padding" security provider is not registered
      */
-    public ECRClient(String password) throws NoSuchAlgorithmException {
+    public CashRegisterClient(String password) throws NoSuchAlgorithmException {
         MessageDigest messageDigest = MessageDigest.getInstance("SHA-256");
         this.passwordKey = Arrays.copyOf(messageDigest.digest(password.getBytes()), 24);
         this.objectMapper = new ObjectMapper();

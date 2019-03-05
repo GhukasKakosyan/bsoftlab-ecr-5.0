@@ -1,6 +1,6 @@
 package bsoftlabecr;
 
-import bsoftlabecr.client.ECRClient;
+import bsoftlabecr.client.CashRegisterClient;
 import bsoftlabecr.entity.Cashier;
 import bsoftlabecr.entity.Constants;
 import bsoftlabecr.entity.Department;
@@ -55,8 +55,8 @@ public class NewSale {
             System.out.println();
 
             System.out.println("BSOFTLAB. Trying to initialize ECR...");
-            ECRClient ecrClient = new ECRClient(constants.getPassword());
-            byte[] passwordKeyBytes = ecrClient.getPasswordKey();
+            CashRegisterClient cashRegisterClient = new CashRegisterClient(constants.getPassword());
+            byte[] passwordKeyBytes = cashRegisterClient.getPasswordKey();
             System.out.println("BSOFTLAB. passwordKey is: ");
             for(byte passwordKeyByte : passwordKeyBytes) {
                 System.out.print(passwordKeyByte);
@@ -64,7 +64,7 @@ public class NewSale {
             System.out.println();
             System.out.println("BSOFTLAB. ECR is initialized successfully ! ");
             System.out.println("BSOFTLAB. Trying to connect to ECR... ");
-            ecrClient.connect(constants.getIp(), constants.getPort());
+            cashRegisterClient.connect(constants.getIp(), constants.getPort());
             System.out.println("BSOFTLAB. Connection to ECR is created successfully ! ");
             System.out.println();
 
@@ -72,7 +72,7 @@ public class NewSale {
             CashiersAndDepsRequest cashiersAndDepsRequest = new CashiersAndDepsRequest();
             cashiersAndDepsRequest.setPassword(constants.getPassword());
             CashiersAndDepsResponse cashiersAndDepsResponse;
-            cashiersAndDepsResponse = ecrClient.getCashiersAndDepsResponse(cashiersAndDepsRequest);
+            cashiersAndDepsResponse = cashRegisterClient.getCashiersAndDepsResponse(cashiersAndDepsRequest);
             List<Cashier> cashierList = cashiersAndDepsResponse.getC();
             List<Department> departmentList = cashiersAndDepsResponse.getD();
             for(Department department : departmentList) {
@@ -91,9 +91,9 @@ public class NewSale {
             loginCashierRequest.setPassword(constants.getPassword());
             loginCashierRequest.setCashier(constants.getCashierId());
             loginCashierRequest.setPin(constants.getCashierPassword());
-            LoginCashierResponse loginCashierResponse = ecrClient.getLoginCashierResponse(loginCashierRequest);
-            ecrClient.setSessionKey(loginCashierResponse.getKeyBytes());
-            byte[] sessionKeyBytes = ecrClient.getSessionKey();
+            LoginCashierResponse loginCashierResponse = cashRegisterClient.getLoginCashierResponse(loginCashierRequest);
+            cashRegisterClient.setSessionKey(loginCashierResponse.getKeyBytes());
+            byte[] sessionKeyBytes = cashRegisterClient.getSessionKey();
             System.out.println("BSOFTLAB. sessionKey is: ");
             for(byte sessionKeyByte : sessionKeyBytes) {
                 System.out.print(sessionKeyByte);
@@ -125,7 +125,7 @@ public class NewSale {
             headerFooterRequest.setHeaders(headerList);
             headerFooterRequest.setFooters(footerList);
             HeaderFooterResponse headerFooterResponse;
-            headerFooterResponse = ecrClient.setupHeaderFooter(headerFooterRequest);
+            headerFooterResponse = cashRegisterClient.setupHeaderFooter(headerFooterRequest);
             System.out.println("BSOFTLAB. Request is sent to ECR successfully !");
             System.out.println("BSOFTLAB. Response is received from ECR successfully: " + headerFooterResponse.getResponseCode());
             System.out.println();
@@ -135,12 +135,12 @@ public class NewSale {
             newSaleRequestReaderXML.setFileName("BSOFTLABECRDATA/NewSaleRequest.xml");
             System.out.println("BSOFTLAB. Reading request from file: " + newSaleRequestReaderXML.getFileName());
             NewSaleRequest newSaleRequest = newSaleRequestReaderXML.readFile();
-            newSaleRequest.setSeq(ecrClient.getSeq());
+            newSaleRequest.setSeq(cashRegisterClient.getSeq());
             System.out.println("BSOFTLAB. Request is read from XML file successfully !");
             System.out.println();
 
             System.out.println("BSOFTLAB. Trying to send request to ECR... ");
-            NewSaleResponse newSaleResponse = ecrClient.getNewSaleResponse(newSaleRequest);
+            NewSaleResponse newSaleResponse = cashRegisterClient.getNewSaleResponse(newSaleRequest);
             System.out.println("BSOFTLAB. Request is sent to ECR successfully !");
             System.out.println("BSOFTLAB. Response is received from ECR successfully: " + newSaleResponse.getResponseCode());
             System.out.println();
@@ -155,12 +155,12 @@ public class NewSale {
 
             System.out.println("BSOFTLAB. Trying to logout cashier from ECR...");
             LogoutCashierRequest logoutCashierRequest = new LogoutCashierRequest();
-            logoutCashierRequest.setSeq(ecrClient.getSeq());
+            logoutCashierRequest.setSeq(cashRegisterClient.getSeq());
             LogoutCashierResponse logoutCashierResponse;
-            logoutCashierResponse = ecrClient.getLogoutCashierResponse(logoutCashierRequest);
+            logoutCashierResponse = cashRegisterClient.getLogoutCashierResponse(logoutCashierRequest);
             System.out.println("BSOFTLAB. Cashier is logged out from ECR successfully: " + logoutCashierResponse.getResponseCode());
             System.out.println("BSOFTLAB. Trying to close connection with ECR...");
-            ecrClient.disconnect();
+            cashRegisterClient.disconnect();
             System.out.println("BSOFTLAB. Connection with ECR is closed successfully !");
             Thread.sleep(5000);
 
