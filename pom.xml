@@ -4,8 +4,8 @@
          xsi:schemaLocation = "http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>BSOFTLABSRC</groupId>
-    <artifactId>BSOFTLABSRC</artifactId>
+    <groupId>am.bsoftlab</groupId>
+    <artifactId>bsoftlab-src-client</artifactId>
     <version>5.0</version>
     <packaging>jar</packaging>
 
@@ -84,27 +84,27 @@
     </build>
 
     <!-- More Project Information -->
-    <name>ecrbslauto</name>
-    <description>Driver for ECR, that send saled goods and services to ECR</description>
-    <url>http://www.bsoftlab.net</url>
+    <name>bsoftlab-src-client</name>
+    <description>State Revenue Committee modules</description>
+    <url>http://www.bsoftlab.am</url>
     <licenses>
         <license>
             <name>BSOFTLAB License, Version 2.0</name>
-            <url>http://www.bsoftlab.net/licenses/LICENSE-2.0.txt</url>
+            <url>http://www.bsoftlab.am/licenses/LICENSE-2.0.txt</url>
             <distribution>manual</distribution>
             <comments>A business-friendly OSS license</comments>
         </license>
     </licenses>
     <organization>
         <name>BSOFTLAB</name>
-        <url>http://www.bsoftlab.net</url>
+        <url>http://www.bsoftlab.am</url>
     </organization>
     <developers>
         <developer>
             <id>GEK</id>
             <name>Ghukas Eduardovich Kakosyan</name>
             <email>ghukaskakosyan@bsoftlab.net</email>
-            <url>http://www.bsoftlab.net</url>
+            <url>http://www.bsoftlab.am</url>
             <roles>
                 <role>architect</role>
                 <role>developer</role>

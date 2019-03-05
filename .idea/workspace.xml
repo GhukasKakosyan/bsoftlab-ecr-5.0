@@ -1,7 +1,99 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9553f8bf-0a4a-49fd-8025-c7d73f29c7df" name="Default" comment="" />
+    <list default="true" id="9553f8bf-0a4a-49fd-8025-c7d73f29c7df" name="Default" comment="BSOFTLABECR package renamed to bsoftlabecr">
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/BSOFTLABECR/ExistPrepayment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/ExistPrepayment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/BSOFTLABECR/ExistRPrepayment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/ExistRPrepayment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/BSOFTLABECR/ExistRSale.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/ExistRSale.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/BSOFTLABECR/ExistSale.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/ExistSale.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/BSOFTLABECR/FiscalReport.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/FiscalReport.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/BSOFTLABECR/NewORPrepayment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/NewORPrepayment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/BSOFTLABECR/NewORSale.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/NewORSale.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/BSOFTLABECR/NewPRPrepayment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/NewPRPrepayment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/BSOFTLABECR/NewPRSale.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/NewPRSale.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/BSOFTLABECR/NewPrepayment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/NewPrepayment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/BSOFTLABECR/NewSale.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/NewSale.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/BSOFTLABECR/betatests/ExistPrepaymentTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/betatests/ExistPrepaymentTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/BSOFTLABECR/betatests/ExistRPrepaymentTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/betatests/ExistRPrepaymentTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/BSOFTLABECR/betatests/ExistRSaleTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/betatests/ExistRSaleTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/BSOFTLABECR/betatests/ExistSaleTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/betatests/ExistSaleTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/BSOFTLABECR/betatests/FiscalReportTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/betatests/FiscalReportTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/BSOFTLABECR/betatests/NewORPrepaymentTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/betatests/NewORPrepaymentTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/BSOFTLABECR/betatests/NewORSaleTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/betatests/NewORSaleTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/BSOFTLABECR/betatests/NewPRPrepaymentTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/betatests/NewPRPrepaymentTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/BSOFTLABECR/betatests/NewPRSaleTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/betatests/NewPRSaleTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/BSOFTLABECR/betatests/NewPrepaymentTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/betatests/NewPrepaymentTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/BSOFTLABECR/betatests/NewSaleTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/betatests/NewSaleTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/BSOFTLABECR/client/ECRClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/client/ECRClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/BSOFTLABECR/entity/Cashier.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/entity/Cashier.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/BSOFTLABECR/entity/CoderingConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/entity/CoderingConverter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/BSOFTLABECR/entity/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/entity/Constants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/BSOFTLABECR/entity/Department.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/entity/Department.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/BSOFTLABECR/entity/HeaderFooter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/entity/HeaderFooter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/BSOFTLABECR/entity/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/entity/Item.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/BSOFTLABECR/entity/ReturnItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/entity/ReturnItem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/BSOFTLABECR/exception/ECRException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/exception/ECRException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/BSOFTLABECR/request/cashier/CashiersAndDepsRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/request/cashier/CashiersAndDepsRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/BSOFTLABECR/request/cashier/LoginCashierRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/request/cashier/LoginCashierRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/BSOFTLABECR/request/cashier/LogoutCashierRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/request/cashier/LogoutCashierRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/BSOFTLABECR/request/general/CommonRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/request/general/CommonRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/BSOFTLABECR/request/general/SequenceRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/request/general/SequenceRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/BSOFTLABECR/request/headerfooter/HeaderFooterRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/request/headerfooter/HeaderFooterRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/BSOFTLABECR/request/receipt/prepayment/ExistPrepaymentRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/request/receipt/prepayment/ExistPrepaymentRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/BSOFTLABECR/request/receipt/prepayment/NewPrepaymentRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/request/receipt/prepayment/NewPrepaymentRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/BSOFTLABECR/request/receipt/returns/prepayment/ExistRPrepaymentRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/request/receipt/returns/prepayment/ExistRPrepaymentRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/BSOFTLABECR/request/receipt/returns/prepayment/NewORPrepaymentRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/request/receipt/returns/prepayment/NewORPrepaymentRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/BSOFTLABECR/request/receipt/returns/prepayment/NewPRPrepaymentRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/request/receipt/returns/prepayment/NewPRPrepaymentRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/BSOFTLABECR/request/receipt/returns/sale/ExistRSaleRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/request/receipt/returns/sale/ExistRSaleRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/BSOFTLABECR/request/receipt/returns/sale/NewORSaleRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/request/receipt/returns/sale/NewORSaleRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/BSOFTLABECR/request/receipt/returns/sale/NewPRSaleRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/request/receipt/returns/sale/NewPRSaleRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/BSOFTLABECR/request/receipt/sale/ExistSaleRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/request/receipt/sale/ExistSaleRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/BSOFTLABECR/request/receipt/sale/NewSaleRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/request/receipt/sale/NewSaleRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/BSOFTLABECR/request/report/FiscalReportRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/request/report/FiscalReportRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/BSOFTLABECR/response/cashier/CashiersAndDepsResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/response/cashier/CashiersAndDepsResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/BSOFTLABECR/response/cashier/LoginCashierResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/response/cashier/LoginCashierResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/BSOFTLABECR/response/cashier/LogoutCashierResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/response/cashier/LogoutCashierResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/BSOFTLABECR/response/general/CommonResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/response/general/CommonResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/BSOFTLABECR/response/headerfooter/HeaderFooterResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/response/headerfooter/HeaderFooterResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/BSOFTLABECR/response/receipt/general/ExistReceiptResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/response/receipt/general/ExistReceiptResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/BSOFTLABECR/response/receipt/general/NewReceiptResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/response/receipt/general/NewReceiptResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/BSOFTLABECR/response/receipt/prepayment/ExistPrepaymentResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/response/receipt/prepayment/ExistPrepaymentResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/BSOFTLABECR/response/receipt/prepayment/NewPrepaymentResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/response/receipt/prepayment/NewPrepaymentResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/BSOFTLABECR/response/receipt/returns/prepayment/ExistRPrepaymentResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/response/receipt/returns/prepayment/ExistRPrepaymentResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/BSOFTLABECR/response/receipt/returns/prepayment/NewORPrepaymentResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/response/receipt/returns/prepayment/NewORPrepaymentResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/BSOFTLABECR/response/receipt/returns/prepayment/NewPRPrepaymentResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/response/receipt/returns/prepayment/NewPRPrepaymentResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/BSOFTLABECR/response/receipt/returns/sale/ExistRSaleResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/response/receipt/returns/sale/ExistRSaleResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/BSOFTLABECR/response/receipt/returns/sale/NewORSaleResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/response/receipt/returns/sale/NewORSaleResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/BSOFTLABECR/response/receipt/returns/sale/NewPRSaleResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/response/receipt/returns/sale/NewPRSaleResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/BSOFTLABECR/response/receipt/sale/ExistSaleResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/response/receipt/sale/ExistSaleResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/BSOFTLABECR/response/receipt/sale/NewSaleResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/response/receipt/sale/NewSaleResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/BSOFTLABECR/response/report/FiscalReportResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/response/report/FiscalReportResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/BSOFTLABECR/xml/reader/constants/ConstantsReaderXML.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/xml/reader/constants/ConstantsReaderXML.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/BSOFTLABECR/xml/reader/receipt/prepayment/ExistPrepaymentRequestReaderXML.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/xml/reader/receipt/prepayment/ExistPrepaymentRequestReaderXML.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/BSOFTLABECR/xml/reader/receipt/prepayment/NewPrepaymentRequestReaderXML.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/xml/reader/receipt/prepayment/NewPrepaymentRequestReaderXML.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/BSOFTLABECR/xml/reader/receipt/returns/prepayment/ExistRPrepaymentRequestReaderXML.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/xml/reader/receipt/returns/prepayment/ExistRPrepaymentRequestReaderXML.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/BSOFTLABECR/xml/reader/receipt/returns/prepayment/NewORPrepaymentRequestReaderXML.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/xml/reader/receipt/returns/prepayment/NewORPrepaymentRequestReaderXML.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/BSOFTLABECR/xml/reader/receipt/returns/prepayment/NewPRPrepaymentRequestReaderXML.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/xml/reader/receipt/returns/prepayment/NewPRPrepaymentRequestReaderXML.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/BSOFTLABECR/xml/reader/receipt/returns/sale/ExistRSaleRequestReaderXML.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/xml/reader/receipt/returns/sale/ExistRSaleRequestReaderXML.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/BSOFTLABECR/xml/reader/receipt/returns/sale/NewORSaleRequestReaderXML.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/xml/reader/receipt/returns/sale/NewORSaleRequestReaderXML.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/BSOFTLABECR/xml/reader/receipt/returns/sale/NewPRSaleRequestReaderXML.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/xml/reader/receipt/returns/sale/NewPRSaleRequestReaderXML.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/BSOFTLABECR/xml/reader/receipt/sale/ExistSaleRequestReaderXML.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/xml/reader/receipt/sale/ExistSaleRequestReaderXML.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/BSOFTLABECR/xml/reader/receipt/sale/NewSaleRequestReaderXML.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/xml/reader/receipt/sale/NewSaleRequestReaderXML.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/BSOFTLABECR/xml/reader/report/FiscalReportRequestReaderXML.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/xml/reader/report/FiscalReportRequestReaderXML.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/BSOFTLABECR/xml/writer/receipt/prepayment/ExistPrepaymentResponseWriterXML.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/xml/writer/receipt/prepayment/ExistPrepaymentResponseWriterXML.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/BSOFTLABECR/xml/writer/receipt/prepayment/NewPrepaymentResponseWriterXML.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/xml/writer/receipt/prepayment/NewPrepaymentResponseWriterXML.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/BSOFTLABECR/xml/writer/receipt/returns/prepayment/ExistRPrepaymentResponseWriterXML.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/xml/writer/receipt/returns/prepayment/ExistRPrepaymentResponseWriterXML.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/BSOFTLABECR/xml/writer/receipt/returns/prepayment/NewORPrepaymentResponseWriterXML.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/xml/writer/receipt/returns/prepayment/NewORPrepaymentResponseWriterXML.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/BSOFTLABECR/xml/writer/receipt/returns/prepayment/NewPRPrepaymentResponseWriterXML.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/xml/writer/receipt/returns/prepayment/NewPRPrepaymentResponseWriterXML.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/BSOFTLABECR/xml/writer/receipt/returns/sale/ExistRSaleResponseWriterXML.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/xml/writer/receipt/returns/sale/ExistRSaleResponseWriterXML.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/BSOFTLABECR/xml/writer/receipt/returns/sale/NewORSaleResponseWriterXML.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/xml/writer/receipt/returns/sale/NewORSaleResponseWriterXML.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/BSOFTLABECR/xml/writer/receipt/returns/sale/NewPRSaleResponseWriterXML.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/xml/writer/receipt/returns/sale/NewPRSaleResponseWriterXML.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/BSOFTLABECR/xml/writer/receipt/sale/ExistSaleResponseWriterXML.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/xml/writer/receipt/sale/ExistSaleResponseWriterXML.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/BSOFTLABECR/xml/writer/receipt/sale/NewSaleResponseWriterXML.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/xml/writer/receipt/sale/NewSaleResponseWriterXML.java" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -39,7 +131,6 @@
         <option value="$PROJECT_DIR$/src/main/java/BSOFTLABECR/entity/ArmenianAlphabet.java" />
         <option value="$PROJECT_DIR$/src/main/java/BSOFTLABECR/client/ECRClient.java" />
         <option value="$PROJECT_DIR$/src/main/java/BSOFTLABECR/xml/reader/receipt/sale/NewSaleRequestReaderXML.java" />
-        <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/BSOFTLABECR/betatests/ExistPrepaymentTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/BSOFTLABECR/betatests/ExistRPrepaymentTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/BSOFTLABECR/betatests/ExistRSaleTest.java" />
@@ -78,6 +169,7 @@
         <option value="$PROJECT_DIR$/src/main/java/BSOFTLABECR/NewPRPrepayment.java" />
         <option value="$PROJECT_DIR$/src/main/java/BSOFTLABECR/NewPRSale.java" />
         <option value="$PROJECT_DIR$/src/main/java/BSOFTLABECR/NewSale.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
       </list>
     </option>
   </component>
@@ -93,12 +185,17 @@
       <expand>
         <path>
           <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
-          <item name="ecrbslauto" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+          <item name="bsoftlab-src-client" type="9519ce18:MavenProjectsStructure$ProjectNode" />
         </path>
         <path>
           <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
-          <item name="ecrbslauto" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+          <item name="bsoftlab-src-client" type="9519ce18:MavenProjectsStructure$ProjectNode" />
           <item name="Lifecycle" type="58874e2:MavenProjectsStructure$LifecycleNode" />
+        </path>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="bsoftlab-src-client" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+          <item name="Plugins" type="7aea1407:MavenProjectsStructure$PluginsNode" />
         </path>
       </expand>
       <select />
@@ -116,49 +213,180 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="ProjectPane">
-        <subPane>
+      <pane id="Scope">
+        <subPane subId="Scope 'Tests'; set:Tests; class com.intellij.psi.search.scope.TestsScope">
           <expand>
             <path>
-              <item name="BSOFTLABSRC" type="b2602c69:ProjectViewProjectNode" />
-              <item name="BSOFTLABSRC" type="462c0819:PsiDirectoryNode" />
+              <item name="bsoftlabsrc" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="BSOFTLABSRC" type="2674bda8:ScopeViewTreeModel$GroupNode" />
             </path>
             <path>
-              <item name="BSOFTLABSRC" type="b2602c69:ProjectViewProjectNode" />
-              <item name="BSOFTLABSRC" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="bsoftlabsrc" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="BSOFTLABSRC" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
             <path>
-              <item name="BSOFTLABSRC" type="b2602c69:ProjectViewProjectNode" />
-              <item name="BSOFTLABSRC" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="bsoftlabsrc" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="BSOFTLABSRC" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="test" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+        <subPane subId="Scope 'Default'; set:Default; class com.intellij.packageDependencies.ChangeListScope">
+          <expand>
+            <path>
+              <item name="bsoftlabsrc" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="BSOFTLABSRC" type="2674bda8:ScopeViewTreeModel$GroupNode" />
             </path>
             <path>
-              <item name="BSOFTLABSRC" type="b2602c69:ProjectViewProjectNode" />
-              <item name="BSOFTLABSRC" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="bsoftlabsrc" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="BSOFTLABSRC" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
             <path>
-              <item name="BSOFTLABSRC" type="b2602c69:ProjectViewProjectNode" />
-              <item name="BSOFTLABSRC" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="BSOFTLABECR" type="462c0819:PsiDirectoryNode" />
+              <item name="bsoftlabsrc" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="BSOFTLABSRC" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="main" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="bsoftlabsrc" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="BSOFTLABSRC" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="main" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="java" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+        <subPane subId="Scope 'Changed Files'; set:Changed Files; ALL; class com.intellij.packageDependencies.ChangeListScope">
+          <expand>
+            <path>
+              <item name="bsoftlabsrc" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="BSOFTLABSRC" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+            </path>
+            <path>
+              <item name="bsoftlabsrc" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="BSOFTLABSRC" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="bsoftlabsrc" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="BSOFTLABSRC" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="main" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="bsoftlabsrc" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="BSOFTLABSRC" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="main" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="java" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+        <subPane subId="Scope 'Production'; set:Production; class com.intellij.psi.search.scope.ProjectProductionScope">
+          <expand>
+            <path>
+              <item name="bsoftlabsrc" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="BSOFTLABSRC" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+            </path>
+            <path>
+              <item name="bsoftlabsrc" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="BSOFTLABSRC" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="bsoftlabsrc" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="BSOFTLABSRC" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="main" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="bsoftlabsrc" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="BSOFTLABSRC" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="main" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="java" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+        <subPane subId="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope">
+          <expand>
+            <path>
+              <item name="bsoftlabsrc" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+            </path>
+            <path>
+              <item name="bsoftlabsrc" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="bsoftlabsrc" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="main" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="bsoftlabsrc" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="main" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="java" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
+      <pane id="PackagesPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="bsoftlabsrc" type="58d84e3e:PackageViewProjectNode" />
+              <item name="BSOFTLABSRC" type="616d4139:PackageViewModuleNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="bsoftlabsrc" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bsoftlabsrc" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="bsoftlabsrc" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bsoftlabsrc" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="bsoftlabsrc" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bsoftlabsrc" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="bsoftlabsrc" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bsoftlabsrc" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1551106730607" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1551787097852" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
@@ -240,7 +468,7 @@
   <component name="ToolWindowManager">
     <frame x="-5" y="-5" width="1376" height="738" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.25642964" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.3184569" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -259,14 +487,14 @@
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="9" show_stripe_button="false" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" id="Ant Build" order="1" show_stripe_button="false" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="right" id="Capture Analysis" order="4" />
       <window_info anchor="right" id="Theme Preview" order="5" />
       <window_info anchor="right" id="Palette&#9;" order="6" />
       <window_info anchor="right" id="Maven Projects" order="7" weight="0.14220877" />
-      <window_info anchor="right" id="Maven" order="8" weight="0.14674735" />
+      <window_info anchor="right" id="Maven" order="8" weight="0.13691376" />
     </layout>
   </component>
   <component name="VcsManagerConfiguration">
@@ -274,197 +502,187 @@
       <path value="$USER_HOME$" />
     </ignored-roots>
   </component>
+  <component name="antWorkspaceConfiguration">
+    <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
+    <option name="FILTER_TARGETS" value="false" />
+  </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/BSOFTLABECR/request/receipt/sale/ExistSaleRequest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/BSOFTLABECR/request/receipt/sale/NewSaleRequest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/BSOFTLABECR/request/report/FiscalReportRequest.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/bsoftlabecr/request/report/FiscalReportRequest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="80">
           <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/BSOFTLABECR/response/cashier/CashiersAndDepsResponse.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/bsoftlabecr/response/cashier/CashiersAndDepsResponse.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="80">
           <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/BSOFTLABECR/response/cashier/LoginCashierResponse.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/bsoftlabecr/response/cashier/LoginCashierResponse.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="80">
           <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/BSOFTLABECR/response/cashier/LogoutCashierResponse.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/bsoftlabecr/response/cashier/LogoutCashierResponse.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="80">
           <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/BSOFTLABECR/response/receipt/general/ExistReceiptResponse.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/bsoftlabecr/response/receipt/general/ExistReceiptResponse.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="100">
           <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/BSOFTLABECR/response/receipt/general/NewReceiptResponse.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/bsoftlabecr/response/receipt/general/NewReceiptResponse.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="80">
           <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/BSOFTLABECR/response/receipt/prepayment/ExistPrepaymentResponse.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/bsoftlabecr/response/receipt/prepayment/ExistPrepaymentResponse.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="80">
           <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/BSOFTLABECR/response/receipt/prepayment/NewPrepaymentResponse.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/bsoftlabecr/response/receipt/prepayment/NewPrepaymentResponse.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="80">
           <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/BSOFTLABECR/response/receipt/returns/prepayment/ExistRPrepaymentResponse.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/bsoftlabecr/response/receipt/returns/prepayment/ExistRPrepaymentResponse.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="80">
           <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/BSOFTLABECR/response/receipt/returns/prepayment/NewORPrepaymentResponse.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/bsoftlabecr/response/receipt/returns/prepayment/NewORPrepaymentResponse.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="80">
           <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/BSOFTLABECR/response/receipt/returns/prepayment/NewPRPrepaymentResponse.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/bsoftlabecr/response/receipt/returns/prepayment/NewPRPrepaymentResponse.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="80">
           <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/BSOFTLABECR/response/receipt/returns/sale/ExistRSaleResponse.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/bsoftlabecr/response/receipt/returns/sale/ExistRSaleResponse.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="80">
           <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/BSOFTLABECR/response/receipt/returns/sale/NewORSaleResponse.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/bsoftlabecr/response/receipt/returns/sale/NewORSaleResponse.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="80">
           <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/BSOFTLABECR/response/receipt/returns/sale/NewPRSaleResponse.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/bsoftlabecr/response/receipt/returns/sale/NewPRSaleResponse.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="80">
           <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/BSOFTLABECR/response/receipt/sale/ExistSaleResponse.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/bsoftlabecr/response/receipt/sale/ExistSaleResponse.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="80">
           <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/BSOFTLABECR/response/receipt/sale/NewSaleResponse.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/bsoftlabecr/response/receipt/sale/NewSaleResponse.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="80">
           <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/BSOFTLABECR/response/report/FiscalReportResponse.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/bsoftlabecr/response/report/FiscalReportResponse.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="80">
           <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/BSOFTLABECR/xml/reader/receipt/prepayment/ExistPrepaymentRequestReaderXML.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/bsoftlabecr/xml/reader/receipt/prepayment/ExistPrepaymentRequestReaderXML.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="80">
           <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/BSOFTLABECR/xml/reader/receipt/prepayment/NewPrepaymentRequestReaderXML.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/bsoftlabecr/xml/reader/receipt/prepayment/NewPrepaymentRequestReaderXML.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
           <caret line="32" column="24" selection-start-line="32" selection-start-column="24" selection-end-line="32" selection-end-column="24" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/BSOFTLABECR/xml/reader/receipt/returns/prepayment/ExistRPrepaymentRequestReaderXML.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/bsoftlabecr/xml/reader/receipt/returns/prepayment/ExistRPrepaymentRequestReaderXML.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="80">
           <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/BSOFTLABECR/xml/reader/receipt/returns/prepayment/NewORPrepaymentRequestReaderXML.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/bsoftlabecr/xml/reader/receipt/returns/prepayment/NewORPrepaymentRequestReaderXML.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="80">
           <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/BSOFTLABECR/xml/reader/receipt/returns/prepayment/NewPRPrepaymentRequestReaderXML.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/bsoftlabecr/xml/reader/receipt/returns/prepayment/NewPRPrepaymentRequestReaderXML.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="80">
           <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/BSOFTLABECR/xml/reader/receipt/returns/sale/ExistRSaleRequestReaderXML.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/bsoftlabecr/xml/reader/receipt/returns/sale/ExistRSaleRequestReaderXML.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="80">
           <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/BSOFTLABECR/xml/reader/receipt/returns/sale/NewORSaleRequestReaderXML.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/bsoftlabecr/xml/reader/receipt/returns/sale/NewORSaleRequestReaderXML.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="80">
           <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/BSOFTLABECR/xml/reader/receipt/returns/sale/NewPRSaleRequestReaderXML.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/bsoftlabecr/xml/reader/receipt/returns/sale/NewPRSaleRequestReaderXML.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="207">
           <caret line="123" column="88" lean-forward="true" selection-start-line="123" selection-start-column="88" selection-end-line="123" selection-end-column="88" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/BSOFTLABECR/xml/reader/report/FiscalReportRequestReaderXML.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/bsoftlabecr/xml/reader/report/FiscalReportRequestReaderXML.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="380">
           <caret line="36" column="34" lean-forward="true" selection-start-line="36" selection-start-column="34" selection-end-line="36" selection-end-column="34" />
@@ -474,122 +692,119 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/BSOFTLABECR/xml/writer/receipt/prepayment/ExistPrepaymentResponseWriterXML.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/bsoftlabecr/xml/writer/receipt/prepayment/ExistPrepaymentResponseWriterXML.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="160">
           <caret line="8" selection-start-line="8" selection-end-line="8" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/BSOFTLABECR/xml/writer/receipt/prepayment/NewPrepaymentResponseWriterXML.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/bsoftlabecr/xml/writer/receipt/prepayment/NewPrepaymentResponseWriterXML.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
           <caret line="59" column="65" lean-forward="true" selection-start-line="59" selection-start-column="65" selection-end-line="59" selection-end-column="65" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/BSOFTLABECR/xml/writer/receipt/returns/prepayment/ExistRPrepaymentResponseWriterXML.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/bsoftlabecr/xml/writer/receipt/returns/prepayment/ExistRPrepaymentResponseWriterXML.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
           <caret line="58" selection-start-line="58" selection-end-line="58" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/BSOFTLABECR/xml/writer/receipt/returns/prepayment/NewORPrepaymentResponseWriterXML.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/bsoftlabecr/xml/writer/receipt/returns/prepayment/NewORPrepaymentResponseWriterXML.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
           <caret line="59" column="65" lean-forward="true" selection-start-line="59" selection-start-column="65" selection-end-line="59" selection-end-column="65" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/BSOFTLABECR/xml/writer/receipt/returns/prepayment/NewPRPrepaymentResponseWriterXML.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/bsoftlabecr/xml/writer/receipt/returns/prepayment/NewPRPrepaymentResponseWriterXML.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
           <caret line="59" column="65" lean-forward="true" selection-start-line="59" selection-start-column="65" selection-end-line="59" selection-end-column="65" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/BSOFTLABECR/xml/writer/receipt/returns/sale/ExistRSaleResponseWriterXML.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/bsoftlabecr/xml/writer/receipt/returns/sale/ExistRSaleResponseWriterXML.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
           <caret line="91" column="65" lean-forward="true" selection-start-line="91" selection-start-column="65" selection-end-line="91" selection-end-column="65" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/BSOFTLABECR/xml/writer/receipt/returns/sale/NewORSaleResponseWriterXML.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/bsoftlabecr/xml/writer/receipt/returns/sale/NewORSaleResponseWriterXML.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
           <caret line="59" column="65" lean-forward="true" selection-start-line="59" selection-start-column="65" selection-end-line="59" selection-end-column="65" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/BSOFTLABECR/xml/writer/receipt/returns/sale/NewPRSaleResponseWriterXML.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/bsoftlabecr/xml/writer/receipt/returns/sale/NewPRSaleResponseWriterXML.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
           <caret line="59" column="65" lean-forward="true" selection-start-line="59" selection-start-column="65" selection-end-line="59" selection-end-column="65" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/BSOFTLABECR/xml/writer/receipt/sale/ExistSaleResponseWriterXML.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/bsoftlabecr/xml/writer/receipt/sale/ExistSaleResponseWriterXML.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
           <caret line="92" column="65" lean-forward="true" selection-start-line="92" selection-start-column="65" selection-end-line="92" selection-end-column="65" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/BSOFTLABECR/xml/writer/receipt/sale/NewSaleResponseWriterXML.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/bsoftlabecr/xml/writer/receipt/sale/NewSaleResponseWriterXML.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
           <caret line="59" column="65" lean-forward="true" selection-start-line="59" selection-start-column="65" selection-end-line="59" selection-end-column="65" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/BSOFTLABECR/ExistRSale.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/bsoftlabecr/ExistRSale.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="100">
           <caret line="36" column="41" selection-start-line="36" selection-start-column="41" selection-end-line="36" selection-end-column="41" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/BSOFTLABECR/ExistSale.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/bsoftlabecr/ExistSale.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="100">
           <caret line="36" column="41" selection-start-line="36" selection-start-column="41" selection-end-line="36" selection-end-column="41" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/BSOFTLABECR/FiscalReport.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/bsoftlabecr/FiscalReport.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="100">
           <caret line="35" column="41" selection-start-line="35" selection-start-column="41" selection-end-line="35" selection-end-column="41" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/BSOFTLABECR/NewORPrepayment.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/bsoftlabecr/NewORPrepayment.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="100">
           <caret line="37" column="41" selection-start-line="37" selection-start-column="41" selection-end-line="37" selection-end-column="41" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/BSOFTLABECR/NewPrepayment.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/bsoftlabecr/NewPrepayment.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="100">
           <caret line="37" column="41" selection-start-line="37" selection-start-column="41" selection-end-line="37" selection-end-column="41" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/BSOFTLABECR/NewPRPrepayment.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/bsoftlabecr/NewPRPrepayment.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="100">
           <caret line="36" column="41" selection-start-line="36" selection-start-column="41" selection-end-line="36" selection-end-column="41" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/BSOFTLABECR/ExistPrepayment.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/bsoftlabecr/ExistPrepayment.java">
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <caret column="20" lean-forward="true" selection-start-column="20" selection-end-column="20" />
@@ -599,38 +814,62 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/BSOFTLABECR/ExistRPrepayment.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/bsoftlabecr/ExistRPrepayment.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="20">
           <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/BSOFTLABECR/NewPRSale.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/bsoftlabecr/NewPRSale.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="100">
           <caret line="36" column="41" selection-start-line="36" selection-start-column="41" selection-end-line="36" selection-end-column="41" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/BSOFTLABECR/NewORSale.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/bsoftlabecr/NewORSale.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="100">
           <caret line="36" column="41" selection-start-line="36" selection-start-column="41" selection-end-line="36" selection-end-column="41" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/BSOFTLABECR/NewSale.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/bsoftlabecr/NewSale.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="276">
           <caret line="159" column="93" lean-forward="true" selection-start-line="159" selection-start-column="93" selection-end-line="159" selection-end-column="93" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/BSOFTLABECR/xml/reader/constants/ConstantsReaderXML.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/bsoftlabecr/xml/reader/constants/ConstantsReaderXML.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1843">
           <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/bsoftlabecr/entity/CoderingConverter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="40">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/bsoftlabecr/client/ECRClient.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-884">
+          <caret line="164" lean-forward="true" selection-start-line="164" selection-end-line="164" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="140">
+          <caret line="7" column="48" lean-forward="true" selection-start-line="7" selection-start-column="48" selection-end-line="7" selection-end-column="48" />
         </state>
       </provider>
     </entry>
