@@ -4,7 +4,7 @@ import bsoftlabecr.client.CashRegisterClient;
 import bsoftlabecr.entity.Cashier;
 import bsoftlabecr.entity.Constants;
 import bsoftlabecr.entity.Department;
-import bsoftlabecr.exception.ECRException;
+import bsoftlabecr.exception.CashRegisterException;
 
 import bsoftlabecr.request.cashier.CashiersAndDepsRequest;
 import bsoftlabecr.request.cashier.LoginCashierRequest;
@@ -154,8 +154,8 @@ public class ExistRSale {
             System.out.println("JsonProcessingException: " + jsonProcessingException.toString());
         } catch(IOException ioException) {
             System.out.println("IOException: " + ioException.toString());
-        } catch(ECRException ecrException) {
-            System.out.println("ECRException: " + ecrException.toString());
+        } catch(CashRegisterException cashRegisterException) {
+            System.out.println("CashRegisterException: " + cashRegisterException.toString());
         }
     }
 }

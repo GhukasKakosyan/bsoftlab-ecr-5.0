@@ -1,6 +1,6 @@
 package bsoftlabecr.client;
 
-import bsoftlabecr.exception.ECRException;
+import bsoftlabecr.exception.CashRegisterException;
 
 import bsoftlabecr.request.cashier.CashiersAndDepsRequest;
 import bsoftlabecr.request.cashier.LoginCashierRequest;
@@ -170,7 +170,7 @@ public class CashRegisterClient {
      * @throws java.io.IOException Network error
      */
     private ByteBuffer sendRequestReceiveResponse(ByteBuffer encryptedRequestByteBuffer)
-            throws IOException, ECRException {
+            throws IOException, CashRegisterException {
 
         encryptedRequestByteBuffer.flip();
         this.socketChannel.write(encryptedRequestByteBuffer); // Encrypted request is sent
@@ -201,7 +201,7 @@ public class CashRegisterClient {
      * Get cashiers and departments list
      * @param cashiersAndDepsRequest                                Cashiers and departments list request
      * @return                                                      cashiers and departments list
-     * @throws bsoftlabecr.exception.ECRException                   ECR Exception
+     * @throws CashRegisterException                   ECR Exception
      * @throws java.io.IOException                                  Standart Input Output Exception
      * @throws java.security.InvalidKeyException                    3DES encryption/decryption key is not correct
      * @throws java.security.NoSuchAlgorithmException               3DES encryption/decryption algorithm is not present
@@ -210,7 +210,7 @@ public class CashRegisterClient {
      * @throws javax.crypto.NoSuchPaddingException                  Invalid Padding size
      */
     public CashiersAndDepsResponse getCashiersAndDepsResponse(CashiersAndDepsRequest cashiersAndDepsRequest)
-            throws BadPaddingException, ECRException, IOException, IllegalBlockSizeException,
+            throws BadPaddingException, CashRegisterException, IOException, IllegalBlockSizeException,
             InvalidKeyException, NoSuchAlgorithmException, NoSuchPaddingException {
 
         byte[] requestBytes = this.objectMapper.writeValueAsBytes(cashiersAndDepsRequest);
@@ -238,7 +238,7 @@ public class CashRegisterClient {
      * Logs in given cashier and returns cashier response with session key
      * @param loginCashierRequest                                   Cashier login request
      * @return                                                      Cashier login response with session key
-     * @throws bsoftlabecr.exception.ECRException                   ECR Exception
+     * @throws CashRegisterException                   ECR Exception
      * @throws java.io.IOException                                  Standart Input Output Exception
      * @throws java.security.InvalidKeyException                    3DES encryption/decryption key is not correct
      * @throws java.security.NoSuchAlgorithmException               3DES encryption/decryption algorithm is not present
@@ -247,7 +247,7 @@ public class CashRegisterClient {
      * @throws javax.crypto.NoSuchPaddingException                  Invalid Padding size
      */
     public LoginCashierResponse getLoginCashierResponse(LoginCashierRequest loginCashierRequest)
-            throws BadPaddingException, ECRException, IOException, IllegalBlockSizeException,
+            throws BadPaddingException, CashRegisterException, IOException, IllegalBlockSizeException,
             InvalidKeyException, NoSuchAlgorithmException, NoSuchPaddingException {
 
         byte[] requestBytes = this.objectMapper.writeValueAsBytes(loginCashierRequest);
@@ -275,7 +275,7 @@ public class CashRegisterClient {
      * Logout current cashier
      * @param logoutCashierRequest                                  Logout cashier request
      * @return                                                      Logout cashier response
-     * @throws bsoftlabecr.exception.ECRException                   ECR Exception
+     * @throws CashRegisterException                   ECR Exception
      * @throws com.fasterxml.jackson.core.JsonProcessingException   @request cannot be serialized to JSON
      * @throws java.io.IOException                                  Standart Input Output Exception
      * @throws java.security.InvalidKeyException                    3DES encryption/decryption key is not correct
@@ -285,7 +285,7 @@ public class CashRegisterClient {
      * @throws javax.crypto.NoSuchPaddingException                  Invalid Padding size
      */
     public LogoutCashierResponse getLogoutCashierResponse(LogoutCashierRequest logoutCashierRequest)
-            throws BadPaddingException, ECRException, IOException, IllegalBlockSizeException,
+            throws BadPaddingException, CashRegisterException, IOException, IllegalBlockSizeException,
             InvalidKeyException, NoSuchAlgorithmException, NoSuchPaddingException {
 
         byte[] requestBytes = this.objectMapper.writeValueAsBytes(logoutCashierRequest);
@@ -308,7 +308,7 @@ public class CashRegisterClient {
      * Setup header and footer for receipt
      * @param headerFooterRequest                                   Setup headers and footers request
      * @return                                                      returns response code
-     * @throws bsoftlabecr.exception.ECRException                   ECR Exception
+     * @throws CashRegisterException                   ECR Exception
      * @throws com.fasterxml.jackson.core.JsonProcessingException   @request cannot be serialized to JSON
      * @throws java.io.IOException                                  Standart Input Output Exception
      * @throws java.security.InvalidKeyException                    3DES encryption/decryption key is not correct
@@ -318,7 +318,7 @@ public class CashRegisterClient {
      * @throws javax.crypto.NoSuchPaddingException                  Invalid Padding size
      */
     public HeaderFooterResponse setupHeaderFooter(HeaderFooterRequest headerFooterRequest)
-            throws BadPaddingException, ECRException, IOException, IllegalBlockSizeException,
+            throws BadPaddingException, CashRegisterException, IOException, IllegalBlockSizeException,
             InvalidKeyException, NoSuchAlgorithmException, NoSuchPaddingException {
 
         byte[] requestBytes = this.objectMapper.writeValueAsBytes(headerFooterRequest);
@@ -340,7 +340,7 @@ public class CashRegisterClient {
      * Prints fiscal report for. Parameters of report are set in fiscalReportRequest object.
      * @param fiscalReportRequest                                   Fiscal Report Request
      * @return                                                      returns response code
-     * @throws bsoftlabecr.exception.ECRException                   ECR Exception
+     * @throws CashRegisterException                   ECR Exception
      * @throws com.fasterxml.jackson.core.JsonProcessingException   @request cannot be serialized to JSON
      * @throws java.io.IOException                                  Standart Input Output Exception
      * @throws java.security.InvalidKeyException                    3DES encryption/decryption key is not correct
@@ -350,7 +350,7 @@ public class CashRegisterClient {
      * @throws javax.crypto.NoSuchPaddingException                  Invalid Padding size
      **/
     public FiscalReportResponse printFiscalReport(FiscalReportRequest fiscalReportRequest)
-            throws BadPaddingException, ECRException, IOException, IllegalBlockSizeException,
+            throws BadPaddingException, CashRegisterException, IOException, IllegalBlockSizeException,
             InvalidKeyException, NoSuchAlgorithmException, NoSuchPaddingException {
 
         byte[] requestBytes = this.objectMapper.writeValueAsBytes(fiscalReportRequest);
@@ -372,7 +372,7 @@ public class CashRegisterClient {
      * Get existed prepayment receipt response
      * @param existPrepaymentRequest receipt that we want to get
      * @return Receipt related information or error status
-     * @throws bsoftlabecr.exception.ECRException                   ECR Exception
+     * @throws CashRegisterException                   ECR Exception
      * @throws com.fasterxml.jackson.core.JsonProcessingException   @request cannot be serialized to JSON
      * @throws java.io.IOException                                  Standart Input Output Exception
      * @throws java.security.InvalidKeyException                    3DES encryption/decryption key is not correct
@@ -382,7 +382,7 @@ public class CashRegisterClient {
      * @throws javax.crypto.NoSuchPaddingException                  Invalid Padding size
      */
     public ExistPrepaymentResponse getExistPrepaymentResponse(ExistPrepaymentRequest existPrepaymentRequest)
-            throws BadPaddingException, ECRException, IOException, IllegalBlockSizeException,
+            throws BadPaddingException, CashRegisterException, IOException, IllegalBlockSizeException,
             InvalidKeyException, NoSuchAlgorithmException, NoSuchPaddingException {
 
         byte[] requestBytes = this.objectMapper.writeValueAsBytes(existPrepaymentRequest);
@@ -410,7 +410,7 @@ public class CashRegisterClient {
      * Get existed return prepayment receipt response
      * @param existRPrepaymentRequest receipt that we want to get
      * @return Receipt related information or error status
-     * @throws bsoftlabecr.exception.ECRException                   ECR Exception
+     * @throws CashRegisterException                   ECR Exception
      * @throws com.fasterxml.jackson.core.JsonProcessingException   @request cannot be serialized to JSON
      * @throws java.io.IOException                                  Standart Input Output Exception
      * @throws java.security.InvalidKeyException                    3DES encryption/decryption key is not correct
@@ -420,7 +420,7 @@ public class CashRegisterClient {
      * @throws javax.crypto.NoSuchPaddingException                  Invalid Padding size
      */
     public ExistRPrepaymentResponse getExistRPrepaymentResponse(ExistRPrepaymentRequest existRPrepaymentRequest)
-            throws BadPaddingException, ECRException, IOException, InvalidKeyException,
+            throws BadPaddingException, CashRegisterException, IOException, InvalidKeyException,
             IllegalBlockSizeException, NoSuchAlgorithmException, NoSuchPaddingException {
 
         byte[] requestBytes = this.objectMapper.writeValueAsBytes(existRPrepaymentRequest);
@@ -448,7 +448,7 @@ public class CashRegisterClient {
      * Get existed return sale receipt response
      * @param existRSaleRequest receipt that we want to get
      * @return Receipt related information or error status
-     * @throws bsoftlabecr.exception.ECRException                   ECR Exception
+     * @throws CashRegisterException                   ECR Exception
      * @throws com.fasterxml.jackson.core.JsonProcessingException   @request cannot be serialized to JSON
      * @throws java.io.IOException                                  Standart Input Output Exception
      * @throws java.security.InvalidKeyException                    3DES encryption/decryption key is not correct
@@ -458,7 +458,7 @@ public class CashRegisterClient {
      * @throws javax.crypto.NoSuchPaddingException                  Invalid Padding size
      */
     public ExistRSaleResponse getExistRSaleResponse(ExistRSaleRequest existRSaleRequest)
-            throws BadPaddingException, ECRException, IOException, InvalidKeyException,
+            throws BadPaddingException, CashRegisterException, IOException, InvalidKeyException,
             IllegalBlockSizeException, NoSuchAlgorithmException, NoSuchPaddingException {
 
         byte[] requestBytes = this.objectMapper.writeValueAsBytes(existRSaleRequest);
@@ -486,7 +486,7 @@ public class CashRegisterClient {
      * Get existed sale receipt response
      * @param existSaleRequest receipt that we want to get
      * @return Receipt related information or error status
-     * @throws bsoftlabecr.exception.ECRException                   ECR Exception
+     * @throws CashRegisterException                   ECR Exception
      * @throws com.fasterxml.jackson.core.JsonProcessingException   @request cannot be serialized to JSON
      * @throws java.io.IOException                                  Standart Input Output Exception
      * @throws java.security.InvalidKeyException                    3DES encryption/decryption key is not correct
@@ -496,7 +496,7 @@ public class CashRegisterClient {
      * @throws javax.crypto.NoSuchPaddingException                  Invalid Padding size
      */
     public ExistSaleResponse getExistSaleResponse(ExistSaleRequest existSaleRequest)
-            throws BadPaddingException, ECRException, IOException, IllegalBlockSizeException,
+            throws BadPaddingException, CashRegisterException, IOException, IllegalBlockSizeException,
             InvalidKeyException, NoSuchAlgorithmException, NoSuchPaddingException {
 
         byte[] requestBytes = this.objectMapper.writeValueAsBytes(existSaleRequest);
@@ -524,7 +524,7 @@ public class CashRegisterClient {
      * Get new prepayment receipt response
      * @param newPrepaymentRequest prepayment receipt request related information
      * @return Prepayment Receipt related information or error status
-     * @throws bsoftlabecr.exception.ECRException                 ECR Exception
+     * @throws CashRegisterException                 ECR Exception
      * @throws com.fasterxml.jackson.core.JsonProcessingException request cannot be serialized to JSON
      * @throws java.io.IOException                                Standart Input Output Exception
      * @throws java.security.InvalidKeyException                  3DES encryption/decryption key is not correct
@@ -534,7 +534,7 @@ public class CashRegisterClient {
      * @throws javax.crypto.NoSuchPaddingException                Invalid Padding size
      */
     public NewPrepaymentResponse getNewPrepaymentResponse(NewPrepaymentRequest newPrepaymentRequest)
-            throws BadPaddingException, ECRException, IOException, IllegalBlockSizeException,
+            throws BadPaddingException, CashRegisterException, IOException, IllegalBlockSizeException,
             InvalidKeyException, NoSuchAlgorithmException, NoSuchPaddingException {
 
         byte[] requestBytes = this.objectMapper.writeValueAsBytes(newPrepaymentRequest);
@@ -562,7 +562,7 @@ public class CashRegisterClient {
      * Get new partial return prepayment receipt response
      * @param newPRPrepaymentRequest return prepayment receipt request related information
      * @return Return prepayment receipt related information or error status
-     * @throws bsoftlabecr.exception.ECRException                 ECR Exception
+     * @throws CashRegisterException                 ECR Exception
      * @throws com.fasterxml.jackson.core.JsonProcessingException request cannot be serialized to JSON
      * @throws java.io.IOException                                Standart Input Output Exception
      * @throws java.security.InvalidKeyException                  3DES encryption/decryption key is not correct
@@ -572,7 +572,7 @@ public class CashRegisterClient {
      * @throws javax.crypto.NoSuchPaddingException                Invalid Padding size
      */
     public NewPRPrepaymentResponse getNewPRPrepaymentResponse(NewPRPrepaymentRequest newPRPrepaymentRequest)
-            throws BadPaddingException, ECRException, IOException, IllegalBlockSizeException,
+            throws BadPaddingException, CashRegisterException, IOException, IllegalBlockSizeException,
             InvalidKeyException, NoSuchAlgorithmException, NoSuchPaddingException {
 
         byte[] requestBytes = this.objectMapper.writeValueAsBytes(newPRPrepaymentRequest);
@@ -600,7 +600,7 @@ public class CashRegisterClient {
      * Get new original return prepayment receipt response
      * @param newORPrepaymentRequest return prepayment receipt request related information
      * @return Return prepayment receipt related information or error status
-     * @throws bsoftlabecr.exception.ECRException                 ECR Exception
+     * @throws CashRegisterException                 ECR Exception
      * @throws com.fasterxml.jackson.core.JsonProcessingException request cannot be serialized to JSON
      * @throws java.io.IOException                                Standart Input Output Exception
      * @throws java.security.InvalidKeyException                  3DES encryption/decryption key is not correct
@@ -610,7 +610,7 @@ public class CashRegisterClient {
      * @throws javax.crypto.NoSuchPaddingException                Invalid Padding size
      */
     public NewORPrepaymentResponse getNewORPrepaymentResponse(NewORPrepaymentRequest newORPrepaymentRequest)
-            throws BadPaddingException, ECRException, IOException, IllegalBlockSizeException,
+            throws BadPaddingException, CashRegisterException, IOException, IllegalBlockSizeException,
             InvalidKeyException, NoSuchAlgorithmException, NoSuchPaddingException {
 
         byte[] requestBytes = this.objectMapper.writeValueAsBytes(newORPrepaymentRequest);
@@ -638,7 +638,7 @@ public class CashRegisterClient {
      * Get new partial return sale receipt response
      * @param newPRSaleRequest return sale receipt request related information
      * @return Return sale receipt related information or error status
-     * @throws bsoftlabecr.exception.ECRException                 ECR Exception
+     * @throws CashRegisterException                 ECR Exception
      * @throws com.fasterxml.jackson.core.JsonProcessingException request cannot be serialized to JSON
      * @throws java.io.IOException                                Standart Input Output Exception
      * @throws java.security.InvalidKeyException                  3DES encryption/decryption key is not correct
@@ -648,7 +648,7 @@ public class CashRegisterClient {
      * @throws javax.crypto.NoSuchPaddingException                Invalid Padding size
      */
     public NewPRSaleResponse getNewPRSaleResponse(NewPRSaleRequest newPRSaleRequest)
-            throws BadPaddingException, ECRException, IOException, IllegalBlockSizeException,
+            throws BadPaddingException, CashRegisterException, IOException, IllegalBlockSizeException,
             InvalidKeyException, NoSuchAlgorithmException, NoSuchPaddingException {
 
         byte[] requestBytes = this.objectMapper.writeValueAsBytes(newPRSaleRequest);
@@ -676,7 +676,7 @@ public class CashRegisterClient {
      * Get new original return sale receipt response
      * @param newORSaleRequest return sale receipt request related information
      * @return Return sale receipt related information or error status
-     * @throws bsoftlabecr.exception.ECRException                 ECR Exception
+     * @throws CashRegisterException                 ECR Exception
      * @throws com.fasterxml.jackson.core.JsonProcessingException request cannot be serialized to JSON
      * @throws java.io.IOException                                Standart Input Output Exception
      * @throws java.security.InvalidKeyException                  3DES encryption/decryption key is not correct
@@ -686,7 +686,7 @@ public class CashRegisterClient {
      * @throws javax.crypto.NoSuchPaddingException                Invalid Padding size
      */
     public NewORSaleResponse getNewORSaleResponse(NewORSaleRequest newORSaleRequest)
-            throws BadPaddingException, ECRException, IOException, IllegalBlockSizeException,
+            throws BadPaddingException, CashRegisterException, IOException, IllegalBlockSizeException,
             InvalidKeyException, NoSuchAlgorithmException, NoSuchPaddingException {
 
         byte[] requestBytes = this.objectMapper.writeValueAsBytes(newORSaleRequest);
@@ -713,7 +713,7 @@ public class CashRegisterClient {
     /**
      * Get new sale receipt response
      * @return Sale Receipt related information or error status
-     * @throws bsoftlabecr.exception.ECRException                 ECR Exception
+     * @throws CashRegisterException                 ECR Exception
      * @throws com.fasterxml.jackson.core.JsonProcessingException request cannot be serialized to JSON
      * @throws java.io.IOException                                Standart Input Output Exception
      * @throws java.security.InvalidKeyException                  3DES encryption/decryption key is not correct
@@ -723,7 +723,7 @@ public class CashRegisterClient {
      * @throws javax.crypto.NoSuchPaddingException                Invalid Padding size
      */
     public NewSaleResponse getNewSaleResponse(NewSaleRequest newSaleRequest)
-            throws BadPaddingException, ECRException, IOException, IllegalBlockSizeException,
+            throws BadPaddingException, CashRegisterException, IOException, IllegalBlockSizeException,
             InvalidKeyException, NoSuchAlgorithmException, NoSuchPaddingException {
 
         byte[] requestBytes = this.objectMapper.writeValueAsBytes(newSaleRequest);

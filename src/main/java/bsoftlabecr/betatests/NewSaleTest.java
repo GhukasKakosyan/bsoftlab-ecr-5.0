@@ -3,7 +3,7 @@ package bsoftlabecr.betatests;
 import bsoftlabecr.entity.Constants;
 import bsoftlabecr.entity.Item;
 
-import bsoftlabecr.exception.ECRException;
+import bsoftlabecr.exception.CashRegisterException;
 import bsoftlabecr.request.receipt.sale.NewSaleRequest;
 import bsoftlabecr.response.receipt.sale.NewSaleResponse;
 
@@ -109,8 +109,8 @@ public class NewSaleTest {
             System.out.println("JsonProcessingException: " + jsonProcessingException.toString());
         } catch(IOException ioException) {
             System.out.println("IOException: " + ioException.toString());
-        } catch(ECRException ecrException) {
-            System.out.println("ECRException: " + ecrException.toString());
+        } catch(CashRegisterException cashRegisterException) {
+            System.out.println("CashRegisterException: " + cashRegisterException.toString());
         }
     }
 }
