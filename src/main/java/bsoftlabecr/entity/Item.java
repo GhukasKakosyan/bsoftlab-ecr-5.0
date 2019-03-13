@@ -3,19 +3,19 @@ package bsoftlabecr.entity;
 import java.math.BigDecimal;
 
 public class Item {
-    private int dep;
-    private String adgCode;
-    private String productCode;
-    private String productName;
-    private String unit;
-    private BigDecimal qty;
-    private BigDecimal price;
-    private BigDecimal discount;
-    private Integer discountType;
-    private BigDecimal additionalDiscount;
-    private Integer additionalDiscountType;
+    private Integer dep = null;
+    private String adgCode = null;
+    private String productCode = null;
+    private String productName = null;
+    private String unit = null;
+    private BigDecimal qty = null;
+    private BigDecimal price = null;
+    private BigDecimal discount = null;
+    private Integer discountType = null;
+    private BigDecimal additionalDiscount = null;
+    private Integer additionalDiscountType = null;
 
-    public int getDep() {
+    public Integer getDep() {
         return this.dep;
     }
     public String getAdgCode() {
@@ -49,7 +49,7 @@ public class Item {
         return this.additionalDiscountType;
     }
 
-    public void setDep(int dep) {
+    public void setDep(Integer dep) {
         this.dep = dep;
     }
     public void setAdgCode(String adgCode) {

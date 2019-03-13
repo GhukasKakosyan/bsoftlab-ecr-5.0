@@ -6,52 +6,52 @@ import bsoftlabecr.request.general.SequenceRequest;
 import java.util.List;
 
 public class NewPrepaymentRequest extends SequenceRequest {
-    private double paidAmount;          // Առձեռն վճարված գումար
-    private double paidAmountCard;      // Անկանխիկ վճարված գումար
-    private double partialAmount;       // Մասնակի վճարման գումար (Ներկայումս պարտադիր պետք է լինի 0)
-    private double prePaymentAmount;    // Կանխավճարի օգտագործման գումար (Ներկայումս պարտադիր պետք է լինի 0)
-    private int mode;                   // 2– Ապրանքներ ռեժիմ; 3- Կանխավճար
-    private boolean useExtPOS;          // Այլ վճարային տերմինալի օգտագործում
-    private List<Item> items;           // Կտրոնի ապրանքներ
+    private Double paidAmount = null;          // Առձեռն վճարված գումար
+    private Double paidAmountCard = null;      // Անկանխիկ վճարված գումար
+    private Double partialAmount = null;       // Մասնակի վճարման գումար (Ներկայումս պարտադիր պետք է լինի 0)
+    private Double prePaymentAmount = null;    // Կանխավճարի օգտագործման գումար (Ներկայումս պարտադիր պետք է լինի 0)
+    private Integer mode = null;               // 2– Ապրանքներ ռեժիմ; 3- Կանխավճար
+    private Boolean useExtPOS = null;          // Այլ վճարային տերմինալի օգտագործում
+    private List<Item> items = null;           // Կտրոնի ապրանքներ
 
-    public double getPaidAmount() {
+    public Double getPaidAmount() {
         return this.paidAmount;
     }
-    public double getPaidAmountCard() {
+    public Double getPaidAmountCard() {
         return this.paidAmountCard;
     }
-    public double getPartialAmount() {
+    public Double getPartialAmount() {
         return this.partialAmount;
     }
-    public double getPrePaymentAmount() {
+    public Double getPrePaymentAmount() {
         return this.prePaymentAmount;
     }
-    public int getMode() {
+    public Integer getMode() {
         return this.mode;
     }
-    public boolean isUseExtPOS() {
+    public Boolean isUseExtPOS() {
         return this.useExtPOS;
     }
     public List<Item> getItems() {
         return this.items;
     }
 
-    public void setPaidAmount(double paidAmount) {
+    public void setPaidAmount(Double paidAmount) {
         this.paidAmount = paidAmount;
     }
-    public void setPaidAmountCard(double paidAmountCard) {
+    public void setPaidAmountCard(Double paidAmountCard) {
         this.paidAmountCard = paidAmountCard;
     }
-    public void setPartialAmount(double partialAmount) {
+    public void setPartialAmount(Double partialAmount) {
         this.partialAmount = partialAmount;
     }
-    public void setPrePaymentAmount(double prePaymentAmount) {
+    public void setPrePaymentAmount(Double prePaymentAmount) {
         this.prePaymentAmount = prePaymentAmount;
     }
-    public void setMode(int mode) {
+    public void setMode(Integer mode) {
         this.mode = mode;
     }
-    public void setUseExtPOS(boolean useExtPOS) {
+    public void setUseExtPOS(Boolean useExtPOS) {
         this.useExtPOS = useExtPOS;
     }
     public void setItems(List<Item> items) {

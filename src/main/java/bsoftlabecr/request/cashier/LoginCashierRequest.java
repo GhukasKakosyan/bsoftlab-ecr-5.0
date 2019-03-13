@@ -3,11 +3,11 @@ package bsoftlabecr.request.cashier;
 import bsoftlabecr.request.general.CommonRequest;
 
 public class LoginCashierRequest extends CommonRequest {
-    private int cashier;            // Օպերատորի կոդ
-    private String password;        // ՀԴՄ գաղտնաբառը
-    private String pin;             // Օպերատորի գաղտնաբառ
+    private Integer cashier = null;            // Օպերատորի կոդ
+    private String password = null;            // ՀԴՄ գաղտնաբառը
+    private String pin = null;                 // Օպերատորի գաղտնաբառ
 
-    public int getCashier() {
+    public Integer getCashier() {
         return this.cashier;
     }
     public String getPassword() {
@@ -17,7 +17,7 @@ public class LoginCashierRequest extends CommonRequest {
         return this.pin;
     }
 
-    public void setCashier(int cashier) {
+    public void setCashier(Integer cashier) {
         this.cashier = cashier;
     }
     public void setPassword(String password) {

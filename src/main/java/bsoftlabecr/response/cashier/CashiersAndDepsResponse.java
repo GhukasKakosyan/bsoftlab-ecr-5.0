@@ -7,8 +7,8 @@ import bsoftlabecr.response.general.CommonResponse;
 import java.util.List;
 
 public class CashiersAndDepsResponse extends CommonResponse {
-    private List<Cashier> c;
-    private List<Department> d;
+    private List<Cashier> c = null;
+    private List<Department> d = null;
 
     public List<Department> getD() {
         return this.d;

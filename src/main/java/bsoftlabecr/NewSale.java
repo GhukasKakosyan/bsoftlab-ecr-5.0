@@ -1,50 +1,50 @@
 package bsoftlabecr;
 
 import bsoftlabecr.client.CashRegisterClient;
-import bsoftlabecr.entity.Cashier;
 import bsoftlabecr.entity.Constants;
-import bsoftlabecr.entity.Department;
 import bsoftlabecr.entity.HeaderFooter;
-import bsoftlabecr.exception.CashRegisterException;
 
-import bsoftlabecr.request.cashier.CashiersAndDepsRequest;
+import bsoftlabecr.exception.ConnectionException;
+import bsoftlabecr.exception.InitialisationException;
+import bsoftlabecr.exception.OperationException;
+import bsoftlabecr.exception.XmlFileInvalidException;
+import bsoftlabecr.exception.XmlFileNotFoundException;
+import bsoftlabecr.exception.XmlFileWriteException;
+
 import bsoftlabecr.request.cashier.LoginCashierRequest;
 import bsoftlabecr.request.cashier.LogoutCashierRequest;
 import bsoftlabecr.request.headerfooter.HeaderFooterRequest;
 import bsoftlabecr.request.receipt.sale.NewSaleRequest;
 
-import bsoftlabecr.response.cashier.CashiersAndDepsResponse;
 import bsoftlabecr.response.cashier.LoginCashierResponse;
 import bsoftlabecr.response.cashier.LogoutCashierResponse;
 import bsoftlabecr.response.headerfooter.HeaderFooterResponse;
 import bsoftlabecr.response.receipt.sale.NewSaleResponse;
 
-import bsoftlabecr.xml.reader.receipt.sale.NewSaleRequestReaderXML;
-import bsoftlabecr.xml.reader.constants.ConstantsReaderXML;
-import bsoftlabecr.xml.writer.receipt.sale.NewSaleResponseWriterXML;
+import bsoftlabecr.xml.reader.receipt.sale.NewSaleRequestReaderXml;
+import bsoftlabecr.xml.reader.constants.ConstantsReaderXml;
+import bsoftlabecr.xml.writer.receipt.sale.NewSaleResponseWriterXml;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.security.InvalidKeyException;
-import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.crypto.BadPaddingException;
-import javax.crypto.IllegalBlockSizeException;
-import javax.crypto.NoSuchPaddingException;
-import javax.xml.stream.XMLStreamException;
-
 public class NewSale {
+    private static final String ConstantsXmlFileName =
+            "bsoftlabecrdata/Constants.xml";
+    private static final String NewSaleRequestXmlFileName =
+            "bsoftlabecrdata/NewSaleRequest.xml";
+    private static final String NewSaleResponseXmlFileName =
+            "bsoftlabecrdata/NewSaleResponse.xml";
+
     public static void main(String[] args) {
+        Constants constants;
         try {
             System.out.println("BSOFTLAB. Trying to read ECR constants... ");
-            ConstantsReaderXML constantsReaderXML = new ConstantsReaderXML();
-            constantsReaderXML.setFileName("BSOFTLABECRDATA/Constants.xml");
-            System.out.println("BSOFTLAB. Reading ECR constants from file: " + constantsReaderXML.getFileName());
-            Constants constants = constantsReaderXML.readFile();
+            ConstantsReaderXml constantsReaderXml = new ConstantsReaderXml();
+            constantsReaderXml.setFileName(ConstantsXmlFileName);
+            System.out.println("BSOFTLAB. Reading ECR constants from file: " +
+                    constantsReaderXml.getFileName());
+            constants = constantsReaderXml.readFile();
             System.out.println("BSOFTLAB. ECR constants is read successfully !");
             System.out.println("BSOFTLAB. constants.crn: " + constants.getCrn());
             System.out.println("BSOFTLAB. constants.ip: " + constants.getIp());
@@ -53,55 +53,61 @@ public class NewSale {
             System.out.println("BSOFTLAB. constants.cashierId: " + constants.getCashierId());
             System.out.println("BSOFTLAB. constants.cashierPassword: " + constants.getCashierPassword());
             System.out.println();
+        } catch (XmlFileNotFoundException | XmlFileInvalidException exception) {
+            System.out.println(exception.getMessage());
+            return;
+        }
 
+        CashRegisterClient cashRegisterClient;
+        try {
             System.out.println("BSOFTLAB. Trying to initialize ECR...");
-            CashRegisterClient cashRegisterClient = new CashRegisterClient(constants.getPassword());
+            cashRegisterClient = new CashRegisterClient(constants);
             byte[] passwordKeyBytes = cashRegisterClient.getPasswordKey();
             System.out.println("BSOFTLAB. passwordKey is: ");
-            for(byte passwordKeyByte : passwordKeyBytes) {
+            for (byte passwordKeyByte : passwordKeyBytes) {
                 System.out.print(passwordKeyByte);
             }
             System.out.println();
             System.out.println("BSOFTLAB. ECR is initialized successfully ! ");
+        } catch (InitialisationException initialisationException) {
+            System.out.println(initialisationException.getMessage());
+            return;
+        }
+
+        try {
             System.out.println("BSOFTLAB. Trying to connect to ECR... ");
-            cashRegisterClient.connect(constants.getIp(), constants.getPort());
+            cashRegisterClient.connect();
             System.out.println("BSOFTLAB. Connection to ECR is created successfully ! ");
             System.out.println();
+        } catch (ConnectionException connectionException) {
+            System.out.println(connectionException.getMessage());
+            return;
+        }
 
-            System.out.println("BSOFTLAB. Trying to get list of cashiers and departments... ");
-            CashiersAndDepsRequest cashiersAndDepsRequest = new CashiersAndDepsRequest();
-            cashiersAndDepsRequest.setPassword(constants.getPassword());
-            CashiersAndDepsResponse cashiersAndDepsResponse;
-            cashiersAndDepsResponse = cashRegisterClient.getCashiersAndDepsResponse(cashiersAndDepsRequest);
-            List<Cashier> cashierList = cashiersAndDepsResponse.getC();
-            List<Department> departmentList = cashiersAndDepsResponse.getD();
-            for(Department department : departmentList) {
-                System.out.println("BSOFTLAB. departmentList.department: "
-                        + department.getId() + ", " + department.getName());
-            }
-            for(Cashier cashier : cashierList) {
-                System.out.println("BSOFTLAB. cashierList.cashier: "
-                        + cashier.getId() + ", " + cashier.getName());
-            }
-            System.out.println("BSOFTLAB. List of cashiers and departments is got successfully: " + cashiersAndDepsResponse.getResponseCode());
-            System.out.println();
-
+        try {
             System.out.println("BSOFTLAB. Trying to login cashier... ");
             LoginCashierRequest loginCashierRequest = new LoginCashierRequest();
             loginCashierRequest.setPassword(constants.getPassword());
             loginCashierRequest.setCashier(constants.getCashierId());
             loginCashierRequest.setPin(constants.getCashierPassword());
-            LoginCashierResponse loginCashierResponse = cashRegisterClient.getLoginCashierResponse(loginCashierRequest);
+            LoginCashierResponse loginCashierResponse =
+                    cashRegisterClient.getLoginCashierResponse(loginCashierRequest);
             cashRegisterClient.setSessionKey(loginCashierResponse.getKeyBytes());
             byte[] sessionKeyBytes = cashRegisterClient.getSessionKey();
             System.out.println("BSOFTLAB. sessionKey is: ");
-            for(byte sessionKeyByte : sessionKeyBytes) {
+            for (byte sessionKeyByte : sessionKeyBytes) {
                 System.out.print(sessionKeyByte);
             }
             System.out.println();
-            System.out.println("BSOFTLAB. Cashier is logged in successfully: " + loginCashierResponse.getResponseCode());
+            System.out.println("BSOFTLAB. Cashier is logged in successfully: " +
+                    loginCashierResponse.getResponseCode());
             System.out.println();
+        } catch (OperationException operationException) {
+            System.out.println(operationException.getMessage());
+            return;
+        }
 
+        try {
             System.out.println("BSOFTLAB. Trying to setup header of sale receipt...");
             List<HeaderFooter> headerList = new ArrayList<>();
             HeaderFooter header = new HeaderFooter();
@@ -127,65 +133,75 @@ public class NewSale {
             HeaderFooterResponse headerFooterResponse;
             headerFooterResponse = cashRegisterClient.setupHeaderFooter(headerFooterRequest);
             System.out.println("BSOFTLAB. Request is sent to ECR successfully !");
-            System.out.println("BSOFTLAB. Response is received from ECR successfully: " + headerFooterResponse.getResponseCode());
+            System.out.println("BSOFTLAB. Response is received from ECR successfully: " +
+                    headerFooterResponse.getResponseCode());
             System.out.println();
+        } catch (OperationException operationException) {
+            System.out.println(operationException.getMessage());
+            return;
+        }
 
+        NewSaleRequest newSaleRequest;
+        try {
             System.out.println("BSOFTLAB. Trying to read request from XML file... ");
-            NewSaleRequestReaderXML newSaleRequestReaderXML = new NewSaleRequestReaderXML();
-            newSaleRequestReaderXML.setFileName("BSOFTLABECRDATA/NewSaleRequest.xml");
-            System.out.println("BSOFTLAB. Reading request from file: " + newSaleRequestReaderXML.getFileName());
-            NewSaleRequest newSaleRequest = newSaleRequestReaderXML.readFile();
+            NewSaleRequestReaderXml newSaleRequestReaderXml = new NewSaleRequestReaderXml();
+            newSaleRequestReaderXml.setFileName(NewSaleRequestXmlFileName);
+            System.out.println("BSOFTLAB. Reading request from file: " +
+                    newSaleRequestReaderXml.getFileName());
+            newSaleRequest = newSaleRequestReaderXml.readFile();
             newSaleRequest.setSeq(cashRegisterClient.getSeq());
             System.out.println("BSOFTLAB. Request is read from XML file successfully !");
             System.out.println();
+        } catch (XmlFileNotFoundException | XmlFileInvalidException exception) {
+            System.out.println(exception.getMessage());
+            return;
+        }
 
+        NewSaleResponse newSaleResponse;
+        try {
             System.out.println("BSOFTLAB. Trying to send request to ECR... ");
-            NewSaleResponse newSaleResponse = cashRegisterClient.getNewSaleResponse(newSaleRequest);
+            newSaleResponse = cashRegisterClient.getNewSaleResponse(newSaleRequest);
             System.out.println("BSOFTLAB. Request is sent to ECR successfully !");
-            System.out.println("BSOFTLAB. Response is received from ECR successfully: " + newSaleResponse.getResponseCode());
+            System.out.println("BSOFTLAB. Response is received from ECR successfully: " +
+                    newSaleResponse.getResponseCode());
             System.out.println();
+        } catch (OperationException operationException) {
+            System.out.println(operationException.getMessage());
+            return;
+        }
 
+        try {
             System.out.println("BSOFTLAB. Trying to write response into XML file... ");
-            NewSaleResponseWriterXML newSaleResponseWriterXML = new NewSaleResponseWriterXML();
-            newSaleResponseWriterXML.setFileName("BSOFTLABECRDATA/NewSaleResponse.xml");
-            System.out.println("BSOFTLAB. Writing response into file: " + newSaleResponseWriterXML.getFileName());
-            newSaleResponseWriterXML.writeFile(newSaleResponse);
+            NewSaleResponseWriterXml newSaleResponseWriterXml =
+                    new NewSaleResponseWriterXml();
+            newSaleResponseWriterXml.setFileName(NewSaleResponseXmlFileName);
+            System.out.println("BSOFTLAB. Writing response into file: " +
+                    newSaleResponseWriterXml.getFileName());
+            newSaleResponseWriterXml.writeFile(newSaleResponse);
             System.out.println("BSOFTLAB. Response is written into XML file successfully !");
             System.out.println();
+        } catch (XmlFileWriteException xmlFileWriteException) {
+            System.out.println(xmlFileWriteException.getMessage());
+            return;
+        }
 
+        try {
             System.out.println("BSOFTLAB. Trying to logout cashier from ECR...");
             LogoutCashierRequest logoutCashierRequest = new LogoutCashierRequest();
             logoutCashierRequest.setSeq(cashRegisterClient.getSeq());
-            LogoutCashierResponse logoutCashierResponse;
-            logoutCashierResponse = cashRegisterClient.getLogoutCashierResponse(logoutCashierRequest);
-            System.out.println("BSOFTLAB. Cashier is logged out from ECR successfully: " + logoutCashierResponse.getResponseCode());
+            LogoutCashierResponse logoutCashierResponse =
+                    cashRegisterClient.getLogoutCashierResponse(logoutCashierRequest);
+            System.out.println("BSOFTLAB. Cashier is logged out from ECR successfully: " +
+                    logoutCashierResponse.getResponseCode());
             System.out.println("BSOFTLAB. Trying to close connection with ECR...");
             cashRegisterClient.disconnect();
             System.out.println("BSOFTLAB. Connection with ECR is closed successfully !");
             Thread.sleep(5000);
 
-        } catch(XMLStreamException xmlStreamException) {
-            System.out.println("XMLStreamException: " + xmlStreamException.toString());
-        } catch(FileNotFoundException fileNotFoundException) {
-            System.out.println("FileNotFoundException: " + fileNotFoundException.toString());
-        } catch(InvalidKeyException invalidKeyException) {
-            System.out.println("InvalidKeyException: " + invalidKeyException.toString());
+        } catch(OperationException | ConnectionException exception) {
+            System.out.println(exception.getMessage());
         } catch(InterruptedException interruptedException) {
-            System.out.println("InterruptedException: " + interruptedException.toString());
-        } catch(NoSuchAlgorithmException noSuchAlgorithmException) {
-            System.out.println("NoSuchAlgorithmException: " + noSuchAlgorithmException.toString());
-        } catch(BadPaddingException badPaddingException) {
-            System.out.println("BadPaddingException: " + badPaddingException.toString());
-        } catch(IllegalBlockSizeException illegalBlockSizeException) {
-            System.out.println("IllegalBlockSizeException: " + illegalBlockSizeException.toString());
-        } catch(NoSuchPaddingException noSuchPaddingException) {
-            System.out.println("NoSuchPaddingException: " + noSuchPaddingException.toString());
-        } catch (JsonProcessingException jsonProcessingException) {
-            System.out.println("JsonProcessingException: " + jsonProcessingException.toString());
-        } catch(IOException ioException) {
-            System.out.println("IOException: " + ioException.toString());
-        } catch(CashRegisterException cashRegisterException) {
-            System.out.println("CashRegisterException: " + cashRegisterException.toString());
+            System.out.println(interruptedException.toString());
         }
     }
 }

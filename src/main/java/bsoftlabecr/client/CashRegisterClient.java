@@ -1,40 +1,57 @@
 package bsoftlabecr.client;
 
-import bsoftlabecr.exception.CashRegisterException;
+import bsoftlabecr.entity.Constants;
+import bsoftlabecr.entity.ResponseCodes;
+
+import bsoftlabecr.exception.CommonResponseException;
+import bsoftlabecr.exception.ConnectionException;
+import bsoftlabecr.exception.DecryptionException;
+import bsoftlabecr.exception.EncryptionException;
+import bsoftlabecr.exception.InitialisationException;
+import bsoftlabecr.exception.NetworkException;
+import bsoftlabecr.exception.OperationException;
 
 import bsoftlabecr.request.cashier.CashiersAndDepsRequest;
 import bsoftlabecr.request.cashier.LoginCashierRequest;
 import bsoftlabecr.request.cashier.LogoutCashierRequest;
+
 import bsoftlabecr.request.headerfooter.HeaderFooterRequest;
+
 import bsoftlabecr.request.receipt.prepayment.ExistPrepaymentRequest;
 import bsoftlabecr.request.receipt.prepayment.NewPrepaymentRequest;
-import bsoftlabecr.request.receipt.returns.prepayment.ExistRPrepaymentRequest;
-import bsoftlabecr.request.receipt.returns.prepayment.NewORPrepaymentRequest;
-import bsoftlabecr.request.receipt.returns.prepayment.NewPRPrepaymentRequest;
-import bsoftlabecr.request.receipt.returns.sale.ExistRSaleRequest;
-import bsoftlabecr.request.receipt.returns.sale.NewORSaleRequest;
-import bsoftlabecr.request.receipt.returns.sale.NewPRSaleRequest;
+import bsoftlabecr.request.receipt.returns.prepayment.ExistReturnPrepaymentRequest;
+import bsoftlabecr.request.receipt.returns.prepayment.NewOriginalReturnPrepaymentRequest;
+import bsoftlabecr.request.receipt.returns.prepayment.NewPartialReturnPrepaymentRequest;
+import bsoftlabecr.request.receipt.returns.sale.ExistReturnSaleRequest;
+import bsoftlabecr.request.receipt.returns.sale.NewOriginalReturnSaleRequest;
+import bsoftlabecr.request.receipt.returns.sale.NewPartialReturnSaleRequest;
 import bsoftlabecr.request.receipt.sale.ExistSaleRequest;
 import bsoftlabecr.request.receipt.sale.NewSaleRequest;
+
 import bsoftlabecr.request.report.FiscalReportRequest;
 
 import bsoftlabecr.response.cashier.CashiersAndDepsResponse;
 import bsoftlabecr.response.cashier.LoginCashierResponse;
 import bsoftlabecr.response.cashier.LogoutCashierResponse;
+
+import bsoftlabecr.response.general.CommonResponse;
 import bsoftlabecr.response.headerfooter.HeaderFooterResponse;
+
 import bsoftlabecr.response.receipt.prepayment.ExistPrepaymentResponse;
 import bsoftlabecr.response.receipt.prepayment.NewPrepaymentResponse;
-import bsoftlabecr.response.receipt.returns.prepayment.ExistRPrepaymentResponse;
-import bsoftlabecr.response.receipt.returns.prepayment.NewORPrepaymentResponse;
-import bsoftlabecr.response.receipt.returns.prepayment.NewPRPrepaymentResponse;
-import bsoftlabecr.response.receipt.returns.sale.ExistRSaleResponse;
-import bsoftlabecr.response.receipt.returns.sale.NewORSaleResponse;
-import bsoftlabecr.response.receipt.returns.sale.NewPRSaleResponse;
+import bsoftlabecr.response.receipt.returns.prepayment.ExistReturnPrepaymentResponse;
+import bsoftlabecr.response.receipt.returns.prepayment.NewOriginalReturnPrepaymentResponse;
+import bsoftlabecr.response.receipt.returns.prepayment.NewPartialReturnPrepaymentResponse;
+import bsoftlabecr.response.receipt.returns.sale.ExistReturnSaleResponse;
+import bsoftlabecr.response.receipt.returns.sale.NewOriginalReturnSaleResponse;
+import bsoftlabecr.response.receipt.returns.sale.NewPartialReturnSaleResponse;
 import bsoftlabecr.response.receipt.sale.ExistSaleResponse;
 import bsoftlabecr.response.receipt.sale.NewSaleResponse;
+
 import bsoftlabecr.response.report.FiscalReportResponse;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.IOException;
@@ -62,15 +79,20 @@ public class CashRegisterClient {
     private static final String TRIPLE_DES_ALG = "DESede";
     private static final String CIPHER_ALGORITHM_SPEC = TRIPLE_DES_ALG + "/ECB/PKCS7Padding";
     private static final byte[] PROTOCOL_VERSION = new byte[]{(byte)0x00, (byte)0x05};
+
     private static final byte[] REQUEST_HEADER = new byte[]{
             (byte)0xD5, (byte)0x80, (byte)0xD4, (byte)0xB4, (byte)0xD5, (byte)0x84,
             PROTOCOL_VERSION[0], PROTOCOL_VERSION[1]
     };
-    static {Security.addProvider(new BouncyCastleProvider());}
+
+    static {
+        Security.addProvider(new BouncyCastleProvider());
+    }
 
     private static final short REQUEST_HEADER_OP_LENGTH = 2;
     private static final short REQUEST_HEADER_PAYLOAD_LENGHT = 2;
-    private static final short REQUEST_HEADER_LENGTH = (short)(REQUEST_HEADER.length + REQUEST_HEADER_OP_LENGTH + REQUEST_HEADER_PAYLOAD_LENGHT);
+    private static final short REQUEST_HEADER_LENGTH = (short)(REQUEST_HEADER.length +
+            REQUEST_HEADER_OP_LENGTH + REQUEST_HEADER_PAYLOAD_LENGHT);
 
     private static final byte ZERO = 0;
     private static final byte OPER_CASHIERS_AND_DEPS_LIST = 1;
@@ -82,756 +104,786 @@ public class CashRegisterClient {
     private static final byte OPER_PRINT_FISCAL_REPORT = 9;
     private static final byte OPER_GET_EXISTED_RECEIPT = 10;
 
-    private int seq = 0;
     private byte[] passwordKey;
     private byte[] sessionKey;
+
+    private Constants constants;
+    private Integer seq = 0;
     private ObjectMapper objectMapper;
     private SocketChannel socketChannel;
 
     public byte[] getPasswordKey() {return this.passwordKey;}
-    public int getSeq() {
+    public byte[] getSessionKey() {return this.sessionKey;}
+
+    public Integer getSeq() {
         return ++this.seq;
     }
-
-    public byte[] getSessionKey() {return this.sessionKey;}
     public void setSessionKey (byte[] sessionKey) {this.sessionKey = sessionKey;}
 
-    /**
-     * @throws NoSuchAlgorithmException If the "3DES/ECB/PKCS7Padding" security provider is not registered
-     */
-    public CashRegisterClient(String password) throws NoSuchAlgorithmException {
-        MessageDigest messageDigest = MessageDigest.getInstance("SHA-256");
-        this.passwordKey = Arrays.copyOf(messageDigest.digest(password.getBytes()), 24);
-        this.objectMapper = new ObjectMapper();
-        this.objectMapper.setSerializationInclusion(JsonInclude.Include.NON_NULL);
+    public CashRegisterClient(Constants constants) throws InitialisationException {
+        try {
+            MessageDigest messageDigest = MessageDigest.getInstance("SHA-256");
+            this.constants = constants;
+            byte[] passwordKey = messageDigest.digest(this.constants.getPassword().getBytes());
+            this.passwordKey = Arrays.copyOf(passwordKey, 24);
+            this.objectMapper = new ObjectMapper();
+            this.objectMapper.setSerializationInclusion(JsonInclude.Include.NON_NULL);
+        } catch (NoSuchAlgorithmException noSuchAlgorithmException) {
+            throw new InitialisationException(noSuchAlgorithmException.getMessage());
+        }
     }
 
-    public void connect(String ip, int port) throws IOException {
-        this.socketChannel = SocketChannel.open();
-        this.socketChannel.connect(new InetSocketAddress(ip, port));
+    public void connect() throws ConnectionException {
+        try {
+            String ip = this.constants.getIp();
+            Integer port = this.constants.getPort();
+            InetSocketAddress inetSocketAddress = new InetSocketAddress(ip, port);
+            this.socketChannel = SocketChannel.open();
+            this.socketChannel.connect(inetSocketAddress);
+        } catch (IOException ioException) {
+            throw new ConnectionException(ioException.getMessage());
+        }
     }
 
-    public void disconnect() throws IOException {
-        this.socketChannel.shutdownInput();
-        this.socketChannel.shutdownOutput();
-        this.socketChannel.close();
-    }
-
-    /**
-     * Encrypts byte array using password key or session key
-     * @param usePasswordKey                                        Use password key (true) or session key (false)
-     * @param byteArray                                             Byte Array to be encrypted
-     * @return                                                      Encrypted byte array using password key or session key
-     * @throws java.security.InvalidKeyException                    3DES encryption/decryption key is not correct
-     * @throws java.security.NoSuchAlgorithmException               3DES encryption/decryption algorithm is not present
-     * @throws javax.crypto.IllegalBlockSizeException               3DES Padding block not correct
-     * @throws javax.crypto.BadPaddingException                     Invalid 3DES Padding block
-     * @throws javax.crypto.NoSuchPaddingException                  Invalid Padding size
-     */
-    private byte[] getEncryptedByteArray(boolean usePasswordKey, byte[] byteArray)
-            throws NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException,
-            IllegalBlockSizeException, BadPaddingException {
-
-        byte[] encryptKey = usePasswordKey ? this.passwordKey : this.sessionKey;
-        Cipher cipher = Cipher.getInstance(CIPHER_ALGORITHM_SPEC);
-		cipher.init(Cipher.ENCRYPT_MODE, new SecretKeySpec(encryptKey, TRIPLE_DES_ALG));
-        byte[] encryptedByteArray;
-        encryptedByteArray = cipher.doFinal(byteArray);
-		return encryptedByteArray;
+    public void disconnect() throws ConnectionException {
+        try {
+            this.socketChannel.shutdownInput();
+            this.socketChannel.shutdownOutput();
+            this.socketChannel.close();
+        } catch (IOException ioException) {
+            throw new ConnectionException(ioException.getMessage());
+        }
     }
 
     /**
-     * Decrypts byte array using password key or session key
-     * @param usePasswordKey                                        Use password key (true) or session key (false)
-     * @param encryptedByteArray                                    Byte array to be decrypted
-     * @return                                                      decrypted byte array using password or session key
-     * @throws java.security.InvalidKeyException                    3DES encryption/decryption key is not correct
-     * @throws java.security.NoSuchAlgorithmException               3DES encryption/decryption algorithm is not present
-     * @throws javax.crypto.IllegalBlockSizeException               3DES Padding block not correct
-     * @throws javax.crypto.BadPaddingException                     Invalid 3DES Padding block
-     * @throws javax.crypto.NoSuchPaddingException                  Invalid Padding size
+     * Encrypts byte array using password key
+     * @param byteArray               Byte Array to be encrypted
+     * @return                        Encrypted byte array using password key
+     * @throws EncryptionException    Encryption Exception
      */
-    private byte[] getDecryptedByteArray(boolean usePasswordKey, byte[] encryptedByteArray)
-            throws NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException,
-            IllegalBlockSizeException, BadPaddingException {
+    private byte[] getEncryptedByteArrayByPasswordKey(byte[] byteArray)
+            throws EncryptionException {
+        try {
+            Cipher cipher = Cipher.getInstance(CIPHER_ALGORITHM_SPEC);
+            SecretKeySpec secretKeySpec =
+                    new SecretKeySpec(this.passwordKey, TRIPLE_DES_ALG);
+            cipher.init(Cipher.ENCRYPT_MODE, secretKeySpec);
+            return cipher.doFinal(byteArray);
+        } catch (BadPaddingException | IllegalBlockSizeException |
+                InvalidKeyException | NoSuchPaddingException |
+                NoSuchAlgorithmException exception) {
+            throw new EncryptionException(exception.getMessage());
+        }
+    }
 
-        byte[] decryptKey = usePasswordKey ? this.passwordKey : this.sessionKey;
-        Cipher cipher = Cipher.getInstance(CIPHER_ALGORITHM_SPEC);
-        cipher.init(Cipher.DECRYPT_MODE, new SecretKeySpec(decryptKey, TRIPLE_DES_ALG));
-        byte[] decryptedByteArray;
-        decryptedByteArray = cipher.doFinal(encryptedByteArray);
-        return decryptedByteArray;
+    /**
+     * Encrypts byte array using session key
+     * @param byteArray               Byte Array to be encrypted
+     * @return                        Encrypted byte array using session key
+     * @throws EncryptionException    Encryption Exception
+     */
+    private byte[] getEncryptedByteArrayBySessionKey(byte[] byteArray)
+            throws EncryptionException {
+
+        try {
+            Cipher cipher = Cipher.getInstance(CIPHER_ALGORITHM_SPEC);
+            SecretKeySpec secretKeySpec =
+                    new SecretKeySpec(this.sessionKey, TRIPLE_DES_ALG);
+            cipher.init(Cipher.ENCRYPT_MODE, secretKeySpec);
+            return cipher.doFinal(byteArray);
+        } catch (BadPaddingException | IllegalBlockSizeException |
+                InvalidKeyException | NoSuchAlgorithmException  |
+                NoSuchPaddingException exception) {
+            throw new EncryptionException(exception.getMessage());
+        }
+    }
+
+    /**
+     * Decrypts byte array using password key
+     * @param encryptedByteArray      Byte array to be decrypted
+     * @return                        Decrypted byte array using password key
+     * @throws DecryptionException    Decryption Exception
+     */
+    private byte[] getDecryptedByteArrayByPasswordKey(byte[] encryptedByteArray)
+            throws DecryptionException {
+
+        try {
+            Cipher cipher = Cipher.getInstance(CIPHER_ALGORITHM_SPEC);
+            SecretKeySpec secretKeySpec =
+                    new SecretKeySpec(this.passwordKey, TRIPLE_DES_ALG);
+            cipher.init(Cipher.DECRYPT_MODE, secretKeySpec);
+            return cipher.doFinal(encryptedByteArray);
+        } catch (BadPaddingException | IllegalBlockSizeException |
+                InvalidKeyException | NoSuchAlgorithmException |
+                NoSuchPaddingException exception) {
+            throw new DecryptionException(exception.getMessage());
+        }
+    }
+
+    /**
+     * Decrypts byte array using session key
+     * @param encryptedByteArray      Byte array to be decrypted
+     * @return                        Decrypted byte array using session key
+     * @throws DecryptionException    Decryption Exception
+     */
+    private byte[] getDecryptedByteArrayBySessionKey(byte[] encryptedByteArray)
+            throws DecryptionException {
+
+        try {
+            Cipher cipher = Cipher.getInstance(CIPHER_ALGORITHM_SPEC);
+            SecretKeySpec secretKeySpec =
+                    new SecretKeySpec(this.sessionKey, TRIPLE_DES_ALG);
+            cipher.init(Cipher.DECRYPT_MODE, secretKeySpec);
+            return cipher.doFinal(encryptedByteArray);
+        } catch (BadPaddingException | IllegalBlockSizeException |
+                InvalidKeyException | NoSuchAlgorithmException |
+                NoSuchPaddingException exception) {
+            throw new DecryptionException(exception.getMessage());
+        }
     }
 
     /**
      * Send encrypted ByteBuffer of request and receive encrypted ByteBuffer of response
-     * @param encryptedRequestByteBuffer encrypted ByteBuffer of request to be sent
-     * @return encrypted ByteBuffer of response to be received
-     * @throws java.io.IOException Network error
+     * @param encryptedRequestByteBuffer    encrypted ByteBuffer of request to be sent
+     * @return                              encrypted ByteBuffer of response to be received
+     * @throws NetworkException             Network Exception
+     * @throws CommonResponseException      Invalid response code Exception
      */
-    private ByteBuffer sendRequestReceiveResponse(ByteBuffer encryptedRequestByteBuffer)
-            throws IOException, CashRegisterException {
+    private ByteBuffer sendRequestReceiveResponse(
+            ByteBuffer encryptedRequestByteBuffer)
+            throws NetworkException, CommonResponseException {
 
-        encryptedRequestByteBuffer.flip();
-        this.socketChannel.write(encryptedRequestByteBuffer); // Encrypted request is sent
-        ByteBuffer headerEncryptedResponseByteBuffer = ByteBuffer.allocate(11); // Prepare ByteBuffer for header of encrypted response
-        this.socketChannel.read(headerEncryptedResponseByteBuffer); // Reads header of encrypted response;
-        headerEncryptedResponseByteBuffer.flip(); // Match Endianness
+        try {
+            encryptedRequestByteBuffer.flip();
+            this.socketChannel.write(encryptedRequestByteBuffer); // Encrypted request is sent
+            ByteBuffer headerEncryptedResponseByteBuffer = ByteBuffer.allocate(11); // Prepare ByteBuffer for header of encrypted response
+            this.socketChannel.read(headerEncryptedResponseByteBuffer); // Reads header of encrypted response;
+            headerEncryptedResponseByteBuffer.flip(); // Match Endianness
 
-        headerEncryptedResponseByteBuffer.get(); // Get protocol version first byte
-        headerEncryptedResponseByteBuffer.get(); // Get protocol version second byte
+            headerEncryptedResponseByteBuffer.get(); // Get protocol version first byte
+            headerEncryptedResponseByteBuffer.get(); // Get protocol version second byte
 
-        headerEncryptedResponseByteBuffer.get(); // Get software version first byte
-        headerEncryptedResponseByteBuffer.get(); // Get software version second byte
-        headerEncryptedResponseByteBuffer.get(); // Get software version third byte
+            headerEncryptedResponseByteBuffer.get(); // Get software version first byte
+            headerEncryptedResponseByteBuffer.get(); // Get software version second byte
+            headerEncryptedResponseByteBuffer.get(); // Get software version third byte
 
-        int responseCode = headerEncryptedResponseByteBuffer.getShort() & 0xFFFF; // Get two bytes of response code as integer
-        if (ResponseCodes.get(responseCode) != ResponseCodes.OK)
-            throw new AssertionError(responseCode); // Generate AssertionError type Exception if not OK
+            Integer responseCode = headerEncryptedResponseByteBuffer.getShort() & 0xFFFF; // Get two bytes of response code as integer
+            if (!responseCode.equals(ResponseCodes.OK.getCode())) {
+                CommonResponse commonResponse = new CommonResponse(responseCode);
+                throw new CommonResponseException(commonResponse); // Generate CommonResponseException if not OK
+            }
 
-        int length = headerEncryptedResponseByteBuffer.getShort() & 0xFFFF; // Get two bytes of response length as integer
-        headerEncryptedResponseByteBuffer.get(); // Get first byte of two reserved bytes
-        headerEncryptedResponseByteBuffer.get(); // Get second byte of two reserved bytes
+            int length = headerEncryptedResponseByteBuffer.getShort() & 0xFFFF; // Get two bytes of response length as integer
+            headerEncryptedResponseByteBuffer.get(); // Get first byte of two reserved bytes
+            headerEncryptedResponseByteBuffer.get(); // Get second byte of two reserved bytes
 
-        ByteBuffer encryptedResponseByteBuffer = ByteBuffer.allocate(length); // Prepare ByteBuffer for body of encrypted response
-        this.socketChannel.read(encryptedResponseByteBuffer); // Reads body of encrypted response
-        return encryptedResponseByteBuffer;
+            ByteBuffer encryptedResponseByteBuffer = ByteBuffer.allocate(length); // Prepare ByteBuffer for body of encrypted response
+            this.socketChannel.read(encryptedResponseByteBuffer); // Reads body of encrypted response
+            return encryptedResponseByteBuffer;
+        } catch (IOException ioException) {
+            throw new NetworkException(ioException.getMessage());
+        }
     }
+
     /**
      * Get cashiers and departments list
-     * @param cashiersAndDepsRequest                                Cashiers and departments list request
-     * @return                                                      cashiers and departments list
-     * @throws CashRegisterException                   ECR Exception
-     * @throws java.io.IOException                                  Standart Input Output Exception
-     * @throws java.security.InvalidKeyException                    3DES encryption/decryption key is not correct
-     * @throws java.security.NoSuchAlgorithmException               3DES encryption/decryption algorithm is not present
-     * @throws javax.crypto.IllegalBlockSizeException               3DES Padding block not correct
-     * @throws javax.crypto.BadPaddingException                     Invalid 3DES Padding block
-     * @throws javax.crypto.NoSuchPaddingException                  Invalid Padding size
+     * @param cashiersAndDepsRequest            Cashiers and departments list request
+     * @return                                  Cashiers and departments list response
+     * @throws OperationException               Cash Register Exception
      */
-    public CashiersAndDepsResponse getCashiersAndDepsResponse(CashiersAndDepsRequest cashiersAndDepsRequest)
-            throws BadPaddingException, CashRegisterException, IOException, IllegalBlockSizeException,
-            InvalidKeyException, NoSuchAlgorithmException, NoSuchPaddingException {
+    public CashiersAndDepsResponse getCashiersAndDepsResponse(
+            CashiersAndDepsRequest cashiersAndDepsRequest) throws OperationException {
 
-        byte[] requestBytes = this.objectMapper.writeValueAsBytes(cashiersAndDepsRequest);
-        byte[] encryptedRequestBytes = this.getEncryptedByteArray(true, requestBytes);
-        short length = (short)encryptedRequestBytes.length;
-        ByteBuffer encryptedRequestByteBuffer = ByteBuffer.allocate(REQUEST_HEADER_LENGTH + length);
-        encryptedRequestByteBuffer.put(REQUEST_HEADER).put(OPER_CASHIERS_AND_DEPS_LIST).put(ZERO).putShort(length).put(encryptedRequestBytes);
         CashiersAndDepsResponse cashiersAndDepsResponse;
         try {
-            ByteBuffer encryptedResponseByteBuffer;
-            encryptedResponseByteBuffer = this.sendRequestReceiveResponse(encryptedRequestByteBuffer);
-            byte[] encryptedResponseBytes = encryptedResponseByteBuffer.array();
-            byte[] decryptedResponseBytes;
-            decryptedResponseBytes = this.getDecryptedByteArray(true, encryptedResponseBytes);
-            cashiersAndDepsResponse = this.objectMapper.readValue(decryptedResponseBytes, CashiersAndDepsResponse.class);
-            cashiersAndDepsResponse.setResponseCode(200);
-        } catch(AssertionError assertionError){
+            byte[] requestByteArray =
+                    this.objectMapper.writeValueAsBytes(cashiersAndDepsRequest);
+            byte[] encryptedRequestByteArray =
+                    this.getEncryptedByteArrayByPasswordKey(requestByteArray);
+            short length = (short) encryptedRequestByteArray.length;
+
+            ByteBuffer encryptedRequestByteBuffer =
+                    ByteBuffer.allocate(REQUEST_HEADER_LENGTH + length);
+            encryptedRequestByteBuffer
+                    .put(REQUEST_HEADER)
+                    .put(OPER_CASHIERS_AND_DEPS_LIST).put(ZERO)
+                    .putShort(length).put(encryptedRequestByteArray);
+
+            ByteBuffer encryptedResponseByteBuffer =
+                    this.sendRequestReceiveResponse(encryptedRequestByteBuffer);
+            byte[] encryptedResponseByteArray = encryptedResponseByteBuffer.array();
+            byte[] decryptedResponseByteArray =
+                    this.getDecryptedByteArrayByPasswordKey(encryptedResponseByteArray);
+            cashiersAndDepsResponse = this.objectMapper.readValue(
+                    decryptedResponseByteArray, CashiersAndDepsResponse.class);
+            cashiersAndDepsResponse.setResponseCode(ResponseCodes.OK.getCode());
+        } catch (DecryptionException | EncryptionException |
+                IOException | NetworkException exception) {
+            throw new OperationException(exception.getMessage());
+        } catch (CommonResponseException commonResponseException){
             cashiersAndDepsResponse = new CashiersAndDepsResponse();
-            cashiersAndDepsResponse.setResponseCode(Integer.parseInt(assertionError.getMessage()));
+            cashiersAndDepsResponse.setResponseCode(
+                    commonResponseException.getCommonResponse().getResponseCode());
         }
         return cashiersAndDepsResponse;
     }
 
     /**
      * Logs in given cashier and returns cashier response with session key
-     * @param loginCashierRequest                                   Cashier login request
-     * @return                                                      Cashier login response with session key
-     * @throws CashRegisterException                   ECR Exception
-     * @throws java.io.IOException                                  Standart Input Output Exception
-     * @throws java.security.InvalidKeyException                    3DES encryption/decryption key is not correct
-     * @throws java.security.NoSuchAlgorithmException               3DES encryption/decryption algorithm is not present
-     * @throws javax.crypto.IllegalBlockSizeException               3DES Padding block not correct
-     * @throws javax.crypto.BadPaddingException                     Invalid 3DES Padding block
-     * @throws javax.crypto.NoSuchPaddingException                  Invalid Padding size
+     * @param loginCashierRequest               Cashier login request
+     * @return                                  Cashier login response with session key
+     * @throws OperationException               Cash Register Exception
      */
-    public LoginCashierResponse getLoginCashierResponse(LoginCashierRequest loginCashierRequest)
-            throws BadPaddingException, CashRegisterException, IOException, IllegalBlockSizeException,
-            InvalidKeyException, NoSuchAlgorithmException, NoSuchPaddingException {
+    public LoginCashierResponse getLoginCashierResponse(
+            LoginCashierRequest loginCashierRequest) throws OperationException {
 
-        byte[] requestBytes = this.objectMapper.writeValueAsBytes(loginCashierRequest);
-        byte[] encryptedRequestBytes = this.getEncryptedByteArray(true, requestBytes);
-        short length = (short)encryptedRequestBytes.length;
-        ByteBuffer encryptedRequestByteBuffer = ByteBuffer.allocate(REQUEST_HEADER_LENGTH + length);
-        encryptedRequestByteBuffer.put(REQUEST_HEADER).put(OPER_CASHIER_LOGIN).put(ZERO).putShort(length).put(encryptedRequestBytes);
         LoginCashierResponse loginCashierResponse;
         try {
-            ByteBuffer encryptedResponseByteBuffer;
-            encryptedResponseByteBuffer = this.sendRequestReceiveResponse(encryptedRequestByteBuffer);
-            byte[] encryptedResponseBytes = encryptedResponseByteBuffer.array();
-            byte[] decryptedResponseBytes;
-            decryptedResponseBytes = this.getDecryptedByteArray(true, encryptedResponseBytes);
-            loginCashierResponse = this.objectMapper.readValue(decryptedResponseBytes, LoginCashierResponse.class);
-            loginCashierResponse.setResponseCode(200);
-        } catch(AssertionError assertionError){
+            byte[] requestByteArray =
+                    this.objectMapper.writeValueAsBytes(loginCashierRequest);
+            byte[] encryptedRequestByteArray =
+                    this.getEncryptedByteArrayByPasswordKey(requestByteArray);
+            short length = (short) encryptedRequestByteArray.length;
+            ByteBuffer encryptedRequestByteBuffer =
+                    ByteBuffer.allocate(REQUEST_HEADER_LENGTH + length);
+            encryptedRequestByteBuffer
+                    .put(REQUEST_HEADER)
+                    .put(OPER_CASHIER_LOGIN).put(ZERO)
+                    .putShort(length).put(encryptedRequestByteArray);
+
+            ByteBuffer encryptedResponseByteBuffer =
+                    this.sendRequestReceiveResponse(encryptedRequestByteBuffer);
+            byte[] encryptedResponseByteArray = encryptedResponseByteBuffer.array();
+            byte[] decryptedResponseByteArray =
+                    this.getDecryptedByteArrayByPasswordKey(encryptedResponseByteArray);
+            loginCashierResponse = this.objectMapper.readValue(
+                    decryptedResponseByteArray, LoginCashierResponse.class);
+            loginCashierResponse.setResponseCode(ResponseCodes.OK.getCode());
+        } catch (DecryptionException | EncryptionException |
+                IOException | NetworkException exception) {
+            throw new OperationException(exception.getMessage());
+        } catch(CommonResponseException commonResponseException){
             loginCashierResponse = new LoginCashierResponse();
-            loginCashierResponse.setResponseCode(Integer.parseInt(assertionError.getMessage()));
+            loginCashierResponse.setResponseCode(
+                    commonResponseException.getCommonResponse().getResponseCode());
         }
         return loginCashierResponse;
     }
 
     /**
      * Logout current cashier
-     * @param logoutCashierRequest                                  Logout cashier request
-     * @return                                                      Logout cashier response
-     * @throws CashRegisterException                   ECR Exception
-     * @throws com.fasterxml.jackson.core.JsonProcessingException   @request cannot be serialized to JSON
-     * @throws java.io.IOException                                  Standart Input Output Exception
-     * @throws java.security.InvalidKeyException                    3DES encryption/decryption key is not correct
-     * @throws java.security.NoSuchAlgorithmException               3DES encryption/decryption algorithm is not present
-     * @throws javax.crypto.BadPaddingException                     Invalid 3DES Padding block
-     * @throws javax.crypto.IllegalBlockSizeException               3DES Padding block not correct
-     * @throws javax.crypto.NoSuchPaddingException                  Invalid Padding size
+     * @param logoutCashierRequest              Logout cashier request
+     * @return                                  Logout cashier response
+     * @throws OperationException               Cash Register Exception
      */
-    public LogoutCashierResponse getLogoutCashierResponse(LogoutCashierRequest logoutCashierRequest)
-            throws BadPaddingException, CashRegisterException, IOException, IllegalBlockSizeException,
-            InvalidKeyException, NoSuchAlgorithmException, NoSuchPaddingException {
+    public LogoutCashierResponse getLogoutCashierResponse(
+            LogoutCashierRequest logoutCashierRequest) throws OperationException {
 
-        byte[] requestBytes = this.objectMapper.writeValueAsBytes(logoutCashierRequest);
-        byte[] encryptedRequestBytes = this.getEncryptedByteArray(false, requestBytes);
-        short length = (short)encryptedRequestBytes.length;
         LogoutCashierResponse logoutCashierResponse = new LogoutCashierResponse();
-        ByteBuffer encryptedRequestByteBuffer = ByteBuffer.allocate(REQUEST_HEADER_LENGTH + length);
-        encryptedRequestByteBuffer.put(REQUEST_HEADER).put(OPER_CASHIER_LOGOUT).put(ZERO).putShort(length).put(encryptedRequestBytes);
         try {
+            byte[] requestByteArray =
+                    this.objectMapper.writeValueAsBytes(logoutCashierRequest);
+            byte[] encryptedRequestByteArray =
+                    this.getEncryptedByteArrayBySessionKey(requestByteArray);
+            short length = (short) encryptedRequestByteArray.length;
+            ByteBuffer encryptedRequestByteBuffer =
+                    ByteBuffer.allocate(REQUEST_HEADER_LENGTH + length);
+            encryptedRequestByteBuffer
+                    .put(REQUEST_HEADER)
+                    .put(OPER_CASHIER_LOGOUT).put(ZERO)
+                    .putShort(length).put(encryptedRequestByteArray);
             this.sendRequestReceiveResponse(encryptedRequestByteBuffer);
             this.sessionKey = null;
-            logoutCashierResponse.setResponseCode(200);
-        } catch(AssertionError assertionError) {
-            logoutCashierResponse.setResponseCode(Integer.parseInt(assertionError.getMessage()));
+            logoutCashierResponse.setResponseCode(ResponseCodes.OK.getCode());
+        } catch (EncryptionException | JsonProcessingException |
+                NetworkException exception) {
+            throw new OperationException(exception.getMessage());
+        } catch(CommonResponseException commonResponseException) {
+            logoutCashierResponse.setResponseCode(
+                    commonResponseException.getCommonResponse().getResponseCode());
         }
         return logoutCashierResponse;
     }
 
     /**
      * Setup header and footer for receipt
-     * @param headerFooterRequest                                   Setup headers and footers request
-     * @return                                                      returns response code
-     * @throws CashRegisterException                   ECR Exception
-     * @throws com.fasterxml.jackson.core.JsonProcessingException   @request cannot be serialized to JSON
-     * @throws java.io.IOException                                  Standart Input Output Exception
-     * @throws java.security.InvalidKeyException                    3DES encryption/decryption key is not correct
-     * @throws java.security.NoSuchAlgorithmException               3DES encryption/decryption algorithm is not present
-     * @throws javax.crypto.IllegalBlockSizeException               3DES Padding block not correct
-     * @throws javax.crypto.BadPaddingException                     Invalid 3DES Padding block
-     * @throws javax.crypto.NoSuchPaddingException                  Invalid Padding size
+     * @param headerFooterRequest               Setup headers and footers request
+     * @return                                  Setup headers and footers response
+     * @throws OperationException               Cash Register Exception
      */
-    public HeaderFooterResponse setupHeaderFooter(HeaderFooterRequest headerFooterRequest)
-            throws BadPaddingException, CashRegisterException, IOException, IllegalBlockSizeException,
-            InvalidKeyException, NoSuchAlgorithmException, NoSuchPaddingException {
+    public HeaderFooterResponse setupHeaderFooter(
+            HeaderFooterRequest headerFooterRequest) throws OperationException {
 
-        byte[] requestBytes = this.objectMapper.writeValueAsBytes(headerFooterRequest);
-        byte[] encryptedRequestBytes = this.getEncryptedByteArray(false, requestBytes);
-        short length = (short)encryptedRequestBytes.length;
         HeaderFooterResponse headerFooterResponse = new HeaderFooterResponse();
-        ByteBuffer encryptedRequestByteBuffer = ByteBuffer.allocate(REQUEST_HEADER_LENGTH + length);
-        encryptedRequestByteBuffer.put(REQUEST_HEADER).put(OPER_SETUP_HEADERFOOTER).put(ZERO).putShort(length).put(encryptedRequestBytes);
         try {
+            byte[] requestByteArray =
+                    this.objectMapper.writeValueAsBytes(headerFooterRequest);
+            byte[] encryptedRequestByteArray =
+                    this.getEncryptedByteArrayBySessionKey(requestByteArray);
+            short length = (short) encryptedRequestByteArray.length;
+            ByteBuffer encryptedRequestByteBuffer =
+                    ByteBuffer.allocate(REQUEST_HEADER_LENGTH + length);
+            encryptedRequestByteBuffer
+                    .put(REQUEST_HEADER)
+                    .put(OPER_SETUP_HEADERFOOTER).put(ZERO)
+                    .putShort(length).put(encryptedRequestByteArray);
             this.sendRequestReceiveResponse(encryptedRequestByteBuffer);
-            headerFooterResponse.setResponseCode(200);
-        } catch(AssertionError assertionError) {
-            headerFooterResponse.setResponseCode(Integer.parseInt(assertionError.getMessage()));
+            headerFooterResponse.setResponseCode(ResponseCodes.OK.getCode());
+        } catch (EncryptionException | JsonProcessingException |
+                NetworkException exception) {
+            throw new OperationException(exception.getMessage());
+        } catch (CommonResponseException commonResponseException) {
+            headerFooterResponse.setResponseCode(
+                    commonResponseException.getCommonResponse().getResponseCode());
         }
         return headerFooterResponse;
     }
 
     /**
-     * Prints fiscal report for. Parameters of report are set in fiscalReportRequest object.
-     * @param fiscalReportRequest                                   Fiscal Report Request
-     * @return                                                      returns response code
-     * @throws CashRegisterException                   ECR Exception
-     * @throws com.fasterxml.jackson.core.JsonProcessingException   @request cannot be serialized to JSON
-     * @throws java.io.IOException                                  Standart Input Output Exception
-     * @throws java.security.InvalidKeyException                    3DES encryption/decryption key is not correct
-     * @throws java.security.NoSuchAlgorithmException               3DES encryption/decryption algorithm is not present
-     * @throws javax.crypto.BadPaddingException                     Invalid 3DES Padding block
-     * @throws javax.crypto.IllegalBlockSizeException               3DES Padding block not correct
-     * @throws javax.crypto.NoSuchPaddingException                  Invalid Padding size
+     * Prints fiscal report.
+     * @param fiscalReportRequest               Fiscal Report Request
+     * @return                                  Fiscal Report Response
+     * @throws OperationException               Cash Register Exception
      **/
-    public FiscalReportResponse printFiscalReport(FiscalReportRequest fiscalReportRequest)
-            throws BadPaddingException, CashRegisterException, IOException, IllegalBlockSizeException,
-            InvalidKeyException, NoSuchAlgorithmException, NoSuchPaddingException {
+    public FiscalReportResponse printFiscalReport(
+            FiscalReportRequest fiscalReportRequest) throws OperationException {
 
-        byte[] requestBytes = this.objectMapper.writeValueAsBytes(fiscalReportRequest);
-        byte[] encryptedRequestBytes = this.getEncryptedByteArray(false, requestBytes);
-        short length = (short)encryptedRequestBytes.length;
         FiscalReportResponse fiscalReportResponse = new FiscalReportResponse();
-        ByteBuffer encryptedRequestByteBuffer = ByteBuffer.allocate(REQUEST_HEADER_LENGTH + length);
-        encryptedRequestByteBuffer.put(REQUEST_HEADER).put(OPER_PRINT_FISCAL_REPORT).put(ZERO).putShort(length).put(encryptedRequestBytes);
         try {
+            byte[] requestByteArray =
+                    this.objectMapper.writeValueAsBytes(fiscalReportRequest);
+            byte[] encryptedRequestByteArray =
+                    this.getEncryptedByteArrayBySessionKey(requestByteArray);
+            short length = (short) encryptedRequestByteArray.length;
+            ByteBuffer encryptedRequestByteBuffer =
+                    ByteBuffer.allocate(REQUEST_HEADER_LENGTH + length);
+            encryptedRequestByteBuffer
+                    .put(REQUEST_HEADER)
+                    .put(OPER_PRINT_FISCAL_REPORT).put(ZERO)
+                    .putShort(length).put(encryptedRequestByteArray);
             this.sendRequestReceiveResponse(encryptedRequestByteBuffer);
-            fiscalReportResponse.setResponseCode(200);
-        } catch(AssertionError assertionError) {
-            fiscalReportResponse.setResponseCode(Integer.parseInt(assertionError.getMessage()));
+            fiscalReportResponse.setResponseCode(ResponseCodes.OK.getCode());
+        } catch (EncryptionException | JsonProcessingException | NetworkException exception) {
+            throw new OperationException(exception.getMessage());
+        } catch (CommonResponseException commonResponseException) {
+            fiscalReportResponse.setResponseCode(
+                    commonResponseException.getCommonResponse().getResponseCode());
         }
         return fiscalReportResponse;
     }
 
     /**
-     * Get existed prepayment receipt response
-     * @param existPrepaymentRequest receipt that we want to get
-     * @return Receipt related information or error status
-     * @throws CashRegisterException                   ECR Exception
-     * @throws com.fasterxml.jackson.core.JsonProcessingException   @request cannot be serialized to JSON
-     * @throws java.io.IOException                                  Standart Input Output Exception
-     * @throws java.security.InvalidKeyException                    3DES encryption/decryption key is not correct
-     * @throws java.security.NoSuchAlgorithmException               3DES encryption/decryption algorithm is not present
-     * @throws javax.crypto.BadPaddingException                     Invalid 3DES Padding block
-     * @throws javax.crypto.IllegalBlockSizeException               3DES Padding block not correct
-     * @throws javax.crypto.NoSuchPaddingException                  Invalid Padding size
+     * Get existing prepayment receipt response
+     * @param existPrepaymentRequest            Existing Prepayment Request
+     * @return                                  Existing Prepayment Response
+     * @throws OperationException               Cash Register Exception
      */
-    public ExistPrepaymentResponse getExistPrepaymentResponse(ExistPrepaymentRequest existPrepaymentRequest)
-            throws BadPaddingException, CashRegisterException, IOException, IllegalBlockSizeException,
-            InvalidKeyException, NoSuchAlgorithmException, NoSuchPaddingException {
+    public ExistPrepaymentResponse getExistPrepaymentResponse(
+            ExistPrepaymentRequest existPrepaymentRequest) throws OperationException {
 
-        byte[] requestBytes = this.objectMapper.writeValueAsBytes(existPrepaymentRequest);
-        byte[] encryptedRequestBytes = this.getEncryptedByteArray(false, requestBytes);
-        short length = (short)encryptedRequestBytes.length;
-        ByteBuffer encryptedRequestByteBuffer = ByteBuffer.allocate(REQUEST_HEADER_LENGTH + length);
-        encryptedRequestByteBuffer.put(REQUEST_HEADER).put(OPER_GET_EXISTED_RECEIPT).put(ZERO).putShort(length).put(encryptedRequestBytes);
         ExistPrepaymentResponse existPrepaymentResponse;
         try {
-            ByteBuffer encryptedResponseByteBuffer;
-            encryptedResponseByteBuffer = this.sendRequestReceiveResponse(encryptedRequestByteBuffer);
-            byte[] encryptedResponseBytes = encryptedResponseByteBuffer.array();
-            byte[] decryptedResponseBytes;
-            decryptedResponseBytes = this.getDecryptedByteArray(false, encryptedResponseBytes);
-            existPrepaymentResponse = this.objectMapper.readValue(decryptedResponseBytes, ExistPrepaymentResponse.class);
-            existPrepaymentResponse.setResponseCode(200);
-        } catch (AssertionError assertionError) {
+            byte[] requestByteArray =
+                    this.objectMapper.writeValueAsBytes(existPrepaymentRequest);
+            byte[] encryptedRequestByteArray =
+                    this.getEncryptedByteArrayBySessionKey(requestByteArray);
+            short length = (short) encryptedRequestByteArray.length;
+            ByteBuffer encryptedRequestByteBuffer =
+                    ByteBuffer.allocate(REQUEST_HEADER_LENGTH + length);
+            encryptedRequestByteBuffer
+                    .put(REQUEST_HEADER)
+                    .put(OPER_GET_EXISTED_RECEIPT).put(ZERO)
+                    .putShort(length).put(encryptedRequestByteArray);
+            ByteBuffer encryptedResponseByteBuffer =
+                    this.sendRequestReceiveResponse(encryptedRequestByteBuffer);
+            byte[] encryptedResponseByteArray = encryptedResponseByteBuffer.array();
+            byte[] decryptedResponseByteArray
+                    = this.getDecryptedByteArrayBySessionKey(encryptedResponseByteArray);
+            existPrepaymentResponse = this.objectMapper.readValue(
+                    decryptedResponseByteArray, ExistPrepaymentResponse.class);
+            existPrepaymentResponse.setResponseCode(ResponseCodes.OK.getCode());
+        } catch (EncryptionException | DecryptionException |
+                IOException | NetworkException exception) {
+            throw new OperationException(exception.getMessage());
+        } catch (CommonResponseException commonResponseException) {
             existPrepaymentResponse = new ExistPrepaymentResponse();
-            existPrepaymentResponse.setResponseCode(Integer.parseInt(assertionError.getMessage()));
+            existPrepaymentResponse.setResponseCode(
+                    commonResponseException.getCommonResponse().getResponseCode());
         }
         return existPrepaymentResponse;
     }
 
     /**
-     * Get existed return prepayment receipt response
-     * @param existRPrepaymentRequest receipt that we want to get
-     * @return Receipt related information or error status
-     * @throws CashRegisterException                   ECR Exception
-     * @throws com.fasterxml.jackson.core.JsonProcessingException   @request cannot be serialized to JSON
-     * @throws java.io.IOException                                  Standart Input Output Exception
-     * @throws java.security.InvalidKeyException                    3DES encryption/decryption key is not correct
-     * @throws java.security.NoSuchAlgorithmException               3DES encryption/decryption algorithm is not present
-     * @throws javax.crypto.BadPaddingException                     Invalid 3DES Padding block
-     * @throws javax.crypto.IllegalBlockSizeException               3DES Padding block not correct
-     * @throws javax.crypto.NoSuchPaddingException                  Invalid Padding size
+     * Get existing return prepayment receipt response
+     * @param existReturnPrepaymentRequest      Existing Return Prepayment Request
+     * @return                                  Existing Return Prepayment Response
+     * @throws OperationException               Cash Register Exception
      */
-    public ExistRPrepaymentResponse getExistRPrepaymentResponse(ExistRPrepaymentRequest existRPrepaymentRequest)
-            throws BadPaddingException, CashRegisterException, IOException, InvalidKeyException,
-            IllegalBlockSizeException, NoSuchAlgorithmException, NoSuchPaddingException {
+    public ExistReturnPrepaymentResponse getExistReturnPrepaymentResponse(
+            ExistReturnPrepaymentRequest existReturnPrepaymentRequest)
+            throws OperationException {
 
-        byte[] requestBytes = this.objectMapper.writeValueAsBytes(existRPrepaymentRequest);
-        byte[] encryptedRequestBytes = this.getEncryptedByteArray(false, requestBytes);
-        short length = (short)encryptedRequestBytes.length;
-        ByteBuffer encryptedRequestByteBuffer = ByteBuffer.allocate(REQUEST_HEADER_LENGTH + length);
-        encryptedRequestByteBuffer.put(REQUEST_HEADER).put(OPER_GET_EXISTED_RECEIPT).put(ZERO).putShort(length).put(encryptedRequestBytes);
-        ExistRPrepaymentResponse existRPrepaymentResponse;
+        ExistReturnPrepaymentResponse existReturnPrepaymentResponse;
         try {
-            ByteBuffer encryptedResponseByteBuffer;
-            encryptedResponseByteBuffer = this.sendRequestReceiveResponse(encryptedRequestByteBuffer);
-            byte[] encryptedResponseBytes = encryptedResponseByteBuffer.array();
-            byte[] decryptedResponseBytes;
-            decryptedResponseBytes = this.getDecryptedByteArray(false, encryptedResponseBytes);
-            existRPrepaymentResponse = this.objectMapper.readValue(decryptedResponseBytes, ExistRPrepaymentResponse.class);
-            existRPrepaymentResponse.setResponseCode(200);
-        } catch (AssertionError assertionError) {
-            existRPrepaymentResponse = new ExistRPrepaymentResponse();
-            existRPrepaymentResponse.setResponseCode(Integer.parseInt(assertionError.getMessage()));
+            byte[] requestByteArray =
+                    this.objectMapper.writeValueAsBytes(existReturnPrepaymentRequest);
+            byte[] encryptedRequestByteArray =
+                    this.getEncryptedByteArrayBySessionKey(requestByteArray);
+            short length = (short) encryptedRequestByteArray.length;
+            ByteBuffer encryptedRequestByteBuffer =
+                    ByteBuffer.allocate(REQUEST_HEADER_LENGTH + length);
+            encryptedRequestByteBuffer
+                    .put(REQUEST_HEADER)
+                    .put(OPER_GET_EXISTED_RECEIPT).put(ZERO)
+                    .putShort(length).put(encryptedRequestByteArray);
+            ByteBuffer encryptedResponseByteBuffer =
+                    this.sendRequestReceiveResponse(encryptedRequestByteBuffer);
+            byte[] encryptedResponseByteArray = encryptedResponseByteBuffer.array();
+            byte[] decryptedResponseByteArray =
+                    this.getDecryptedByteArrayBySessionKey(encryptedResponseByteArray);
+            existReturnPrepaymentResponse = this.objectMapper.readValue(
+                    decryptedResponseByteArray, ExistReturnPrepaymentResponse.class);
+            existReturnPrepaymentResponse.setResponseCode(ResponseCodes.OK.getCode());
+        } catch (DecryptionException | EncryptionException |
+                IOException | NetworkException exception) {
+            throw new OperationException(exception.getMessage());
+        } catch (CommonResponseException commonResponseException) {
+            existReturnPrepaymentResponse = new ExistReturnPrepaymentResponse();
+            existReturnPrepaymentResponse.setResponseCode(
+                    commonResponseException.getCommonResponse().getResponseCode());
         }
-        return existRPrepaymentResponse;
+        return existReturnPrepaymentResponse;
     }
 
     /**
-     * Get existed return sale receipt response
-     * @param existRSaleRequest receipt that we want to get
-     * @return Receipt related information or error status
-     * @throws CashRegisterException                   ECR Exception
-     * @throws com.fasterxml.jackson.core.JsonProcessingException   @request cannot be serialized to JSON
-     * @throws java.io.IOException                                  Standart Input Output Exception
-     * @throws java.security.InvalidKeyException                    3DES encryption/decryption key is not correct
-     * @throws java.security.NoSuchAlgorithmException               3DES encryption/decryption algorithm is not present
-     * @throws javax.crypto.BadPaddingException                     Invalid 3DES Padding block
-     * @throws javax.crypto.IllegalBlockSizeException               3DES Padding block not correct
-     * @throws javax.crypto.NoSuchPaddingException                  Invalid Padding size
+     * Get existing return sale receipt response
+     * @param existReturnSaleRequest            Existing Return Sale Request
+     * @return                                  Existing Return Sale Response
+     * @throws OperationException               Cash Register Exception
      */
-    public ExistRSaleResponse getExistRSaleResponse(ExistRSaleRequest existRSaleRequest)
-            throws BadPaddingException, CashRegisterException, IOException, InvalidKeyException,
-            IllegalBlockSizeException, NoSuchAlgorithmException, NoSuchPaddingException {
+    public ExistReturnSaleResponse getExistReturnSaleResponse(
+            ExistReturnSaleRequest existReturnSaleRequest)
+            throws OperationException {
 
-        byte[] requestBytes = this.objectMapper.writeValueAsBytes(existRSaleRequest);
-        byte[] encryptedRequestBytes = this.getEncryptedByteArray(false, requestBytes);
-        short length = (short)encryptedRequestBytes.length;
-        ByteBuffer encryptedRequestByteBuffer = ByteBuffer.allocate(REQUEST_HEADER_LENGTH + length);
-        encryptedRequestByteBuffer.put(REQUEST_HEADER).put(OPER_GET_EXISTED_RECEIPT).put(ZERO).putShort(length).put(encryptedRequestBytes);
-        ExistRSaleResponse existRSaleResponse;
+        ExistReturnSaleResponse existReturnSaleResponse;
         try {
+            byte[] requestByteArray =
+                    this.objectMapper.writeValueAsBytes(existReturnSaleRequest);
+            byte[] encryptedRequestByteArray =
+                    this.getEncryptedByteArrayBySessionKey(requestByteArray);
+            short length = (short) encryptedRequestByteArray.length;
+            ByteBuffer encryptedRequestByteBuffer =
+                    ByteBuffer.allocate(REQUEST_HEADER_LENGTH + length);
+            encryptedRequestByteBuffer
+                    .put(REQUEST_HEADER)
+                    .put(OPER_GET_EXISTED_RECEIPT).put(ZERO)
+                    .putShort(length).put(encryptedRequestByteArray);
             ByteBuffer encryptedResponseByteBuffer;
-            encryptedResponseByteBuffer = this.sendRequestReceiveResponse(encryptedRequestByteBuffer);
-            byte[] encryptedResponseBytes = encryptedResponseByteBuffer.array();
-            byte[] decryptedResponseBytes;
-            decryptedResponseBytes = this.getDecryptedByteArray(false, encryptedResponseBytes);
-            existRSaleResponse = this.objectMapper.readValue(decryptedResponseBytes, ExistRSaleResponse.class);
-            existRSaleResponse.setResponseCode(200);
-        } catch (AssertionError assertionError) {
-            existRSaleResponse = new ExistRSaleResponse();
-            existRSaleResponse.setResponseCode(Integer.parseInt(assertionError.getMessage()));
+            encryptedResponseByteBuffer =
+                    this.sendRequestReceiveResponse(encryptedRequestByteBuffer);
+            byte[] encryptedResponseByteArray = encryptedResponseByteBuffer.array();
+            byte[] decryptedResponseByteArray =
+                    this.getDecryptedByteArrayBySessionKey(encryptedResponseByteArray);
+            existReturnSaleResponse = this.objectMapper
+                    .readValue(decryptedResponseByteArray, ExistReturnSaleResponse.class);
+            existReturnSaleResponse.setResponseCode(ResponseCodes.OK.getCode());
+        } catch (DecryptionException | EncryptionException |
+                IOException | NetworkException exception) {
+            throw new OperationException(exception.getMessage());
+        } catch (CommonResponseException commonResponseException) {
+            existReturnSaleResponse = new ExistReturnSaleResponse();
+            existReturnSaleResponse.setResponseCode(
+                    commonResponseException.getCommonResponse().getResponseCode());
         }
-        return existRSaleResponse;
+        return existReturnSaleResponse;
     }
 
     /**
-     * Get existed sale receipt response
-     * @param existSaleRequest receipt that we want to get
-     * @return Receipt related information or error status
-     * @throws CashRegisterException                   ECR Exception
-     * @throws com.fasterxml.jackson.core.JsonProcessingException   @request cannot be serialized to JSON
-     * @throws java.io.IOException                                  Standart Input Output Exception
-     * @throws java.security.InvalidKeyException                    3DES encryption/decryption key is not correct
-     * @throws java.security.NoSuchAlgorithmException               3DES encryption/decryption algorithm is not present
-     * @throws javax.crypto.BadPaddingException                     Invalid 3DES Padding block
-     * @throws javax.crypto.IllegalBlockSizeException               3DES Padding block not correct
-     * @throws javax.crypto.NoSuchPaddingException                  Invalid Padding size
+     * Get existing sale receipt response
+     * @param existSaleRequest                  Existing Sale Request
+     * @return                                  Existing Sale Response
+     * @throws OperationException               Cash Register Exception
      */
-    public ExistSaleResponse getExistSaleResponse(ExistSaleRequest existSaleRequest)
-            throws BadPaddingException, CashRegisterException, IOException, IllegalBlockSizeException,
-            InvalidKeyException, NoSuchAlgorithmException, NoSuchPaddingException {
+    public ExistSaleResponse getExistSaleResponse(
+            ExistSaleRequest existSaleRequest) throws OperationException {
 
-        byte[] requestBytes = this.objectMapper.writeValueAsBytes(existSaleRequest);
-        byte[] encryptedRequestBytes = this.getEncryptedByteArray(false, requestBytes);
-        short length = (short)encryptedRequestBytes.length;
-        ByteBuffer encryptedRequestByteBuffer = ByteBuffer.allocate(REQUEST_HEADER_LENGTH + length);
-        encryptedRequestByteBuffer.put(REQUEST_HEADER).put(OPER_GET_EXISTED_RECEIPT).put(ZERO).putShort(length).put(encryptedRequestBytes);
         ExistSaleResponse existSaleResponse;
         try {
+            byte[] requestByteArray =
+                    this.objectMapper.writeValueAsBytes(existSaleRequest);
+            byte[] encryptedRequestByteArray =
+                    this.getEncryptedByteArrayBySessionKey(requestByteArray);
+            short length = (short) encryptedRequestByteArray.length;
+            ByteBuffer encryptedRequestByteBuffer =
+                    ByteBuffer.allocate(REQUEST_HEADER_LENGTH + length);
+            encryptedRequestByteBuffer
+                    .put(REQUEST_HEADER)
+                    .put(OPER_GET_EXISTED_RECEIPT).put(ZERO)
+                    .putShort(length).put(encryptedRequestByteArray);
             ByteBuffer encryptedResponseByteBuffer;
-            encryptedResponseByteBuffer = this.sendRequestReceiveResponse(encryptedRequestByteBuffer);
-            byte[] encryptedResponseBytes = encryptedResponseByteBuffer.array();
-            byte[] decryptedResponseBytes;
-            decryptedResponseBytes = this.getDecryptedByteArray(false, encryptedResponseBytes);
-            existSaleResponse = this.objectMapper.readValue(decryptedResponseBytes, ExistSaleResponse.class);
-            existSaleResponse.setResponseCode(200);
-        } catch (AssertionError assertionError) {
+            encryptedResponseByteBuffer =
+                    this.sendRequestReceiveResponse(encryptedRequestByteBuffer);
+            byte[] encryptedResponseByteArray = encryptedResponseByteBuffer.array();
+            byte[] decryptedResponseByteArray =
+                    this.getDecryptedByteArrayBySessionKey(encryptedResponseByteArray);
+            existSaleResponse = this.objectMapper.readValue(
+                    decryptedResponseByteArray, ExistSaleResponse.class);
+            existSaleResponse.setResponseCode(ResponseCodes.OK.getCode());
+        } catch (DecryptionException | EncryptionException |
+                IOException | NetworkException exception) {
+            throw new OperationException(exception.getMessage());
+        } catch (CommonResponseException commonResponseException) {
             existSaleResponse = new ExistSaleResponse();
-            existSaleResponse.setResponseCode(Integer.parseInt(assertionError.getMessage()));
+            existSaleResponse.setResponseCode(
+                    commonResponseException.getCommonResponse().getResponseCode());
         }
         return existSaleResponse;
     }
 
     /**
      * Get new prepayment receipt response
-     * @param newPrepaymentRequest prepayment receipt request related information
-     * @return Prepayment Receipt related information or error status
-     * @throws CashRegisterException                 ECR Exception
-     * @throws com.fasterxml.jackson.core.JsonProcessingException request cannot be serialized to JSON
-     * @throws java.io.IOException                                Standart Input Output Exception
-     * @throws java.security.InvalidKeyException                  3DES encryption/decryption key is not correct
-     * @throws java.security.NoSuchAlgorithmException             3DES encryption/decryption algorithm is not present
-     * @throws javax.crypto.BadPaddingException                   Invalid 3DES Padding block
-     * @throws javax.crypto.IllegalBlockSizeException             3DES Padding block not correct
-     * @throws javax.crypto.NoSuchPaddingException                Invalid Padding size
+     * @param newPrepaymentRequest              New Prepayment Request
+     * @return                                  New Prepayment Response
+     * @throws OperationException               Cash Register Exception
      */
-    public NewPrepaymentResponse getNewPrepaymentResponse(NewPrepaymentRequest newPrepaymentRequest)
-            throws BadPaddingException, CashRegisterException, IOException, IllegalBlockSizeException,
-            InvalidKeyException, NoSuchAlgorithmException, NoSuchPaddingException {
+    public NewPrepaymentResponse getNewPrepaymentResponse(
+            NewPrepaymentRequest newPrepaymentRequest) throws OperationException {
 
-        byte[] requestBytes = this.objectMapper.writeValueAsBytes(newPrepaymentRequest);
-        byte[] encryptedRequestBytes = this.getEncryptedByteArray(false, requestBytes);
-        short length = (short)encryptedRequestBytes.length;
-        ByteBuffer encryptedRequestByteBuffer = ByteBuffer.allocate(REQUEST_HEADER_LENGTH + length);
-        encryptedRequestByteBuffer.put(REQUEST_HEADER).put(OPER_NEW_SALE_PREPAYMENT_RECEIPT).put(ZERO).putShort(length).put(encryptedRequestBytes);
         NewPrepaymentResponse newPrepaymentResponse;
         try {
-            ByteBuffer encryptedResponseByteBuffer;
-            encryptedResponseByteBuffer = this.sendRequestReceiveResponse(encryptedRequestByteBuffer);
-            byte[] encryptedResponseBytes = encryptedResponseByteBuffer.array();
-            byte[] decryptedResponseBytes;
-            decryptedResponseBytes = this.getDecryptedByteArray(false, encryptedResponseBytes);
-            newPrepaymentResponse = this.objectMapper.readValue(decryptedResponseBytes, NewPrepaymentResponse.class);
-            newPrepaymentResponse.setResponseCode(200);
-        } catch(AssertionError assertionError) {
+            byte[] requestByteArray =
+                    this.objectMapper.writeValueAsBytes(newPrepaymentRequest);
+            byte[] encryptedRequestByteArray =
+                    this.getEncryptedByteArrayBySessionKey(requestByteArray);
+            short length = (short) encryptedRequestByteArray.length;
+            ByteBuffer encryptedRequestByteBuffer =
+                    ByteBuffer.allocate(REQUEST_HEADER_LENGTH + length);
+            encryptedRequestByteBuffer
+                    .put(REQUEST_HEADER)
+                    .put(OPER_NEW_SALE_PREPAYMENT_RECEIPT).put(ZERO)
+                    .putShort(length).put(encryptedRequestByteArray);
+            ByteBuffer encryptedResponseByteBuffer =
+                    this.sendRequestReceiveResponse(encryptedRequestByteBuffer);
+            byte[] encryptedResponseByteArray = encryptedResponseByteBuffer.array();
+            byte[] decryptedResponseByteArray =
+                    this.getDecryptedByteArrayBySessionKey(encryptedResponseByteArray);
+            newPrepaymentResponse = this.objectMapper
+                    .readValue(decryptedResponseByteArray, NewPrepaymentResponse.class);
+            newPrepaymentResponse.setResponseCode(ResponseCodes.OK.getCode());
+        } catch (DecryptionException | EncryptionException |
+                IOException | NetworkException exception) {
+            throw new OperationException(exception.getMessage());
+        } catch(CommonResponseException commonResponseException) {
             newPrepaymentResponse = new NewPrepaymentResponse();
-            newPrepaymentResponse.setResponseCode(Integer.parseInt(assertionError.getMessage()));
+            newPrepaymentResponse.setResponseCode(
+                    commonResponseException.getCommonResponse().getResponseCode());
         }
         return newPrepaymentResponse;
     }
 
     /**
      * Get new partial return prepayment receipt response
-     * @param newPRPrepaymentRequest return prepayment receipt request related information
-     * @return Return prepayment receipt related information or error status
-     * @throws CashRegisterException                 ECR Exception
-     * @throws com.fasterxml.jackson.core.JsonProcessingException request cannot be serialized to JSON
-     * @throws java.io.IOException                                Standart Input Output Exception
-     * @throws java.security.InvalidKeyException                  3DES encryption/decryption key is not correct
-     * @throws java.security.NoSuchAlgorithmException             3DES encryption/decryption algorithm is not present
-     * @throws javax.crypto.BadPaddingException                   Invalid 3DES Padding block
-     * @throws javax.crypto.IllegalBlockSizeException             3DES Padding block not correct
-     * @throws javax.crypto.NoSuchPaddingException                Invalid Padding size
+     * @param newPartialReturnPrepaymentRequest New Partial Return Prepayment Request
+     * @return                                  New Partial Return Prepayment Response
+     * @throws OperationException               Cash Register Exception
      */
-    public NewPRPrepaymentResponse getNewPRPrepaymentResponse(NewPRPrepaymentRequest newPRPrepaymentRequest)
-            throws BadPaddingException, CashRegisterException, IOException, IllegalBlockSizeException,
-            InvalidKeyException, NoSuchAlgorithmException, NoSuchPaddingException {
-
-        byte[] requestBytes = this.objectMapper.writeValueAsBytes(newPRPrepaymentRequest);
-        byte[] encryptedRequestBytes = this.getEncryptedByteArray(false, requestBytes);
-        short length = (short)encryptedRequestBytes.length;
-        ByteBuffer encryptedRequestByteBuffer = ByteBuffer.allocate(REQUEST_HEADER_LENGTH + length);
-        encryptedRequestByteBuffer.put(REQUEST_HEADER).put(OPER_NEW_RETURN_RECEIPT).put(ZERO).putShort(length).put(encryptedRequestBytes);
-        NewPRPrepaymentResponse newPRPrepaymentResponse;
+    public NewPartialReturnPrepaymentResponse getNewPartialReturnPrepaymentResponse(
+            NewPartialReturnPrepaymentRequest newPartialReturnPrepaymentRequest) throws OperationException {
+        NewPartialReturnPrepaymentResponse newPartialReturnPrepaymentResponse;
         try {
-            ByteBuffer encryptedResponseByteBuffer;
-            encryptedResponseByteBuffer = this.sendRequestReceiveResponse(encryptedRequestByteBuffer);
-            byte[] encryptedResponseBytes = encryptedResponseByteBuffer.array();
-            byte[] decryptedResponseBytes;
-            decryptedResponseBytes = this.getDecryptedByteArray(false, encryptedResponseBytes);
-            newPRPrepaymentResponse = this.objectMapper.readValue(decryptedResponseBytes, NewPRPrepaymentResponse.class);
-            newPRPrepaymentResponse.setResponseCode(200);
-        } catch(AssertionError assertionError) {
-            newPRPrepaymentResponse = new NewPRPrepaymentResponse();
-            newPRPrepaymentResponse.setResponseCode(Integer.parseInt(assertionError.getMessage()));
+            byte[] requestByteArray =
+                    this.objectMapper.writeValueAsBytes(newPartialReturnPrepaymentRequest);
+            byte[] encryptedRequestByteArray =
+                    this.getEncryptedByteArrayBySessionKey(requestByteArray);
+            short length = (short)encryptedRequestByteArray.length;
+            ByteBuffer encryptedRequestByteBuffer =
+                    ByteBuffer.allocate(REQUEST_HEADER_LENGTH + length);
+            encryptedRequestByteBuffer
+                    .put(REQUEST_HEADER)
+                    .put(OPER_NEW_RETURN_RECEIPT).put(ZERO)
+                    .putShort(length).put(encryptedRequestByteArray);
+            ByteBuffer encryptedResponseByteBuffer =
+                    this.sendRequestReceiveResponse(encryptedRequestByteBuffer);
+            byte[] encryptedResponseByteArray = encryptedResponseByteBuffer.array();
+            byte[] decryptedResponseByteArray =
+                    this.getDecryptedByteArrayBySessionKey(encryptedResponseByteArray);
+            newPartialReturnPrepaymentResponse = this.objectMapper.readValue(
+                    decryptedResponseByteArray, NewPartialReturnPrepaymentResponse.class);
+            newPartialReturnPrepaymentResponse.setResponseCode(ResponseCodes.OK.getCode());
+        } catch (DecryptionException | EncryptionException |
+                IOException | NetworkException exception) {
+            throw new OperationException(exception.getMessage());
+        } catch (CommonResponseException commonResponseException) {
+            newPartialReturnPrepaymentResponse = new NewPartialReturnPrepaymentResponse();
+            newPartialReturnPrepaymentResponse.setResponseCode(
+                    commonResponseException.getCommonResponse().getResponseCode());
         }
-        return newPRPrepaymentResponse;
+        return newPartialReturnPrepaymentResponse;
     }
 
     /**
      * Get new original return prepayment receipt response
-     * @param newORPrepaymentRequest return prepayment receipt request related information
-     * @return Return prepayment receipt related information or error status
-     * @throws CashRegisterException                 ECR Exception
-     * @throws com.fasterxml.jackson.core.JsonProcessingException request cannot be serialized to JSON
-     * @throws java.io.IOException                                Standart Input Output Exception
-     * @throws java.security.InvalidKeyException                  3DES encryption/decryption key is not correct
-     * @throws java.security.NoSuchAlgorithmException             3DES encryption/decryption algorithm is not present
-     * @throws javax.crypto.BadPaddingException                   Invalid 3DES Padding block
-     * @throws javax.crypto.IllegalBlockSizeException             3DES Padding block not correct
-     * @throws javax.crypto.NoSuchPaddingException                Invalid Padding size
+     * @param newOriginalReturnPrepaymentRequest  New Original Return Prepayment Request
+     * @return                                    New Original Return Prepayment Response
+     * @throws OperationException                 Cash Register Exception
      */
-    public NewORPrepaymentResponse getNewORPrepaymentResponse(NewORPrepaymentRequest newORPrepaymentRequest)
-            throws BadPaddingException, CashRegisterException, IOException, IllegalBlockSizeException,
-            InvalidKeyException, NoSuchAlgorithmException, NoSuchPaddingException {
+    public NewOriginalReturnPrepaymentResponse getNewOriginalReturnPrepaymentResponse(
+            NewOriginalReturnPrepaymentRequest newOriginalReturnPrepaymentRequest)
+            throws OperationException {
 
-        byte[] requestBytes = this.objectMapper.writeValueAsBytes(newORPrepaymentRequest);
-        byte[] encryptedRequestBytes = this.getEncryptedByteArray(false, requestBytes);
-        short length = (short)encryptedRequestBytes.length;
-        ByteBuffer encryptedRequestByteBuffer = ByteBuffer.allocate(REQUEST_HEADER_LENGTH + length);
-        encryptedRequestByteBuffer.put(REQUEST_HEADER).put(OPER_NEW_RETURN_RECEIPT).put(ZERO).putShort(length).put(encryptedRequestBytes);
-        NewORPrepaymentResponse newORPrepaymentResponse;
+        NewOriginalReturnPrepaymentResponse newOriginalReturnPrepaymentResponse;
         try {
-            ByteBuffer encryptedResponseByteBuffer;
-            encryptedResponseByteBuffer = this.sendRequestReceiveResponse(encryptedRequestByteBuffer);
-            byte[] encryptedResponseBytes = encryptedResponseByteBuffer.array();
-            byte[] decryptedResponseBytes;
-            decryptedResponseBytes = this.getDecryptedByteArray(false, encryptedResponseBytes);
-            newORPrepaymentResponse = this.objectMapper.readValue(decryptedResponseBytes, NewORPrepaymentResponse.class);
-            newORPrepaymentResponse.setResponseCode(200);
-        } catch(AssertionError assertionError) {
-            newORPrepaymentResponse = new NewORPrepaymentResponse();
-            newORPrepaymentResponse.setResponseCode(Integer.parseInt(assertionError.getMessage()));
+            byte[] requestByteArray =
+                    this.objectMapper.writeValueAsBytes(newOriginalReturnPrepaymentRequest);
+            byte[] encryptedRequestByteArray =
+                    this.getEncryptedByteArrayBySessionKey(requestByteArray);
+            short length = (short) encryptedRequestByteArray.length;
+            ByteBuffer encryptedRequestByteBuffer =
+                    ByteBuffer.allocate(REQUEST_HEADER_LENGTH + length);
+            encryptedRequestByteBuffer
+                    .put(REQUEST_HEADER)
+                    .put(OPER_NEW_RETURN_RECEIPT).put(ZERO)
+                    .putShort(length).put(encryptedRequestByteArray);
+            ByteBuffer encryptedResponseByteBuffer =
+                    this.sendRequestReceiveResponse(encryptedRequestByteBuffer);
+            byte[] encryptedResponseByteArray = encryptedResponseByteBuffer.array();
+            byte[] decryptedResponseByteArray =
+                    this.getDecryptedByteArrayBySessionKey(encryptedResponseByteArray);
+            newOriginalReturnPrepaymentResponse = this.objectMapper.readValue(
+                    decryptedResponseByteArray, NewOriginalReturnPrepaymentResponse.class);
+            newOriginalReturnPrepaymentResponse.setResponseCode(ResponseCodes.OK.getCode());
+        } catch (DecryptionException | EncryptionException |
+                IOException | NetworkException exception) {
+            throw new OperationException(exception.getMessage());
+        } catch (CommonResponseException commonResponseException) {
+            newOriginalReturnPrepaymentResponse = new NewOriginalReturnPrepaymentResponse();
+            newOriginalReturnPrepaymentResponse.setResponseCode(
+                    commonResponseException.getCommonResponse().getResponseCode());
         }
-        return newORPrepaymentResponse;
+        return newOriginalReturnPrepaymentResponse;
     }
 
     /**
      * Get new partial return sale receipt response
-     * @param newPRSaleRequest return sale receipt request related information
-     * @return Return sale receipt related information or error status
-     * @throws CashRegisterException                 ECR Exception
-     * @throws com.fasterxml.jackson.core.JsonProcessingException request cannot be serialized to JSON
-     * @throws java.io.IOException                                Standart Input Output Exception
-     * @throws java.security.InvalidKeyException                  3DES encryption/decryption key is not correct
-     * @throws java.security.NoSuchAlgorithmException             3DES encryption/decryption algorithm is not present
-     * @throws javax.crypto.BadPaddingException                   Invalid 3DES Padding block
-     * @throws javax.crypto.IllegalBlockSizeException             3DES Padding block not correct
-     * @throws javax.crypto.NoSuchPaddingException                Invalid Padding size
+     * @param newPartialReturnSaleRequest         New Partial Return Sale Request
+     * @return                                    New Partial Return Sale Response
+     * @throws OperationException                 Cash Register Exception
      */
-    public NewPRSaleResponse getNewPRSaleResponse(NewPRSaleRequest newPRSaleRequest)
-            throws BadPaddingException, CashRegisterException, IOException, IllegalBlockSizeException,
-            InvalidKeyException, NoSuchAlgorithmException, NoSuchPaddingException {
+    public NewPartialReturnSaleResponse getNewPartialReturnSaleResponse(
+            NewPartialReturnSaleRequest newPartialReturnSaleRequest)
+            throws OperationException {
 
-        byte[] requestBytes = this.objectMapper.writeValueAsBytes(newPRSaleRequest);
-        byte[] encryptedRequestBytes = this.getEncryptedByteArray(false, requestBytes);
-        short length = (short)encryptedRequestBytes.length;
-        ByteBuffer encryptedRequestByteBuffer = ByteBuffer.allocate(REQUEST_HEADER_LENGTH + length);
-        encryptedRequestByteBuffer.put(REQUEST_HEADER).put(OPER_NEW_RETURN_RECEIPT).put(ZERO).putShort(length).put(encryptedRequestBytes);
-        NewPRSaleResponse newPRSaleResponse;
+        NewPartialReturnSaleResponse newPartialReturnSaleResponse;
         try {
-            ByteBuffer encryptedResponseByteBuffer;
-            encryptedResponseByteBuffer = this.sendRequestReceiveResponse(encryptedRequestByteBuffer);
-            byte[] encryptedResponseBytes = encryptedResponseByteBuffer.array();
-            byte[] decryptedResponseBytes;
-            decryptedResponseBytes = this.getDecryptedByteArray(false, encryptedResponseBytes);
-            newPRSaleResponse = this.objectMapper.readValue(decryptedResponseBytes, NewPRSaleResponse.class);
-            newPRSaleResponse.setResponseCode(200);
-        } catch(AssertionError assertionError) {
-            newPRSaleResponse = new NewPRSaleResponse();
-            newPRSaleResponse.setResponseCode(Integer.parseInt(assertionError.getMessage()));
+            byte[] requestByteArray =
+                    this.objectMapper.writeValueAsBytes(newPartialReturnSaleRequest);
+            byte[] encryptedRequestByteArray =
+                    this.getEncryptedByteArrayBySessionKey(requestByteArray);
+            short length = (short) encryptedRequestByteArray.length;
+            ByteBuffer encryptedRequestByteBuffer =
+                    ByteBuffer.allocate(REQUEST_HEADER_LENGTH + length);
+            encryptedRequestByteBuffer
+                    .put(REQUEST_HEADER)
+                    .put(OPER_NEW_RETURN_RECEIPT).put(ZERO)
+                    .putShort(length).put(encryptedRequestByteArray);
+            ByteBuffer encryptedResponseByteBuffer =
+                    this.sendRequestReceiveResponse(encryptedRequestByteBuffer);
+            byte[] encryptedResponseByteArray = encryptedResponseByteBuffer.array();
+            byte[] decryptedResponseByteArray =
+                    this.getDecryptedByteArrayBySessionKey(encryptedResponseByteArray);
+            newPartialReturnSaleResponse = this.objectMapper.readValue(
+                    decryptedResponseByteArray, NewPartialReturnSaleResponse.class);
+            newPartialReturnSaleResponse.setResponseCode(ResponseCodes.OK.getCode());
+        } catch (DecryptionException | EncryptionException |
+                IOException | NetworkException exception) {
+            throw new OperationException(exception.getMessage());
+        } catch(CommonResponseException commonResponseException) {
+            newPartialReturnSaleResponse = new NewPartialReturnSaleResponse();
+            newPartialReturnSaleResponse.setResponseCode(
+                    commonResponseException.getCommonResponse().getResponseCode());
         }
-        return newPRSaleResponse;
+        return newPartialReturnSaleResponse;
     }
 
     /**
      * Get new original return sale receipt response
-     * @param newORSaleRequest return sale receipt request related information
-     * @return Return sale receipt related information or error status
-     * @throws CashRegisterException                 ECR Exception
-     * @throws com.fasterxml.jackson.core.JsonProcessingException request cannot be serialized to JSON
-     * @throws java.io.IOException                                Standart Input Output Exception
-     * @throws java.security.InvalidKeyException                  3DES encryption/decryption key is not correct
-     * @throws java.security.NoSuchAlgorithmException             3DES encryption/decryption algorithm is not present
-     * @throws javax.crypto.BadPaddingException                   Invalid 3DES Padding block
-     * @throws javax.crypto.IllegalBlockSizeException             3DES Padding block not correct
-     * @throws javax.crypto.NoSuchPaddingException                Invalid Padding size
+     * @param newOriginalReturnSaleRequest        New Original Return Sale Request
+     * @return                                    New Original Return Sale Response
+     * @throws OperationException                 Cash Register Exception
      */
-    public NewORSaleResponse getNewORSaleResponse(NewORSaleRequest newORSaleRequest)
-            throws BadPaddingException, CashRegisterException, IOException, IllegalBlockSizeException,
-            InvalidKeyException, NoSuchAlgorithmException, NoSuchPaddingException {
+    public NewOriginalReturnSaleResponse getNewOriginalReturnSaleResponse(
+            NewOriginalReturnSaleRequest newOriginalReturnSaleRequest) throws OperationException {
 
-        byte[] requestBytes = this.objectMapper.writeValueAsBytes(newORSaleRequest);
-        byte[] encryptedRequestBytes = this.getEncryptedByteArray(false, requestBytes);
-        short length = (short)encryptedRequestBytes.length;
-        ByteBuffer encryptedRequestByteBuffer = ByteBuffer.allocate(REQUEST_HEADER_LENGTH + length);
-        encryptedRequestByteBuffer.put(REQUEST_HEADER).put(OPER_NEW_RETURN_RECEIPT).put(ZERO).putShort(length).put(encryptedRequestBytes);
-        NewORSaleResponse newORSaleResponse;
+        NewOriginalReturnSaleResponse newOriginalReturnSaleResponse;
         try {
-            ByteBuffer encryptedResponseByteBuffer;
-            encryptedResponseByteBuffer = this.sendRequestReceiveResponse(encryptedRequestByteBuffer);
-            byte[] encryptedResponseBytes = encryptedResponseByteBuffer.array();
-            byte[] decryptedResponseBytes;
-            decryptedResponseBytes = this.getDecryptedByteArray(false, encryptedResponseBytes);
-            newORSaleResponse = this.objectMapper.readValue(decryptedResponseBytes, NewORSaleResponse.class);
-            newORSaleResponse.setResponseCode(200);
-        } catch(AssertionError assertionError) {
-            newORSaleResponse = new NewORSaleResponse();
-            newORSaleResponse.setResponseCode(Integer.parseInt(assertionError.getMessage()));
+            byte[] requestByteArray =
+                    this.objectMapper.writeValueAsBytes(newOriginalReturnSaleRequest);
+            byte[] encryptedRequestByteArray =
+                    this.getEncryptedByteArrayBySessionKey(requestByteArray);
+            short length = (short) encryptedRequestByteArray.length;
+            ByteBuffer encryptedRequestByteBuffer =
+                    ByteBuffer.allocate(REQUEST_HEADER_LENGTH + length);
+            encryptedRequestByteBuffer
+                    .put(REQUEST_HEADER)
+                    .put(OPER_NEW_RETURN_RECEIPT).put(ZERO)
+                    .putShort(length).put(encryptedRequestByteArray);
+            ByteBuffer encryptedResponseByteBuffer =
+                    this.sendRequestReceiveResponse(encryptedRequestByteBuffer);
+            byte[] encryptedResponseByteArray = encryptedResponseByteBuffer.array();
+            byte[] decryptedResponseByteArray =
+                    this.getDecryptedByteArrayBySessionKey(encryptedResponseByteArray);
+            newOriginalReturnSaleResponse = this.objectMapper.readValue(
+                    decryptedResponseByteArray, NewOriginalReturnSaleResponse.class);
+            newOriginalReturnSaleResponse.setResponseCode(ResponseCodes.OK.getCode());
+        } catch (DecryptionException | EncryptionException |
+                IOException | NetworkException exception) {
+            throw new OperationException(exception.getMessage());
+        } catch(CommonResponseException commonResponseException) {
+            newOriginalReturnSaleResponse = new NewOriginalReturnSaleResponse();
+            newOriginalReturnSaleResponse.setResponseCode(
+                    commonResponseException.getCommonResponse().getResponseCode());
         }
-        return newORSaleResponse;
+        return newOriginalReturnSaleResponse;
     }
 
     /**
      * Get new sale receipt response
-     * @return Sale Receipt related information or error status
-     * @throws CashRegisterException                 ECR Exception
-     * @throws com.fasterxml.jackson.core.JsonProcessingException request cannot be serialized to JSON
-     * @throws java.io.IOException                                Standart Input Output Exception
-     * @throws java.security.InvalidKeyException                  3DES encryption/decryption key is not correct
-     * @throws java.security.NoSuchAlgorithmException             3DES encryption/decryption algorithm is not present
-     * @throws javax.crypto.BadPaddingException                   Invalid 3DES Padding block
-     * @throws javax.crypto.IllegalBlockSizeException             3DES Padding block not correct
-     * @throws javax.crypto.NoSuchPaddingException                Invalid Padding size
+     * @param newSaleRequest                      New Sale Request
+     * @return                                    New Sale Response
+     * @throws OperationException                 Cash Register Exception
      */
-    public NewSaleResponse getNewSaleResponse(NewSaleRequest newSaleRequest)
-            throws BadPaddingException, CashRegisterException, IOException, IllegalBlockSizeException,
-            InvalidKeyException, NoSuchAlgorithmException, NoSuchPaddingException {
+    public NewSaleResponse getNewSaleResponse(
+            NewSaleRequest newSaleRequest) throws OperationException {
 
-        byte[] requestBytes = this.objectMapper.writeValueAsBytes(newSaleRequest);
-        byte[] encryptedRequestBytes = this.getEncryptedByteArray(false, requestBytes);
-        short length = (short)encryptedRequestBytes.length;
-        ByteBuffer encryptedRequestByteBuffer = ByteBuffer.allocate(REQUEST_HEADER_LENGTH + length);
-        encryptedRequestByteBuffer.put(REQUEST_HEADER).put(OPER_NEW_SALE_PREPAYMENT_RECEIPT).put(ZERO).putShort(length).put(encryptedRequestBytes);
         NewSaleResponse newSaleResponse;
         try {
-            ByteBuffer encryptedResponseByteBuffer;
-            encryptedResponseByteBuffer = this.sendRequestReceiveResponse(encryptedRequestByteBuffer);
-            byte[] encryptedResponseBytes = encryptedResponseByteBuffer.array();
-            byte[] decryptedResponseBytes;
-            decryptedResponseBytes = this.getDecryptedByteArray(false, encryptedResponseBytes);
-            newSaleResponse = this.objectMapper.readValue(decryptedResponseBytes, NewSaleResponse.class);
-            newSaleResponse.setResponseCode(200);
-        } catch (AssertionError assertionError) {
+            byte[] requestByteArray =
+                    this.objectMapper.writeValueAsBytes(newSaleRequest);
+            byte[] encryptedRequestByteArray =
+                    this.getEncryptedByteArrayBySessionKey(requestByteArray);
+            short length = (short) encryptedRequestByteArray.length;
+            ByteBuffer encryptedRequestByteBuffer =
+                    ByteBuffer.allocate(REQUEST_HEADER_LENGTH + length);
+            encryptedRequestByteBuffer
+                    .put(REQUEST_HEADER)
+                    .put(OPER_NEW_SALE_PREPAYMENT_RECEIPT).put(ZERO)
+                    .putShort(length).put(encryptedRequestByteArray);
+            ByteBuffer encryptedResponseByteBuffer =
+                    this.sendRequestReceiveResponse(encryptedRequestByteBuffer);
+            byte[] encryptedResponseByteArray = encryptedResponseByteBuffer.array();
+            byte[] decryptedResponseByteArray
+                    = this.getDecryptedByteArrayBySessionKey(encryptedResponseByteArray);
+            newSaleResponse = this.objectMapper.readValue(
+                    decryptedResponseByteArray, NewSaleResponse.class);
+            newSaleResponse.setResponseCode(ResponseCodes.OK.getCode());
+        } catch (DecryptionException | EncryptionException |
+                IOException | NetworkException exception) {
+            throw new OperationException(exception.getMessage());
+        } catch (CommonResponseException commonResponseException) {
             newSaleResponse = new NewSaleResponse();
-            newSaleResponse.setResponseCode(Integer.parseInt(assertionError.getMessage()));
+            newSaleResponse.setResponseCode(
+                    commonResponseException.getCommonResponse().getResponseCode());
         }
         return newSaleResponse;
-    }
-
-    enum ResponseCodes {
-
-        OK(200),
-        INTERNAL_ERROR(500),
-
-        ERROR_BAD_REQUEST(400),
-        ERROR_WRONG_PROTOCOL_VERSION(402),
-
-        ERROR_UNAUTHORIZED_CONNECTION(403),
-        ERROR_BAD_OP_CODE(404),
-
-        SIMPLE_RECEIPT_NOT_ALLOWED(410),
-
-        LOGIN_ERROR_WRONG_PASS(101),
-        ERROR_WRONG_SESSION(102),
-        ERROR_WRONG_REQ_HEADER(103),
-        ERROR_WRONG_RSEQ(104),
-        ERROR_WRONG_JSON(105),
-
-        LOGIN_ERROR_WRONG_USER(111),
-        LOGIN_ERROR_NO_SUCH_USER(112),
-        LOGIN_ERROR_INACTIVE_USER(113),
-
-        ERROR_NO_USER(121),
-
-        LAST_RECEIPT_NO_FILE(141),
-        LAST_RECEIPT_ANOTHER_CASHIER(142),
-        LAST_RECEIPT_PRN_FAIL(143),
-        LAST_RECEIPT_PRN_INIT(144),
-        LAST_RECEIPT_PRN_NO_PAPER(145),
-
-        PRINT_RECEIPT_NO_DEPT(151),
-        PRINT_RECEIPT_PAID_LESS(152),
-        PRINT_RECEIPT_LIMIT(153),
-        PRINT_RECEIPT_AMOUNT_POS(154),
-        PRINT_RECEIPT_SYNC_NEEDED(155),
-        PRINT_RECEIPT_SIMPLE_INVALID_ITEM_COUNT(156),
-        RECEIPT_RETURN_INVALID_ID(157),
-        RECEIPT_RETURN_ALREADY_RETURNED(158),
-        RECEIPT_PRICE_QTY_NONZERO(159),
-        RECEIPT_PRICE_INVALID_DISCOUNT_PERCENT(160),
-
-        PRINT_RECEIPT_ERROR_EMPTY_CODE(161),
-        PRINT_RECEIPT_ERROR_EMPTY_NAME(162),
-
-        PRINT_RECEIPT_AMOUNT_CASH(163),
-        PAYMENT_FAILED(164),
-        RECEIPT_ITEM_FULL_PRICE_NONZERO(165),
-        RECEIPT_PRICE_QTY_NOT_EQUAL(166),
-        RECEIPT_PAYMENT_AMOUNT_MORE_THAN_TOTAL(167),
-        RECEIPT_PAYMENT_AMOUNT_REDUNDANT_CASH(168),
-
-        PRINT_FISCAL_REPORT_WRONG_FILTERS(169),
-        PRINT_FISCAL_REPORT_INVALID_PERIOD(170),
-
-        RECEIPT_PRICE_INVALID_ITEM_TOTAL_PRICE(171),
-        GET_RECEIPT_TYPE_NOT_A_PRODUCT_RECEIPT(172),
-        INVALID_DISCOUNT_TYPES(173),
-        RETURN_RECEIPT_DOES_NOT_EXIST(174),
-
-        RETURN_RECEIPT_INVALID_CRN(175),
-        ERROR_LAST_RECEIPT_DOES_NOT_EXIST(176),
-        RETURN_RECEIPT_TYPE_NOT_SUPPORTED(177),
-        RECEIPT_RETURN_BAD_REQUESTED_AMOUNT(178),
-        ERROR_PARTIAL_PAYMENT_RECEIPT_MUST_BE_RETURNED_FULLY(179),
-        RECEIPT_RETURN_MISSING_PRODUCT_LIST(180),
-        RECEIPT_RETURN_INVALID_QUANTITY_FOR_ITEM(181),
-        ERROR_RETURN_RECEIPT_IS_RETURN_TYPE(182),
-        ERROR_INVALID_ATG_CODE(183),
-        PREPAYMENT_RETURN_INVALID_REQUEST(184),
-        RECEIPT_HAS_NOT_SYNCED_REFERENCED_RECEIPTS(185),
-
-        UNKNOWN_RESPONSE_CODE(-1);
-
-        int code;
-
-        ResponseCodes(int code) {
-            this.code = code;
-        }
-        public static ResponseCodes get(int code) {
-            for (ResponseCodes a : ResponseCodes.values()) {
-                if (a.code == code)
-                    return a;
-            }
-            return UNKNOWN_RESPONSE_CODE;
-        }
     }
 }

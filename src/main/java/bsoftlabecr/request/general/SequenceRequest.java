@@ -1,12 +1,12 @@
 package bsoftlabecr.request.general;
 
 public class SequenceRequest extends CommonRequest {
-    private int seq;
+    private Integer seq = null;
 
-    public int getSeq() {
+    public Integer getSeq() {
         return this.seq;
     }
-    public void setSeq(int seq) {
+    public void setSeq(Integer seq) {
         this.seq = seq;
     }
 }

@@ -3,21 +3,21 @@ package bsoftlabecr.response.receipt.general;
 import bsoftlabecr.response.general.CommonResponse;
 
 public class NewReceiptResponse extends CommonResponse {
-    private int rseq;               // Կտրոնի հերթական համար
-    private String crn;             // ՀԴՄ-ի գրանցման համարը
-    private String sn;              // ՀԴՄ գործարանային համարը
-    private String tin;             // Կազմակերպության ՀՎՀՀ-ն
-    private String taxpayer;        // Կազմակերպության անվանումը
-    private String address;         // Կազմակերպության հասցեն
-    private double time;            // Կտրոնի գրանցման/տպման ամսաթիվ ու ժամ
-    private String fiscal;          // Ֆիսկալ համար
-    private String lottery;         // Վիճակահանության համարը
-    private int prize;              // 0 – շահում չկա: 1 – շահում կա
-    private double total;           // Ընդհանուր գումար
-    private double change;          // Մանրադրամ
-    private String qr;              // Անհրաժեշտ է տպել QR կոդի տեսքով
+    private Integer rseq = null;           // Կտրոնի հերթական համար
+    private String crn = null;             // ՀԴՄ-ի գրանցման համարը
+    private String sn = null;              // ՀԴՄ գործարանային համարը
+    private String tin = null;             // Կազմակերպության ՀՎՀՀ-ն
+    private String taxpayer = null;        // Կազմակերպության անվանումը
+    private String address = null;         // Կազմակերպության հասցեն
+    private Double time = null;            // Կտրոնի գրանցման/տպման ամսաթիվ ու ժամ
+    private String fiscal = null;          // Ֆիսկալ համար
+    private String lottery = null;         // Վիճակահանության համարը
+    private Integer prize = null;          // 0 – շահում չկա: 1 – շահում կա
+    private Double total = null;           // Ընդհանուր գումար
+    private Double change = null;          // Մանրադրամ
+    private String qr = null;              // Անհրաժեշտ է տպել QR կոդի տեսքով
 
-    public int getRseq() {
+    public Integer getRseq() {
         return this.rseq;
     }
     public String getCrn() {
@@ -35,7 +35,7 @@ public class NewReceiptResponse extends CommonResponse {
     public String getAddress() {
         return this.address;
     }
-    public double getTime() {
+    public Double getTime() {
         return this.time;
     }
     public String getFiscal() {
@@ -44,18 +44,18 @@ public class NewReceiptResponse extends CommonResponse {
     public String getLottery() {
         return this.lottery;
     }
-    public int getPrize() {
+    public Integer getPrize() {
         return this.prize;
     }
-    public double getTotal() {
+    public Double getTotal() {
         return this.total;
     }
-    public double getChange() {
+    public Double getChange() {
         return this.change;
     }
     public String getQr() { return this.qr; }
 
-    public void setRseq(int rseq) {
+    public void setRseq(Integer rseq) {
         this.rseq = rseq;
     }
     public void setCrn(String crn) {
@@ -73,7 +73,7 @@ public class NewReceiptResponse extends CommonResponse {
     public void setAddress(String address) {
         this.address = address;
     }
-    public void setTime(double time) {
+    public void setTime(Double time) {
         this.time = time;
     }
     public void setFiscal(String fiscal) {
@@ -82,13 +82,13 @@ public class NewReceiptResponse extends CommonResponse {
     public void setLottery(String lottery) {
         this.lottery = lottery;
     }
-    public void setPrize(int prize) {
+    public void setPrize(Integer prize) {
         this.prize = prize;
     }
-    public void setTotal(double total) {
+    public void setTotal(Double total) {
         this.total = total;
     }
-    public void setChange(double change) {
+    public void setChange(Double change) {
         this.change = change;
     }
     public void setQr(String qr) { this.qr = qr; }

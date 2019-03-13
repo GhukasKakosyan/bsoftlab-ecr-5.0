@@ -1,11 +1,15 @@
 package bsoftlabecr.response.general;
 
 public class CommonResponse {
-    private int responseCode;
-    public int getResponseCode() {
+    private Integer responseCode;
+    public CommonResponse() {}
+    public CommonResponse(Integer responseCode) {
+        this.responseCode = responseCode;
+    }
+    public Integer getResponseCode() {
         return this.responseCode;
     }
-    public void setResponseCode(int responseCode) {
+    public void setResponseCode(Integer responseCode) {
         this.responseCode = responseCode;
     }
 }

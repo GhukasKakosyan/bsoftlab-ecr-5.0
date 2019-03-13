@@ -1,27 +1,27 @@
 package bsoftlabecr.entity;
 
 public class Department {
-    private int id;
-    private String name;
-    private int type;
+    private Integer id = null;
+    private String name = null;
+    private Integer type = null;
 
-    public int getId() {
+    public Integer getId() {
         return this.id;
     }
     public String getName() {
         return this.name;
     }
-    public int getType() {
+    public Integer getType() {
         return this.type;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
     public void setName(String name) {
         this.name = name;
     }
-    public void setType(int type) {
+    public void setType(Integer type) {
         this.type = type;
     }
 }

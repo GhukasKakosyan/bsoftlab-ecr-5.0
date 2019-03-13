@@ -1,27 +1,27 @@
 package bsoftlabecr.entity;
 
 public class Cashier {
-    private int id;
-    private String name;
-    private int[] deps;
+    private Integer id = null;
+    private String name = null;
+    private Integer[] deps = null;
 
-    public int getId() {
+    public Integer getId() {
         return this.id;
     }
     public String getName() {
         return this.name;
     }
-    public int[] getDeps() {
+    public Integer[] getDeps() {
         return this.deps;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
     public void setName(String name) {
         this.name = name;
     }
-    public void setDeps(int[] deps) {
+    public void setDeps(Integer[] deps) {
         this.deps = deps;
     }
 }

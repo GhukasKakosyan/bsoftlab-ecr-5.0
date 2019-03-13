@@ -2,7 +2,7 @@ package bsoftlabecr.request.cashier;
 
 import bsoftlabecr.request.general.CommonRequest;
 
-public class CashiersAndDepsRequest extends CommonRequest{
+public class CashiersAndDepsRequest extends CommonRequest {
     private String password;
 
     public String getPassword() {

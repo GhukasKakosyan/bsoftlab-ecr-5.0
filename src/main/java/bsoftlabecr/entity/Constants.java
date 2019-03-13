@@ -3,9 +3,9 @@ package bsoftlabecr.entity;
 public class Constants {
     private String crn = null;
     private String ip = null;
-    private int port = 0;
+    private Integer port = null;
     private String password = null;
-    private int cashierId = 0;
+    private Integer cashierId = null;
     private String cashierPassword = null;
 
     public String getCrn() {
@@ -14,13 +14,13 @@ public class Constants {
     public String getIp() {
         return this.ip;
     }
-    public int getPort() {
+    public Integer getPort() {
         return this.port;
     }
     public String getPassword() {
         return this.password;
     }
-    public int getCashierId() {
+    public Integer getCashierId() {
         return this.cashierId;
     }
     public String getCashierPassword() {
@@ -33,13 +33,13 @@ public class Constants {
     public void setIp(String ip) {
         this.ip = ip;
     }
-    public void setPort(int port) {
+    public void setPort(Integer port) {
         this.port = port;
     }
     public void setPassword(String password) {
         this.password = password;
     }
-    public void setCashierId(int cashierId) {
+    public void setCashierId(Integer cashierId) {
         this.cashierId = cashierId;
     }
     public void setCashierPassword(String cashierPassword) {

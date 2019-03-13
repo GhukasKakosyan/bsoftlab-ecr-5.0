@@ -3,8 +3,8 @@ package bsoftlabecr.request.receipt.prepayment;
 import bsoftlabecr.request.general.SequenceRequest;
 
 public class ExistPrepaymentRequest extends SequenceRequest {
-    private String crn;             // Վերադարձվող կտրոնի տպած սարքի գրանցման համար
-    private String receiptId;       // Վերադարձվող կտրոնի համար
+    private String crn = null;             // Վերադարձվող կտրոնի տպած սարքի գրանցման համար
+    private String receiptId = null;       // Վերադարձվող կտրոնի համար
 
     public String getCrn () {
         return this.crn;

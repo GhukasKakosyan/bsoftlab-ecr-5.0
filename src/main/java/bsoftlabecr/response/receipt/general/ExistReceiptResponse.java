@@ -8,17 +8,17 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 @JsonIgnoreProperties({"error"})
 public class ExistReceiptResponse extends CommonResponse {
-    private String cid;         // Գանձապահի ID
-    private String time;        // Կտրոնի գրանցման/տպման ամսաթիվ ու ժամ
-    private String ta;          // Ընդհամենը գումար
-    private String cash;        // Առձեռն մուծված գումար
-    private String card;        // Անկանխիկ մուծված գումար
-    private String ppa;         // Մասնակի վճարված գումար
-    private String ppu;         // Օգտագործված կանխավճար
-    private String ref;         // Վերադարդարձվող կտրոնի համար
-    private String refcrn;      // Վերադարձվող կտրոն տպած ՀԴՄ-ի գրանցման համար
-    private String saleType;    // Գործարքի տիպ՝ 0 – Վաճառք, 2 – Վերադարձ, 3 – Կանխավճար
-    private String type;        // Գործարքի տիպ՝ 0 – Վաճառք, 2 – Վերադարձ, 3 – Կանխավճար
+    private String cid = null;         // Գանձապահի ID
+    private String time = null;        // Կտրոնի գրանցման/տպման ամսաթիվ ու ժամ
+    private String ta = null;          // Ընդհամենը գումար
+    private String cash = null;        // Առձեռն մուծված գումար
+    private String card = null;        // Անկանխիկ մուծված գումար
+    private String ppa = null;         // Մասնակի վճարված գումար
+    private String ppu = null;         // Օգտագործված կանխավճար
+    private String ref = null;         // Վերադարդարձվող կտրոնի համար
+    private String refcrn = null;      // Վերադարձվող կտրոն տպած ՀԴՄ-ի գրանցման համար
+    private String saleType = null;    // Գործարքի տիպ՝ 0 – Վաճառք, 2 – Վերադարձ, 3 – Կանխավճար
+    private String type = null;        // Գործարքի տիպ՝ 0 – Վաճառք, 2 – Վերադարձ, 3 – Կանխավճար
 
     public ExistReceiptResponse() {}
 
@@ -95,21 +95,21 @@ public class ExistReceiptResponse extends CommonResponse {
     public SubTotal[] totals;
 
     public static class SubTotal {
-        private String did;     //Բաժնի համար
-        private String dt;      //Բաժնի ԱԱՀ
-        private String dtm;     //Բաժնի հարկման ռեժիմ
-        private String t;       //Ընդամենը գումար առանց ԱԱՀ
-        private String tt;      //Ընդամենը գումար ԱԱՀ-ով
-        private String gc;      //Ապրանքի կոդ
-        private String gn;      //Ապրանքի անվանում
-        private String qty;     //Ապրանքի քանակ
-        private String p;       //Ապրանքի գին
-        private String adg;     //Ապրանքի ԱՏԳ կոդ
-        private String mu;      //Ապրանքի չափման միավոր
-        private String dsc;     //Զեղչ
-        private String adsc;    //Համամասնորեն զեղչ
-        private String dsct;    //Զեղչի տեսակ
-        private String rpid;    //Ապրանքի տողի համարը
+        private String did = null;     //Բաժնի համար
+        private String dt = null;      //Բաժնի ԱԱՀ
+        private String dtm = null;     //Բաժնի հարկման ռեժիմ
+        private String t = null;       //Ընդամենը գումար առանց ԱԱՀ
+        private String tt = null;      //Ընդամենը գումար ԱԱՀ-ով
+        private String gc = null;      //Ապրանքի կոդ
+        private String gn = null;      //Ապրանքի անվանում
+        private String qty = null;     //Ապրանքի քանակ
+        private String p = null;       //Ապրանքի գին
+        private String adg = null;     //Ապրանքի ԱՏԳ կոդ
+        private String mu = null;      //Ապրանքի չափման միավոր
+        private String dsc = null;     //Զեղչ
+        private String adsc = null;    //Համամասնորեն զեղչ
+        private String dsct = null;    //Զեղչի տեսակ
+        private String rpid = null;    //Ապրանքի տողի համարը
 
         public SubTotal() {}
 

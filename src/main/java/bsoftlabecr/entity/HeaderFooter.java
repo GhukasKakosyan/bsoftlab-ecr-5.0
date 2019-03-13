@@ -23,31 +23,31 @@ public class HeaderFooter {
 
     private static final int FONT_SIZE_MULTIPLIER = 8;
 
-    private int align;
-    private int bold;
-    private int fsize;
-    private String text;
+    private Integer align = null;
+    private Integer bold = null;
+    private Integer fsize = null;
+    private String text = null;
 
-    public int getAlign() {
+    public Integer getAlign() {
         return this.align;
     }
-    public int getBold() {
+    public Integer getBold() {
         return this.bold;
     }
-    public int getFsize() {
+    public Integer getFsize() {
         return this.fsize;
     }
     public String getText() {
         return this.text;
     }
 
-    public void setAlign(int align) {
+    public void setAlign(Integer align) {
         this.align = align;
     }
-    public void setBold(int bold) {
+    public void setBold(Integer bold) {
         this.bold = bold;
     }
-    public void setFsize(int fsize) {
+    public void setFsize(Integer fsize) {
         this.fsize = fsize * FONT_SIZE_MULTIPLIER;
     }
     public void setText(String text) {

@@ -1,20 +1,20 @@
 package bsoftlabecr.entity;
 
 public class ReturnItem {
-    private long rpid;
-    private double quantity;
+    private Long rpid;
+    private Double quantity;
 
-    public long getRpid() {
+    public Long getRpid() {
         return this.rpid;
     }
-    public double getQuantity() {
+    public Double getQuantity() {
         return this.quantity;
     }
 
-    public void setRpid(long rpid) {
+    public void setRpid(Long rpid) {
         this.rpid = rpid;
     }
-    public void setQuantity(double quantity) {
+    public void setQuantity(Double quantity) {
         this.quantity = quantity;
     }
 }
