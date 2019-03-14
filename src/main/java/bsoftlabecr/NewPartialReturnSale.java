@@ -34,7 +34,7 @@ public class NewPartialReturnSale {
     private static final String NewPartialReturnSaleRequestXmlFileName =
             "bsoftlabecrdata/NewPartialReturnSaleRequest.xml";
     private static final String NewPartialReturnSaleResponseXmlFileName =
-            "BSOFTLABECRDATA/NewPartialReturnSaleResponse.xml";
+            "bsoftlabecrdata/NewPartialReturnSaleResponse.xml";
 
     public static void main(String[] args) {
         Constants constants;

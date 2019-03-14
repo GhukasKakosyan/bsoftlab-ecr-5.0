@@ -33,9 +33,9 @@ public class NewOriginalReturnPrepayment {
     private static final String ConstantsXmlFileName =
             "bsoftlabecrdata/Constants.xml";
     private static final String NewOriginalReturnPrepaymentRequestXmlFileName =
-            "BSOFTLABECRDATA/NewOriginalReturnPrepaymentRequest.xml";
+            "bsoftlabecrdata/NewOriginalReturnPrepaymentRequest.xml";
     private static final String NewOriginalReturnPrepaymentResponseXmlFileName =
-            "BSOFTLABECRDATA/NewOriginalReturnPrepaymentResponse.xml";
+            "bsoftlabecrdata/NewOriginalReturnPrepaymentResponse.xml";
 
     public static void main(String[] args) {
         Constants constants;
