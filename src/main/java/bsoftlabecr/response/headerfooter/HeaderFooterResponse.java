@@ -1,5 +1,5 @@
 package bsoftlabecr.response.headerfooter;
 
-import bsoftlabecr.response.general.CommonResponse;
+import bsoftlabecr.response.general.CashRegisterResponse;
 
-public class HeaderFooterResponse extends CommonResponse {}
+public class HeaderFooterResponse extends CashRegisterResponse {}

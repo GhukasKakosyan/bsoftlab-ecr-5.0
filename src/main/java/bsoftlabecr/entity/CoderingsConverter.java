@@ -10,9 +10,9 @@ public class CoderingsConverter {
             int endIndex = indexLetter + 6;
             String codering = coderings.substring(startIndex, endIndex);
             String letter = "";
-            for (Alphabet alphabet : Alphabet.values()) {
-                if (alphabet.getCodering().equals(codering)) {
-                    letter = alphabet.getLetter();
+            for (ArmenianLetter armenianLetter : ArmenianLetter.values()) {
+                if (armenianLetter.getCodering().equals(codering)) {
+                    letter = armenianLetter.getLetter();
                     break;
                 }
             }

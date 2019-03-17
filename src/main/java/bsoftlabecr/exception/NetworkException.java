@@ -1,7 +1,8 @@
 package bsoftlabecr.exception;
 
-public class NetworkException extends Exception {
-    public NetworkException(String messageException) {
-        super(messageException);
+public class NetworkException extends OperationException {
+    public NetworkException(Integer responseCode) {
+        super(responseCode);
+        this.setResponseCode(responseCode);
     }
 }

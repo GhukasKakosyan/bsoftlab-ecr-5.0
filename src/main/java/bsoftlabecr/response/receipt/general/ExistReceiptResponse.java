@@ -1,26 +1,29 @@
 package bsoftlabecr.response.receipt.general;
 
-import bsoftlabecr.response.general.CommonResponse;
-
+import bsoftlabecr.response.general.CashRegisterResponse;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonUnwrapped;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 @JsonIgnoreProperties({"error"})
-public class ExistReceiptResponse extends CommonResponse {
-    private String cid = null;         // Գանձապահի ID
-    private String time = null;        // Կտրոնի գրանցման/տպման ամսաթիվ ու ժամ
-    private String ta = null;          // Ընդհամենը գումար
-    private String cash = null;        // Առձեռն մուծված գումար
-    private String card = null;        // Անկանխիկ մուծված գումար
-    private String ppa = null;         // Մասնակի վճարված գումար
-    private String ppu = null;         // Օգտագործված կանխավճար
-    private String ref = null;         // Վերադարդարձվող կտրոնի համար
-    private String refcrn = null;      // Վերադարձվող կտրոն տպած ՀԴՄ-ի գրանցման համար
-    private String saleType = null;    // Գործարքի տիպ՝ 0 – Վաճառք, 2 – Վերադարձ, 3 – Կանխավճար
-    private String type = null;        // Գործարքի տիպ՝ 0 – Վաճառք, 2 – Վերադարձ, 3 – Կանխավճար
+public class ExistReceiptResponse extends CashRegisterResponse {
+
+    private String cid = null;              // Գանձապահի ID
+    private String time = null;             // Կտրոնի գրանցման/տպման ամսաթիվ ու ժամ
+    private String ta = null;               // Ընդհամենը գումար
+    private String cash = null;             // Առձեռն մուծված գումար
+    private String card = null;             // Անկանխիկ մուծված գումար
+    private String ppa = null;              // Մասնակի վճարված գումար
+    private String ppu = null;              // Օգտագործված կանխավճար
+    private String ref = null;              // Վերադարդարձվող կտրոնի համար
+    private String refcrn = null;           // Վերադարձվող կտրոն տպած ՀԴՄ-ի գրանցման համար
+    private String saleType = null;         // Գործարքի տիպ՝ 0 – Վաճառք, 2 – Վերադարձ, 3 – Կանխավճար
+    private String type = null;             // Գործարքի տիպ՝ 0 – Վաճառք, 2 – Վերադարձ, 3 – Կանխավճար
 
     public ExistReceiptResponse() {}
+    public ExistReceiptResponse(Integer responseCode) {
+        super(responseCode);
+    }
 
     public String getCid() {
         return this.cid;

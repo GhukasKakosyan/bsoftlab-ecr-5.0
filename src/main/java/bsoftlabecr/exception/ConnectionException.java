@@ -1,7 +1,8 @@
 package bsoftlabecr.exception;
 
-public class ConnectionException extends Exception {
-    public ConnectionException(String messageException) {
-        super(messageException);
+public class ConnectionException extends CashRegisterException {
+    public ConnectionException(Integer responseCode) {
+        super(responseCode);
+        this.setResponseCode(responseCode);
     }
 }

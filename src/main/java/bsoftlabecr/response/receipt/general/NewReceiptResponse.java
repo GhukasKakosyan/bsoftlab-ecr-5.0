@@ -1,21 +1,27 @@
 package bsoftlabecr.response.receipt.general;
 
-import bsoftlabecr.response.general.CommonResponse;
+import bsoftlabecr.response.general.CashRegisterResponse;
 
-public class NewReceiptResponse extends CommonResponse {
-    private Integer rseq = null;           // Կտրոնի հերթական համար
-    private String crn = null;             // ՀԴՄ-ի գրանցման համարը
-    private String sn = null;              // ՀԴՄ գործարանային համարը
-    private String tin = null;             // Կազմակերպության ՀՎՀՀ-ն
-    private String taxpayer = null;        // Կազմակերպության անվանումը
-    private String address = null;         // Կազմակերպության հասցեն
-    private Double time = null;            // Կտրոնի գրանցման/տպման ամսաթիվ ու ժամ
-    private String fiscal = null;          // Ֆիսկալ համար
-    private String lottery = null;         // Վիճակահանության համարը
-    private Integer prize = null;          // 0 – շահում չկա: 1 – շահում կա
-    private Double total = null;           // Ընդհանուր գումար
-    private Double change = null;          // Մանրադրամ
-    private String qr = null;              // Անհրաժեշտ է տպել QR կոդի տեսքով
+public class NewReceiptResponse extends CashRegisterResponse {
+
+    private Integer rseq = null;            // Կտրոնի հերթական համար
+    private String crn = null;              // ՀԴՄ-ի գրանցման համարը
+    private String sn = null;               // ՀԴՄ գործարանային համարը
+    private String tin = null;              // Կազմակերպության ՀՎՀՀ-ն
+    private String taxpayer = null;         // Կազմակերպության անվանումը
+    private String address = null;          // Կազմակերպության հասցեն
+    private Double time = null;             // Կտրոնի գրանցման/տպման ամսաթիվ ու ժամ
+    private String fiscal = null;           // Ֆիսկալ համար
+    private String lottery = null;          // Վիճակահանության համարը
+    private Integer prize = null;           // 0 – շահում չկա: 1 – շահում կա
+    private Double total = null;            // Ընդհանուր գումար
+    private Double change = null;           // Մանրադրամ
+    private String qr = null;               // Անհրաժեշտ է տպել QR կոդի տեսքով
+
+    public NewReceiptResponse() {}
+    public NewReceiptResponse(Integer responseCode) {
+        super(responseCode);
+    }
 
     public Integer getRseq() {
         return this.rseq;

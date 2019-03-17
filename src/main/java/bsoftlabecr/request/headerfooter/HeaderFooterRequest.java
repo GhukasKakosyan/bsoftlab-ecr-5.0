@@ -1,12 +1,12 @@
 package bsoftlabecr.request.headerfooter;
 
 import bsoftlabecr.entity.HeaderFooter;
-import bsoftlabecr.request.general.CommonRequest;
+import bsoftlabecr.request.general.CashRegisterRequest;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class HeaderFooterRequest extends CommonRequest {
+public class HeaderFooterRequest extends CashRegisterRequest {
     private List<HeaderFooter> headers = new ArrayList<>();
     private List<HeaderFooter> footers = new ArrayList<>();
 

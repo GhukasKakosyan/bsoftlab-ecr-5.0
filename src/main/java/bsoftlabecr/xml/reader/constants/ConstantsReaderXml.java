@@ -1,8 +1,8 @@
 package bsoftlabecr.xml.reader.constants;
 
 import bsoftlabecr.entity.Constants;
-import bsoftlabecr.exception.XmlFileInvalidException;
-import bsoftlabecr.exception.XmlFileNotFoundException;
+import bsoftlabecr.entity.ResponseType;
+import bsoftlabecr.exception.XmlFileReadException;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -22,9 +22,8 @@ public class ConstantsReaderXml {
     private static final String CONSTANTS_CASHIERID = "cashierId";
     private static final String CONSTANTS_CASHIERPASSWORD = "cashierPassword";
 
-    private String fileName = null;
+    private String fileName;
 
-    public ConstantsReaderXml() {}
     public ConstantsReaderXml(String fileName) {
         this.fileName = fileName;
     }
@@ -32,12 +31,8 @@ public class ConstantsReaderXml {
     public String getFileName() {
         return this.fileName;
     }
-    public void setFileName(String fileName) {
-        this.fileName = fileName;
-    }
 
-    public Constants readFile()
-            throws XmlFileInvalidException, XmlFileNotFoundException {
+    public Constants read() throws XmlFileReadException {
 
         String crn = null;
         String ip = null;
@@ -134,14 +129,14 @@ public class ConstantsReaderXml {
                 }
             }
 
-        } catch (FileNotFoundException fileNotFoundException) {
-            throw new XmlFileNotFoundException(this.fileName);
-        } catch (XMLStreamException xmlStreamException) {
-            throw new XmlFileInvalidException(this.fileName);
+        } catch (FileNotFoundException | XMLStreamException exception) {
+            throw new XmlFileReadException(ResponseType
+                    .CONSTANTS_XML_FILE_READ_ERROR.getCode());
         }
 
         if (constants == null) {
-            throw new XmlFileInvalidException(this.fileName);
+            throw new XmlFileReadException(ResponseType
+                    .CONSTANTS_XML_FILE_READ_ERROR.getCode());
         }
         if (constants.getCrn() == null ||
                 constants.getIp() == null ||
@@ -149,7 +144,8 @@ public class ConstantsReaderXml {
                 constants.getPassword() == null ||
                 constants.getCashierId() == null ||
                 constants.getCashierPassword() == null) {
-            throw new XmlFileInvalidException(this.fileName);
+            throw new XmlFileReadException(ResponseType
+                    .CONSTANTS_XML_FILE_READ_ERROR.getCode());
         }
         return constants;
     }

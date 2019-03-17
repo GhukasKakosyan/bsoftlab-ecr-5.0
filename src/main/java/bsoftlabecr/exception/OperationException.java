@@ -1,7 +1,8 @@
 package bsoftlabecr.exception;
 
-public class OperationException extends Exception {
-    public OperationException(String messageException) {
-        super(messageException);
+public class OperationException extends CashRegisterException {
+    public OperationException(Integer responseCode) {
+        super(responseCode);
+        this.setResponseCode(responseCode);
     }
 }

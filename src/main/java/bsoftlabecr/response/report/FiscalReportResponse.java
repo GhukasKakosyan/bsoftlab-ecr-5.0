@@ -1,6 +1,5 @@
 package bsoftlabecr.response.report;
 
-import bsoftlabecr.response.general.CommonResponse;
+import bsoftlabecr.response.general.CashRegisterResponse;
 
-public class FiscalReportResponse extends CommonResponse {
-}
+public class FiscalReportResponse extends CashRegisterResponse {}

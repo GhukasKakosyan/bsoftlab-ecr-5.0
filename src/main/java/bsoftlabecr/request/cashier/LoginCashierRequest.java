@@ -1,8 +1,8 @@
 package bsoftlabecr.request.cashier;
 
-import bsoftlabecr.request.general.CommonRequest;
+import bsoftlabecr.request.general.CashRegisterRequest;
 
-public class LoginCashierRequest extends CommonRequest {
+public class LoginCashierRequest extends CashRegisterRequest {
     private Integer cashier = null;            // Օպերատորի կոդ
     private String password = null;            // ՀԴՄ գաղտնաբառը
     private String pin = null;                 // Օպերատորի գաղտնաբառ

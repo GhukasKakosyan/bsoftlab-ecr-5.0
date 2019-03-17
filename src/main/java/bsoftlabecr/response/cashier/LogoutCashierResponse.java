@@ -1,6 +1,12 @@
 package bsoftlabecr.response.cashier;
 
-import bsoftlabecr.response.general.CommonResponse;
+public class LogoutCashierResponse {
+    private Integer responseCode = null;
 
-public class LogoutCashierResponse extends CommonResponse {
+    public Integer getResponseCode() {
+        return this.responseCode;
+    }
+    public void setResponseCode(Integer responseCode) {
+        this.responseCode = responseCode;
+    }
 }
