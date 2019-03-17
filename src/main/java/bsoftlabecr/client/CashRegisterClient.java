@@ -357,7 +357,7 @@ public class CashRegisterClient {
      * @param logoutCashierRequest              Logout cashier request
      * @throws OperationException               Cash Register Exception
      */
-    public void getLogoutCashierResponse(
+    public void logoutCashier(
             LogoutCashierRequest logoutCashierRequest) throws OperationException {
 
         try {

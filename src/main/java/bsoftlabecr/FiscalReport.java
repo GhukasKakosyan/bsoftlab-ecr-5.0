@@ -128,7 +128,7 @@ public class FiscalReport {
                 System.out.println("BSOFTLAB. Trying to logout cashier from ECR...");
                 LogoutCashierRequest logoutCashierRequest = new LogoutCashierRequest();
                 logoutCashierRequest.setSeq(cashRegisterClient.getSeq());
-                cashRegisterClient.getLogoutCashierResponse(logoutCashierRequest);
+                cashRegisterClient.logoutCashier(logoutCashierRequest);
                 System.out.println("BSOFTLAB. Cashier is logged out from ECR successfully !");
                 System.out.println("BSOFTLAB. Trying to close connection with ECR...");
                 cashRegisterClient.disconnect();
