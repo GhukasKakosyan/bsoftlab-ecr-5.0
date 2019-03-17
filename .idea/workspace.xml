@@ -1,74 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9553f8bf-0a4a-49fd-8025-c7d73f29c7df" name="Default" comment="Some mistakes were found and solved.">
-      <change afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/entity/ResponseType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/exception/CashRegisterException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/exception/XmlFileReadException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/response/general/CashRegisterResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/xml/writer/response/general/CashRegisterResponseWriterXml.java" afterDir="false" />
+    <list default="true" id="9553f8bf-0a4a-49fd-8025-c7d73f29c7df" name="Default" comment="Fundamental changes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bsoftlabecr/ExistPrepayment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/ExistPrepayment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bsoftlabecr/ExistReturnPrepayment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/ExistReturnPrepayment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bsoftlabecr/ExistReturnSale.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/ExistReturnSale.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bsoftlabecr/ExistSale.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/ExistSale.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bsoftlabecr/FiscalReport.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/FiscalReport.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bsoftlabecr/NewOriginalReturnPrepayment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/NewOriginalReturnPrepayment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bsoftlabecr/NewOriginalReturnSale.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/NewOriginalReturnSale.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bsoftlabecr/NewPartialReturnPrepayment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/NewPartialReturnPrepayment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bsoftlabecr/NewPartialReturnSale.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/NewPartialReturnSale.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bsoftlabecr/NewPrepayment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/NewPrepayment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bsoftlabecr/NewSale.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/NewSale.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bsoftlabecr/client/CashRegisterClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/client/CashRegisterClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bsoftlabecr/entity/Alphabet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/entity/ArmenianLetter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bsoftlabecr/entity/CoderingsConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/entity/CoderingsConverter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bsoftlabecr/entity/ResponseCodes.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bsoftlabecr/exception/CommonResponseException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bsoftlabecr/exception/ConnectionException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/exception/ConnectionException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bsoftlabecr/exception/DecryptionException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/exception/DecryptionException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bsoftlabecr/exception/EncryptionException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/exception/EncryptionException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bsoftlabecr/exception/InitialisationException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/exception/InitialisationException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bsoftlabecr/exception/NetworkException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/exception/NetworkException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bsoftlabecr/exception/OperationException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/exception/OperationException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bsoftlabecr/exception/XmlFileInvalidException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bsoftlabecr/exception/XmlFileNotFoundException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bsoftlabecr/exception/XmlFileWriteException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/exception/XmlFileWriteException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bsoftlabecr/request/cashier/CashiersAndDepsRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/request/cashier/CashiersAndDepsRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bsoftlabecr/request/cashier/LoginCashierRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/request/cashier/LoginCashierRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bsoftlabecr/request/general/CommonRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/request/general/CashRegisterRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bsoftlabecr/request/general/SequenceRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/request/general/SequenceRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bsoftlabecr/request/headerfooter/HeaderFooterRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/request/headerfooter/HeaderFooterRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bsoftlabecr/response/cashier/CashiersAndDepsResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/response/cashier/CashiersAndDepsResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bsoftlabecr/response/cashier/LoginCashierResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/response/cashier/LoginCashierResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bsoftlabecr/response/cashier/LogoutCashierResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/response/cashier/LogoutCashierResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bsoftlabecr/response/general/CommonResponse.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bsoftlabecr/response/headerfooter/HeaderFooterResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/response/headerfooter/HeaderFooterResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bsoftlabecr/response/receipt/general/ExistReceiptResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/response/receipt/general/ExistReceiptResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bsoftlabecr/response/receipt/general/NewReceiptResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/response/receipt/general/NewReceiptResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bsoftlabecr/response/receipt/prepayment/NewPrepaymentResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/response/receipt/prepayment/NewPrepaymentResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bsoftlabecr/response/report/FiscalReportResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/response/report/FiscalReportResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bsoftlabecr/xml/reader/constants/ConstantsReaderXml.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/xml/reader/constants/ConstantsReaderXml.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bsoftlabecr/xml/reader/receipt/prepayment/ExistPrepaymentRequestReaderXml.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/xml/reader/request/prepayment/ExistPrepaymentRequestReaderXml.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bsoftlabecr/xml/reader/receipt/prepayment/NewPrepaymentRequestReaderXml.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/xml/reader/request/prepayment/NewPrepaymentRequestReaderXml.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bsoftlabecr/xml/reader/receipt/returns/prepayment/ExistReturnPrepaymentRequestReaderXml.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/xml/reader/request/returns/prepayment/ExistReturnPrepaymentRequestReaderXml.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bsoftlabecr/xml/reader/receipt/returns/prepayment/NewOriginalReturnPrepaymentRequestReaderXml.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/xml/reader/request/returns/prepayment/NewOriginalReturnPrepaymentRequestReaderXml.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bsoftlabecr/xml/reader/receipt/returns/prepayment/NewPartialReturnPrepaymentRequestReaderXml.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/xml/reader/request/returns/prepayment/NewPartialReturnPrepaymentRequestReaderXml.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bsoftlabecr/xml/reader/receipt/returns/sale/ExistReturnSaleRequestReaderXml.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/xml/reader/request/returns/sale/ExistReturnSaleRequestReaderXml.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bsoftlabecr/xml/reader/receipt/returns/sale/NewOriginalReturnSaleRequestReaderXml.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/xml/reader/request/returns/sale/NewOriginalReturnSaleRequestReaderXml.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bsoftlabecr/xml/reader/receipt/returns/sale/NewPartialReturnSaleRequestReaderXml.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/xml/reader/request/returns/sale/NewPartialReturnSaleRequestReaderXml.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bsoftlabecr/xml/reader/receipt/sale/ExistSaleRequestReaderXml.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/xml/reader/request/sale/ExistSaleRequestReaderXml.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bsoftlabecr/xml/reader/receipt/sale/NewSaleRequestReaderXml.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/xml/reader/request/sale/NewSaleRequestReaderXml.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bsoftlabecr/xml/reader/report/FiscalReportRequestReaderXml.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/xml/reader/request/report/FiscalReportRequestReaderXml.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bsoftlabecr/xml/writer/receipt/prepayment/ExistPrepaymentResponseWriterXml.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/xml/writer/response/prepayment/ExistPrepaymentResponseWriterXml.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bsoftlabecr/xml/writer/receipt/prepayment/NewPrepaymentResponseWriterXml.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/xml/writer/response/prepayment/NewPrepaymentResponseWriterXml.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bsoftlabecr/xml/writer/receipt/returns/prepayment/ExistReturnPrepaymentResponseWriterXml.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/xml/writer/response/returns/prepayment/ExistReturnPrepaymentResponseWriterXml.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bsoftlabecr/xml/writer/receipt/returns/prepayment/NewOriginalReturnPrepaymentResponseWriterXml.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/xml/writer/response/returns/prepayment/NewOriginalReturnPrepaymentResponseWriterXml.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bsoftlabecr/xml/writer/receipt/returns/prepayment/NewPartialReturnPrepaymentResponseWriterXml.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/xml/writer/response/returns/prepayment/NewPartialReturnPrepaymentResponseWriterXml.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bsoftlabecr/xml/writer/receipt/returns/sale/ExistReturnSaleResponseWriterXml.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/xml/writer/response/returns/sale/ExistReturnSaleResponseWriterXml.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bsoftlabecr/xml/writer/receipt/returns/sale/NewOriginalReturnSaleResponseWriterXml.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/xml/writer/response/returns/sale/NewOriginalReturnSaleResponseWriterXml.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bsoftlabecr/xml/writer/receipt/returns/sale/NewPartialReturnSaleResponseWriterXml.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/xml/writer/response/returns/sale/NewPartialReturnSaleResponseWriterXml.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bsoftlabecr/xml/writer/receipt/sale/ExistSaleResponseWriterXml.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/xml/writer/response/sale/ExistSaleResponseWriterXml.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bsoftlabecr/xml/writer/receipt/sale/NewSaleResponseWriterXml.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/xml/writer/response/sale/NewSaleResponseWriterXml.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -98,8 +32,8 @@
   <component name="Git.Settings">
     <option name="PREVIOUS_COMMIT_AUTHORS">
       <list>
-        <option value="Ghukas Kakosyan &lt;kakosyanghukas@gmail.com&gt;So" />
         <option value="Ghukas Kakosyan &lt;kakosyanghukas@gmail.com&gt;" />
+        <option value="Ghukas Kakosyan &lt;kakosyanghukas@gmail.com&gt;So" />
         <option value="Ghukas Kakosyan &lt;46925583+ghukaskakosyan@users.noreply.github.com&gt;" />
         <option value="E" />
       </list>
@@ -340,7 +274,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1552833609097" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1552833652068" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
@@ -452,7 +386,14 @@
       <option name="project" value="LOCAL" />
       <updated>1552580779503</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Fundamental changes">
+      <created>1552833813568</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1552833813569</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -475,7 +416,7 @@
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.49924356" weight="0.32899022" />
       <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.50075644" side_tool="true" weight="0.32899022" />
-      <window_info anchor="bottom" id="Version Control" order="9" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="9" weight="0.32899022" />
       <window_info anchor="bottom" id="Messages" order="10" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" show_stripe_button="false" weight="0.25" />
@@ -485,7 +426,7 @@
       <window_info anchor="right" id="Theme Preview" order="5" />
       <window_info anchor="right" id="Palette&#9;" order="6" />
       <window_info anchor="right" id="Maven Projects" order="7" weight="0.14220877" />
-      <window_info anchor="right" id="Maven" order="8" visible="true" weight="0.12708019" />
+      <window_info anchor="right" id="Maven" order="8" weight="0.12708019" />
     </layout>
     <layout-to-restore>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.31089258" />
@@ -527,7 +468,8 @@
     <MESSAGE value="ECRException class renamed to CashRegisterException" />
     <MESSAGE value="New release" />
     <MESSAGE value="Some mistakes were found and solved." />
-    <option name="LAST_COMMIT_MESSAGE" value="Some mistakes were found and solved." />
+    <MESSAGE value="Fundamental changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fundamental changes" />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
