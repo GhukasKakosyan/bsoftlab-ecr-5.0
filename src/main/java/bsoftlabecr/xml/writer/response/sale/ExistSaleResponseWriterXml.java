@@ -128,7 +128,7 @@ public class ExistSaleResponseWriterXml {
             writer.write(TAB_KEY + XML_TAG_RCODE_OPEN +
                     this.existSaleResponse.getResponseCode() + XML_TAG_RCODE_CLOSE + ENTER_KEY);
 
-            if (existSaleResponse.totals != null && existSaleResponse.totals.length > 0) {
+            if (this.existSaleResponse.totals != null && this.existSaleResponse.totals.length > 0) {
                 writer.write(TAB_KEY + XML_TAG_TOTALS_OPEN + ENTER_KEY);
                 for (ExistSaleResponse.SubTotal subTotal : existSaleResponse.totals) {
                     writer.write(TAB_KEY + TAB_KEY + XML_TAG_SUBTOTAL_OPEN + ENTER_KEY);

@@ -2,17 +2,14 @@ package bsoftlabecr.response.cashier;
 
 import bsoftlabecr.entity.Cashier;
 import bsoftlabecr.entity.Department;
+import bsoftlabecr.response.general.CashRegisterResponse;
 
 import java.util.List;
 
-public class CashiersAndDepsResponse {
-    private Integer responseCode = null;
+public class CashiersAndDepsResponse extends CashRegisterResponse {
     private List<Cashier> c = null;
     private List<Department> d = null;
 
-    public Integer getResponseCode() {
-        return this.responseCode;
-    }
     public List<Department> getD() {
         return this.d;
     }
@@ -20,9 +17,6 @@ public class CashiersAndDepsResponse {
         this.d = d;
     }
 
-    public void setResponseCode(Integer responseCode) {
-        this.responseCode = responseCode;
-    }
     public List<Cashier> getC() {
         return this.c;
     }

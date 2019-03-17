@@ -19,9 +19,6 @@ public class NewReceiptResponse extends CashRegisterResponse {
     private String qr = null;               // Անհրաժեշտ է տպել QR կոդի տեսքով
 
     public NewReceiptResponse() {}
-    public NewReceiptResponse(Integer responseCode) {
-        super(responseCode);
-    }
 
     public Integer getRseq() {
         return this.rseq;

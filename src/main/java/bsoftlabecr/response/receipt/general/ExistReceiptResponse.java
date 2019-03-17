@@ -21,9 +21,6 @@ public class ExistReceiptResponse extends CashRegisterResponse {
     private String type = null;             // Գործարքի տիպ՝ 0 – Վաճառք, 2 – Վերադարձ, 3 – Կանխավճար
 
     public ExistReceiptResponse() {}
-    public ExistReceiptResponse(Integer responseCode) {
-        super(responseCode);
-    }
 
     public String getCid() {
         return this.cid;

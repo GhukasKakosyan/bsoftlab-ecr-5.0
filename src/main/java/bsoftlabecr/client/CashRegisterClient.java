@@ -31,9 +31,6 @@ import bsoftlabecr.request.report.FiscalReportRequest;
 
 import bsoftlabecr.response.cashier.CashiersAndDepsResponse;
 import bsoftlabecr.response.cashier.LoginCashierResponse;
-import bsoftlabecr.response.cashier.LogoutCashierResponse;
-
-import bsoftlabecr.response.headerfooter.HeaderFooterResponse;
 
 import bsoftlabecr.response.receipt.prepayment.ExistPrepaymentResponse;
 import bsoftlabecr.response.receipt.prepayment.NewPrepaymentResponse;
@@ -45,8 +42,6 @@ import bsoftlabecr.response.receipt.returns.sale.NewOriginalReturnSaleResponse;
 import bsoftlabecr.response.receipt.returns.sale.NewPartialReturnSaleResponse;
 import bsoftlabecr.response.receipt.sale.ExistSaleResponse;
 import bsoftlabecr.response.receipt.sale.NewSaleResponse;
-
-import bsoftlabecr.response.report.FiscalReportResponse;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -310,11 +305,8 @@ public class CashRegisterClient {
             byte[] encryptedResponseByteArray = encryptedResponseByteBuffer.array();
             byte[] decryptedResponseByteArray =
                     this.getDecryptedByteArrayByPasswordKey(encryptedResponseByteArray);
-            CashiersAndDepsResponse cashiersAndDepsResponse =
-                    this.objectMapper.readValue(decryptedResponseByteArray,
+            return this.objectMapper.readValue(decryptedResponseByteArray,
                             CashiersAndDepsResponse.class);
-            cashiersAndDepsResponse.setResponseCode(ResponseType.OK.getCode());
-            return cashiersAndDepsResponse;
         } catch (IOException ioException) {
             throw new OperationException(ResponseType.SERIALIZATION_ERROR.getCode());
         } catch (DecryptionException | EncryptionException |
@@ -350,11 +342,8 @@ public class CashRegisterClient {
             byte[] encryptedResponseByteArray = encryptedResponseByteBuffer.array();
             byte[] decryptedResponseByteArray =
                     this.getDecryptedByteArrayByPasswordKey(encryptedResponseByteArray);
-            LoginCashierResponse loginCashierResponse =
-                    this.objectMapper.readValue(decryptedResponseByteArray,
+            return this.objectMapper.readValue(decryptedResponseByteArray,
                             LoginCashierResponse.class);
-            loginCashierResponse.setResponseCode(ResponseType.OK.getCode());
-            return loginCashierResponse;
         } catch (IOException ioException) {
             throw new OperationException(ResponseType.SERIALIZATION_ERROR.getCode());
         } catch (DecryptionException | EncryptionException |
@@ -366,10 +355,9 @@ public class CashRegisterClient {
     /**
      * Logout current cashier
      * @param logoutCashierRequest              Logout cashier request
-     * @return                                  Logout cashier response
      * @throws OperationException               Cash Register Exception
      */
-    public LogoutCashierResponse getLogoutCashierResponse(
+    public void getLogoutCashierResponse(
             LogoutCashierRequest logoutCashierRequest) throws OperationException {
 
         try {
@@ -386,9 +374,6 @@ public class CashRegisterClient {
                     .putShort(length).put(encryptedRequestByteArray);
             this.sendRequestReceiveResponse(encryptedRequestByteBuffer);
             this.sessionKey = null;
-            LogoutCashierResponse logoutCashierResponse = new LogoutCashierResponse();
-            logoutCashierResponse.setResponseCode(ResponseType.OK.getCode());
-            return logoutCashierResponse;
         } catch (JsonProcessingException jsonProcessingException) {
             throw new OperationException(ResponseType.SERIALIZATION_ERROR.getCode());
         } catch (EncryptionException | NetworkException operationException) {
@@ -399,11 +384,10 @@ public class CashRegisterClient {
     /**
      * Setup header and footer for request
      * @param headerFooterRequest               Setup headers and footers request
-     * @return                                  Setup headers and footers response
      * @throws OperationException               Cash Register Exception
      */
-    public HeaderFooterResponse setupHeaderFooter(
-            HeaderFooterRequest headerFooterRequest) throws OperationException {
+    public void setupHeaderFooter(HeaderFooterRequest headerFooterRequest)
+            throws OperationException {
 
         try {
             byte[] requestByteArray =
@@ -418,9 +402,6 @@ public class CashRegisterClient {
                     .put(OPER_SETUP_HEADERFOOTER).put(ZERO)
                     .putShort(length).put(encryptedRequestByteArray);
             this.sendRequestReceiveResponse(encryptedRequestByteBuffer);
-            HeaderFooterResponse headerFooterResponse = new HeaderFooterResponse();
-            headerFooterResponse.setResponseCode(ResponseType.OK.getCode());
-            return headerFooterResponse;
         } catch (JsonProcessingException jsonProcessingException) {
             throw new OperationException(ResponseType.SERIALIZATION_ERROR.getCode());
         } catch (EncryptionException | NetworkException operationException) {
@@ -431,10 +412,9 @@ public class CashRegisterClient {
     /**
      * Prints fiscal report.
      * @param fiscalReportRequest               Fiscal Report Request
-     * @return                                  Fiscal Report Response
      * @throws OperationException               Cash Register Exception
      **/
-    public FiscalReportResponse printFiscalReport(
+    public void printFiscalReport(
             FiscalReportRequest fiscalReportRequest) throws OperationException {
 
         try {
@@ -450,9 +430,6 @@ public class CashRegisterClient {
                     .put(OPER_PRINT_FISCAL_REPORT).put(ZERO)
                     .putShort(length).put(encryptedRequestByteArray);
             this.sendRequestReceiveResponse(encryptedRequestByteBuffer);
-            FiscalReportResponse fiscalReportResponse = new FiscalReportResponse();
-            fiscalReportResponse.setResponseCode(ResponseType.OK.getCode());
-            return fiscalReportResponse;
         } catch (JsonProcessingException jsonProcessingException) {
             throw new OperationException(ResponseType.SERIALIZATION_ERROR.getCode());
         } catch (EncryptionException | NetworkException operationException) {
@@ -486,11 +463,8 @@ public class CashRegisterClient {
             byte[] encryptedResponseByteArray = encryptedResponseByteBuffer.array();
             byte[] decryptedResponseByteArray
                     = this.getDecryptedByteArrayBySessionKey(encryptedResponseByteArray);
-            ExistPrepaymentResponse existPrepaymentResponse =
-                    this.objectMapper.readValue(decryptedResponseByteArray,
+            return this.objectMapper.readValue(decryptedResponseByteArray,
                             ExistPrepaymentResponse.class);
-            existPrepaymentResponse.setResponseCode(ResponseType.OK.getCode());
-            return existPrepaymentResponse;
         } catch (IOException ioException) {
             throw new OperationException(ResponseType.SERIALIZATION_ERROR.getCode());
         } catch (EncryptionException | DecryptionException |
@@ -526,11 +500,8 @@ public class CashRegisterClient {
             byte[] encryptedResponseByteArray = encryptedResponseByteBuffer.array();
             byte[] decryptedResponseByteArray =
                     this.getDecryptedByteArrayBySessionKey(encryptedResponseByteArray);
-            ExistReturnPrepaymentResponse existReturnPrepaymentResponse =
-                    this.objectMapper.readValue(decryptedResponseByteArray,
+            return this.objectMapper.readValue(decryptedResponseByteArray,
                             ExistReturnPrepaymentResponse.class);
-            existReturnPrepaymentResponse.setResponseCode(ResponseType.OK.getCode());
-            return existReturnPrepaymentResponse;
         } catch (IOException ioException) {
             throw new OperationException(ResponseType.SERIALIZATION_ERROR.getCode());
         } catch (DecryptionException | EncryptionException |
@@ -567,11 +538,8 @@ public class CashRegisterClient {
             byte[] encryptedResponseByteArray = encryptedResponseByteBuffer.array();
             byte[] decryptedResponseByteArray =
                     this.getDecryptedByteArrayBySessionKey(encryptedResponseByteArray);
-            ExistReturnSaleResponse existReturnSaleResponse = this.objectMapper
-                    .readValue(decryptedResponseByteArray,
+            return this.objectMapper.readValue(decryptedResponseByteArray,
                             ExistReturnSaleResponse.class);
-            existReturnSaleResponse.setResponseCode(ResponseType.OK.getCode());
-            return existReturnSaleResponse;
         } catch (IOException ioException) {
             throw new OperationException(ResponseType.SERIALIZATION_ERROR.getCode());
         } catch (DecryptionException | EncryptionException |
@@ -607,11 +575,8 @@ public class CashRegisterClient {
             byte[] encryptedResponseByteArray = encryptedResponseByteBuffer.array();
             byte[] decryptedResponseByteArray =
                     this.getDecryptedByteArrayBySessionKey(encryptedResponseByteArray);
-            ExistSaleResponse existSaleResponse =
-                    this.objectMapper.readValue(decryptedResponseByteArray,
+            return this.objectMapper.readValue(decryptedResponseByteArray,
                             ExistSaleResponse.class);
-            existSaleResponse.setResponseCode(ResponseType.OK.getCode());
-            return existSaleResponse;
         } catch (IOException ioException) {
             throw new OperationException(ResponseType.SERIALIZATION_ERROR.getCode());
         } catch (DecryptionException | EncryptionException |
@@ -646,11 +611,8 @@ public class CashRegisterClient {
             byte[] encryptedResponseByteArray = encryptedResponseByteBuffer.array();
             byte[] decryptedResponseByteArray =
                     this.getDecryptedByteArrayBySessionKey(encryptedResponseByteArray);
-            NewPrepaymentResponse newPrepaymentResponse =
-                    this.objectMapper.readValue(decryptedResponseByteArray,
+            return this.objectMapper.readValue(decryptedResponseByteArray,
                             NewPrepaymentResponse.class);
-            newPrepaymentResponse.setResponseCode(ResponseType.OK.getCode());
-            return newPrepaymentResponse;
         } catch (IOException ioException) {
             throw new OperationException(ResponseType.SERIALIZATION_ERROR.getCode());
         } catch (DecryptionException | EncryptionException |
@@ -686,11 +648,8 @@ public class CashRegisterClient {
             byte[] encryptedResponseByteArray = encryptedResponseByteBuffer.array();
             byte[] decryptedResponseByteArray =
                     this.getDecryptedByteArrayBySessionKey(encryptedResponseByteArray);
-            NewPartialReturnPrepaymentResponse newPartialReturnPrepaymentResponse =
-                    this.objectMapper.readValue(decryptedResponseByteArray,
+            return this.objectMapper.readValue(decryptedResponseByteArray,
                             NewPartialReturnPrepaymentResponse.class);
-            newPartialReturnPrepaymentResponse.setResponseCode(ResponseType.OK.getCode());
-            return newPartialReturnPrepaymentResponse;
         } catch (IOException ioException) {
             throw new OperationException(ResponseType.SERIALIZATION_ERROR.getCode());
         } catch (DecryptionException | EncryptionException |
@@ -726,11 +685,8 @@ public class CashRegisterClient {
             byte[] encryptedResponseByteArray = encryptedResponseByteBuffer.array();
             byte[] decryptedResponseByteArray =
                     this.getDecryptedByteArrayBySessionKey(encryptedResponseByteArray);
-            NewOriginalReturnPrepaymentResponse newOriginalReturnPrepaymentResponse =
-                    this.objectMapper.readValue(decryptedResponseByteArray,
+            return this.objectMapper.readValue(decryptedResponseByteArray,
                             NewOriginalReturnPrepaymentResponse.class);
-            newOriginalReturnPrepaymentResponse.setResponseCode(ResponseType.OK.getCode());
-            return newOriginalReturnPrepaymentResponse;
         } catch (IOException ioException) {
             throw new OperationException(ResponseType.SERIALIZATION_ERROR.getCode());
         } catch (DecryptionException | EncryptionException |
@@ -766,11 +722,8 @@ public class CashRegisterClient {
             byte[] encryptedResponseByteArray = encryptedResponseByteBuffer.array();
             byte[] decryptedResponseByteArray =
                     this.getDecryptedByteArrayBySessionKey(encryptedResponseByteArray);
-            NewPartialReturnSaleResponse newPartialReturnSaleResponse =
-                    this.objectMapper.readValue(decryptedResponseByteArray,
+            return this.objectMapper.readValue(decryptedResponseByteArray,
                             NewPartialReturnSaleResponse.class);
-            newPartialReturnSaleResponse.setResponseCode(ResponseType.OK.getCode());
-            return newPartialReturnSaleResponse;
         } catch (IOException ioException) {
             throw new OperationException(ResponseType.SERIALIZATION_ERROR.getCode());
         } catch (DecryptionException | EncryptionException |
@@ -806,11 +759,8 @@ public class CashRegisterClient {
             byte[] encryptedResponseByteArray = encryptedResponseByteBuffer.array();
             byte[] decryptedResponseByteArray =
                     this.getDecryptedByteArrayBySessionKey(encryptedResponseByteArray);
-            NewOriginalReturnSaleResponse newOriginalReturnSaleResponse =
-                    this.objectMapper.readValue(decryptedResponseByteArray,
+            return this.objectMapper.readValue(decryptedResponseByteArray,
                             NewOriginalReturnSaleResponse.class);
-            newOriginalReturnSaleResponse.setResponseCode(ResponseType.OK.getCode());
-            return newOriginalReturnSaleResponse;
         } catch (IOException ioException) {
             throw new OperationException(ResponseType.SERIALIZATION_ERROR.getCode());
         } catch (DecryptionException | EncryptionException |
@@ -845,10 +795,8 @@ public class CashRegisterClient {
             byte[] encryptedResponseByteArray = encryptedResponseByteBuffer.array();
             byte[] decryptedResponseByteArray
                     = this.getDecryptedByteArrayBySessionKey(encryptedResponseByteArray);
-            NewSaleResponse newSaleResponse = this.objectMapper.readValue(
-                    decryptedResponseByteArray, NewSaleResponse.class);
-            newSaleResponse.setResponseCode(ResponseType.OK.getCode());
-            return newSaleResponse;
+            return this.objectMapper.readValue(decryptedResponseByteArray,
+                    NewSaleResponse.class);
         } catch (IOException ioException) {
             throw new OperationException(ResponseType.SERIALIZATION_ERROR.getCode());
         } catch (DecryptionException | EncryptionException |

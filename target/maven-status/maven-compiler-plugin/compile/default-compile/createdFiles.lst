@@ -15,7 +15,6 @@ bsoftlabecr\xml\writer\response\prepayment\ExistPrepaymentResponseWriterXml.clas
 bsoftlabecr\response\receipt\returns\prepayment\NewOriginalReturnPrepaymentResponse.class
 bsoftlabecr\response\general\CashRegisterResponse.class
 bsoftlabecr\xml\writer\response\prepayment\NewPrepaymentResponseWriterXml.class
-bsoftlabecr\response\report\FiscalReportResponse.class
 bsoftlabecr\exception\NetworkException.class
 bsoftlabecr\xml\writer\response\returns\prepayment\NewPartialReturnPrepaymentResponseWriterXml.class
 bsoftlabecr\entity\Cashier.class
@@ -47,7 +46,6 @@ bsoftlabecr\xml\reader\request\returns\prepayment\ExistReturnPrepaymentRequestRe
 bsoftlabecr\xml\writer\response\returns\prepayment\NewOriginalReturnPrepaymentResponseWriterXml.class
 bsoftlabecr\xml\reader\request\prepayment\NewPrepaymentRequestReaderXml.class
 bsoftlabecr\ExistReturnPrepayment.class
-bsoftlabecr\response\cashier\LogoutCashierResponse.class
 bsoftlabecr\request\receipt\returns\sale\NewOriginalReturnSaleRequest.class
 bsoftlabecr\xml\reader\request\sale\ExistSaleRequestReaderXml.class
 bsoftlabecr\entity\Item$ProductDiscountType.class
@@ -85,7 +83,6 @@ bsoftlabecr\xml\writer\response\returns\prepayment\ExistReturnPrepaymentResponse
 bsoftlabecr\xml\reader\request\sale\NewSaleRequestReaderXml.class
 bsoftlabecr\exception\CashRegisterException.class
 bsoftlabecr\request\receipt\prepayment\ExistPrepaymentRequest.class
-bsoftlabecr\response\headerfooter\HeaderFooterResponse.class
 bsoftlabecr\xml\writer\response\returns\sale\NewOriginalReturnSaleResponseWriterXml.class
 bsoftlabecr\ExistReturnSale.class
 bsoftlabecr\entity\ResponseType.class

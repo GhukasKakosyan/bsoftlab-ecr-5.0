@@ -139,7 +139,7 @@ public class ExistReturnSaleResponseWriterXml {
                     this.existReturnSaleResponse.getResponseCode() +
                     XML_TAG_CODE_CLOSE + ENTER_KEY);
 
-            if (existReturnSaleResponse.totals != null && existReturnSaleResponse.totals.length > 0) {
+            if (this.existReturnSaleResponse.totals != null && this.existReturnSaleResponse.totals.length > 0) {
                 writer.write(TAB_KEY + XML_TAG_TOTALS_OPEN + ENTER_KEY);
                 for (ExistReturnSaleResponse.SubTotal subTotal : existReturnSaleResponse.totals) {
                     writer.write(TAB_KEY + TAB_KEY + XML_TAG_SUBTOTAL_OPEN + ENTER_KEY);

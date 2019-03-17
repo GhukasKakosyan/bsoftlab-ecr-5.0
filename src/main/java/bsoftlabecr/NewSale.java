@@ -18,9 +18,7 @@ import bsoftlabecr.request.headerfooter.HeaderFooterRequest;
 import bsoftlabecr.request.receipt.sale.NewSaleRequest;
 
 import bsoftlabecr.response.cashier.LoginCashierResponse;
-import bsoftlabecr.response.cashier.LogoutCashierResponse;
 import bsoftlabecr.response.general.CashRegisterResponse;
-import bsoftlabecr.response.headerfooter.HeaderFooterResponse;
 import bsoftlabecr.response.receipt.sale.NewSaleResponse;
 
 import bsoftlabecr.xml.reader.request.sale.NewSaleRequestReaderXml;
@@ -115,11 +113,9 @@ public class NewSale {
                 HeaderFooterRequest headerFooterRequest = new HeaderFooterRequest();
                 headerFooterRequest.setHeaders(headerList);
                 headerFooterRequest.setFooters(footerList);
-                HeaderFooterResponse headerFooterResponse =
-                        cashRegisterClient.setupHeaderFooter(headerFooterRequest);
+                cashRegisterClient.setupHeaderFooter(headerFooterRequest);
                 System.out.println("BSOFTLAB. Request is sent to ECR successfully !");
-                System.out.println("BSOFTLAB. Response is received from ECR successfully: " +
-                        headerFooterResponse.getResponseCode());
+                System.out.println("BSOFTLAB. Response is received from ECR successfully !");
                 System.out.println();
 
                 System.out.println("BSOFTLAB. Trying to read request from XML file... ");
@@ -153,10 +149,8 @@ public class NewSale {
                 System.out.println("BSOFTLAB. Trying to logout cashier from ECR...");
                 LogoutCashierRequest logoutCashierRequest = new LogoutCashierRequest();
                 logoutCashierRequest.setSeq(cashRegisterClient.getSeq());
-                LogoutCashierResponse logoutCashierResponse =
-                        cashRegisterClient.getLogoutCashierResponse(logoutCashierRequest);
-                System.out.println("BSOFTLAB. Cashier is logged out from ECR successfully: " +
-                        logoutCashierResponse.getResponseCode());
+                cashRegisterClient.getLogoutCashierResponse(logoutCashierRequest);
+                System.out.println("BSOFTLAB. Cashier is logged out from ECR successfully !");
                 System.out.println("BSOFTLAB. Trying to close connection with ECR...");
                 cashRegisterClient.disconnect();
                 System.out.println("BSOFTLAB. Connection with ECR is closed successfully !");

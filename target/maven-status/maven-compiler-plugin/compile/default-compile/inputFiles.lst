@@ -17,7 +17,6 @@ C:\Users\BSOFTLAB\Documents\Visual Foxpro projects\Analitikaplus\bsoftlabsrc\src
 C:\Users\BSOFTLAB\Documents\Visual Foxpro projects\Analitikaplus\bsoftlabsrc\src\main\java\bsoftlabecr\exception\InitialisationException.java
 C:\Users\BSOFTLAB\Documents\Visual Foxpro projects\Analitikaplus\bsoftlabsrc\src\main\java\bsoftlabecr\xml\reader\request\prepayment\ExistPrepaymentRequestReaderXml.java
 C:\Users\BSOFTLAB\Documents\Visual Foxpro projects\Analitikaplus\bsoftlabsrc\src\main\java\bsoftlabecr\xml\reader\request\report\FiscalReportRequestReaderXml.java
-C:\Users\BSOFTLAB\Documents\Visual Foxpro projects\Analitikaplus\bsoftlabsrc\src\main\java\bsoftlabecr\response\headerfooter\HeaderFooterResponse.java
 C:\Users\BSOFTLAB\Documents\Visual Foxpro projects\Analitikaplus\bsoftlabsrc\src\main\java\bsoftlabecr\exception\EncryptionException.java
 C:\Users\BSOFTLAB\Documents\Visual Foxpro projects\Analitikaplus\bsoftlabsrc\src\main\java\bsoftlabecr\request\receipt\returns\prepayment\NewPartialReturnPrepaymentRequest.java
 C:\Users\BSOFTLAB\Documents\Visual Foxpro projects\Analitikaplus\bsoftlabsrc\src\main\java\bsoftlabecr\xml\writer\response\sale\NewSaleResponseWriterXml.java
@@ -36,14 +35,12 @@ C:\Users\BSOFTLAB\Documents\Visual Foxpro projects\Analitikaplus\bsoftlabsrc\src
 C:\Users\BSOFTLAB\Documents\Visual Foxpro projects\Analitikaplus\bsoftlabsrc\src\main\java\bsoftlabecr\request\general\SequenceRequest.java
 C:\Users\BSOFTLAB\Documents\Visual Foxpro projects\Analitikaplus\bsoftlabsrc\src\main\java\bsoftlabecr\entity\Item.java
 C:\Users\BSOFTLAB\Documents\Visual Foxpro projects\Analitikaplus\bsoftlabsrc\src\main\java\bsoftlabecr\entity\Department.java
-C:\Users\BSOFTLAB\Documents\Visual Foxpro projects\Analitikaplus\bsoftlabsrc\src\main\java\bsoftlabecr\response\cashier\LogoutCashierResponse.java
 C:\Users\BSOFTLAB\Documents\Visual Foxpro projects\Analitikaplus\bsoftlabsrc\src\main\java\bsoftlabecr\xml\reader\request\returns\sale\NewOriginalReturnSaleRequestReaderXml.java
 C:\Users\BSOFTLAB\Documents\Visual Foxpro projects\Analitikaplus\bsoftlabsrc\src\main\java\bsoftlabecr\response\receipt\returns\sale\NewPartialReturnSaleResponse.java
 C:\Users\BSOFTLAB\Documents\Visual Foxpro projects\Analitikaplus\bsoftlabsrc\src\main\java\bsoftlabecr\xml\writer\response\returns\prepayment\NewPartialReturnPrepaymentResponseWriterXml.java
 C:\Users\BSOFTLAB\Documents\Visual Foxpro projects\Analitikaplus\bsoftlabsrc\src\main\java\bsoftlabecr\request\receipt\returns\sale\ExistReturnSaleRequest.java
 C:\Users\BSOFTLAB\Documents\Visual Foxpro projects\Analitikaplus\bsoftlabsrc\src\main\java\bsoftlabecr\ExistReturnPrepayment.java
 C:\Users\BSOFTLAB\Documents\Visual Foxpro projects\Analitikaplus\bsoftlabsrc\src\main\java\bsoftlabecr\xml\writer\response\returns\sale\ExistReturnSaleResponseWriterXml.java
-C:\Users\BSOFTLAB\Documents\Visual Foxpro projects\Analitikaplus\bsoftlabsrc\src\main\java\bsoftlabecr\response\report\FiscalReportResponse.java
 C:\Users\BSOFTLAB\Documents\Visual Foxpro projects\Analitikaplus\bsoftlabsrc\src\main\java\bsoftlabecr\ExistSale.java
 C:\Users\BSOFTLAB\Documents\Visual Foxpro projects\Analitikaplus\bsoftlabsrc\src\main\java\bsoftlabecr\entity\Cashier.java
 C:\Users\BSOFTLAB\Documents\Visual Foxpro projects\Analitikaplus\bsoftlabsrc\src\main\java\bsoftlabecr\entity\CoderingsConverter.java

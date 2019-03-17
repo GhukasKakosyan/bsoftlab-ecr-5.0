@@ -20,7 +20,6 @@ import bsoftlabecr.request.receipt.returns.sale.ExistReturnSaleRequest;
 
 import bsoftlabecr.response.cashier.CashiersAndDepsResponse;
 import bsoftlabecr.response.cashier.LoginCashierResponse;
-import bsoftlabecr.response.cashier.LogoutCashierResponse;
 import bsoftlabecr.response.general.CashRegisterResponse;
 import bsoftlabecr.response.receipt.returns.sale.ExistReturnSaleResponse;
 
@@ -127,7 +126,8 @@ public class ExistReturnSale {
                 ExistReturnSaleResponse existReturnSaleResponse = cashRegisterClient
                         .getExistReturnSaleResponse(existReturnSaleRequest);
                 System.out.println("BSOFTLAB. Request is sent to ECR successfully !");
-                System.out.println("BSOFTLAB. Response is received from ECR successfully: " + existReturnSaleResponse.getResponseCode());
+                System.out.println("BSOFTLAB. Response is received from ECR successfully: " +
+                        existReturnSaleResponse.getResponseCode());
                 System.out.println();
 
                 System.out.println("BSOFTLAB. Trying to write response into XML file... ");
@@ -143,10 +143,8 @@ public class ExistReturnSale {
                 System.out.println("BSOFTLAB. Trying to logout cashier from ECR... ");
                 LogoutCashierRequest logoutCashierRequest = new LogoutCashierRequest();
                 logoutCashierRequest.setSeq(cashRegisterClient.getSeq());
-                LogoutCashierResponse logoutCashierResponse =
-                        cashRegisterClient.getLogoutCashierResponse(logoutCashierRequest);
-                System.out.println("BSOFTLAB. Cashier is logged out from ECR successfully: " +
-                        logoutCashierResponse.getResponseCode());
+                cashRegisterClient.getLogoutCashierResponse(logoutCashierRequest);
+                System.out.println("BSOFTLAB. Cashier is logged out from ECR successfully !");
                 System.out.println("BSOFTLAB. Trying to close connection with ECR... ");
                 cashRegisterClient.disconnect();
                 System.out.println("BSOFTLAB. Connection with ECR is closed successfully !");
