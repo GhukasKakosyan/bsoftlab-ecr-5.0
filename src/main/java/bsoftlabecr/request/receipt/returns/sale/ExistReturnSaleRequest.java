@@ -1,8 +1,8 @@
 package bsoftlabecr.request.receipt.returns.sale;
 
-import bsoftlabecr.request.general.SequenceRequest;
+import bsoftlabecr.request.general.SequencedCashRegisterRequest;
 
-public class ExistReturnSaleRequest extends SequenceRequest {
+public class ExistReturnSaleRequest extends SequencedCashRegisterRequest {
     private String crn = null;             // Վերադարձվող կտրոնի տպած սարքի գրանցման համար
     private String receiptId = null;       // Վերադարձվող կտրոնի համար
 

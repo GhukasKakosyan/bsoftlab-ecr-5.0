@@ -1,8 +1,8 @@
 package bsoftlabecr.request.receipt.returns.prepayment;
 
-import bsoftlabecr.request.general.SequenceRequest;
+import bsoftlabecr.request.general.SequencedCashRegisterRequest;
 
-public class NewOriginalReturnPrepaymentRequest extends SequenceRequest {
+public class NewOriginalReturnPrepaymentRequest extends SequencedCashRegisterRequest {
     private Integer returnTicketId = null;         // Վերադարձվող կտրոնի համար
     private String crn = null;                     // Սարքի գրանցման համար
 

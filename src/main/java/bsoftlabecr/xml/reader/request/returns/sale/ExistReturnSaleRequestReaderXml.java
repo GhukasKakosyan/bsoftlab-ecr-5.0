@@ -14,10 +14,13 @@ import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.events.XMLEvent;
 
 public class ExistReturnSaleRequestReaderXml {
-    private static final String REQUEST = "ExistReturnSaleRequest";
-    private static final String REQUEST_SEQ = "seq";
-    private static final String REQUEST_CRN = "crn";
-    private static final String REQUEST_RECEIPTID = "receiptId";
+    private static final String XML_TAG_MAIN = "ExistReturnSaleRequest";
+    private static final String XML_TAG_SEQ = "seq";
+    private static final String XML_TAG_CRN = "crn";
+    private static final String XML_TAG_RECEIPTID = "receiptId";
+
+    private static final Integer RESPONSE_CODE =
+            ResponseType.EXIST_RETURN_SALE_REQUEST_XML_FILE_READ_ERROR.getCode();
 
     private String fileName;
 
@@ -43,14 +46,14 @@ public class ExistReturnSaleRequestReaderXml {
 
             while (xmlEventReader.hasNext()) {
                 XMLEvent xmlEvent = xmlEventReader.nextEvent();
-                if (xmlEvent.isStartElement() && xmlEvent.asStartElement().getName().getLocalPart().equals(REQUEST)) {
+                if (xmlEvent.isStartElement() && xmlEvent.asStartElement().getName().getLocalPart().equals(XML_TAG_MAIN)) {
                     existReturnSaleRequest = new ExistReturnSaleRequest();
                     existReturnSaleRequest.setSeq(seq);
                     existReturnSaleRequest.setCrn(crn);
                     existReturnSaleRequest.setReceiptId(receiptId);
                     continue;
                 }
-                if (xmlEvent.isStartElement() && xmlEvent.asStartElement().getName().getLocalPart().equals(REQUEST_SEQ)) {
+                if (xmlEvent.isStartElement() && xmlEvent.asStartElement().getName().getLocalPart().equals(XML_TAG_SEQ)) {
                     xmlEvent = xmlEventReader.nextEvent();
                     String seqString = xmlEvent.asCharacters().getData();
                     try {
@@ -60,47 +63,44 @@ public class ExistReturnSaleRequestReaderXml {
                     }
                     continue;
                 }
-                if (xmlEvent.isEndElement() && xmlEvent.asEndElement().getName().getLocalPart().equals(REQUEST_SEQ)) {
+                if (xmlEvent.isEndElement() && xmlEvent.asEndElement().getName().getLocalPart().equals(XML_TAG_SEQ)) {
                     if (existReturnSaleRequest != null) existReturnSaleRequest.setSeq(seq);
                     continue;
                 }
-                if (xmlEvent.isStartElement() && xmlEvent.asStartElement().getName().getLocalPart().equals(REQUEST_CRN)) {
+                if (xmlEvent.isStartElement() && xmlEvent.asStartElement().getName().getLocalPart().equals(XML_TAG_CRN)) {
                     xmlEvent = xmlEventReader.nextEvent();
                     crn = xmlEvent.asCharacters().getData();
                     continue;
                 }
-                if (xmlEvent.isEndElement() && xmlEvent.asEndElement().getName().getLocalPart().equals(REQUEST_CRN)) {
+                if (xmlEvent.isEndElement() && xmlEvent.asEndElement().getName().getLocalPart().equals(XML_TAG_CRN)) {
                     if (existReturnSaleRequest != null) existReturnSaleRequest.setCrn(crn);
                     continue;
                 }
-                if (xmlEvent.isStartElement() && xmlEvent.asStartElement().getName().getLocalPart().equals(REQUEST_RECEIPTID)) {
+                if (xmlEvent.isStartElement() && xmlEvent.asStartElement().getName().getLocalPart().equals(XML_TAG_RECEIPTID)) {
                     xmlEvent = xmlEventReader.nextEvent();
                     receiptId = xmlEvent.asCharacters().getData();
                     continue;
                 }
-                if (xmlEvent.isEndElement() && xmlEvent.asEndElement().getName().getLocalPart().equals(REQUEST_RECEIPTID)) {
+                if (xmlEvent.isEndElement() && xmlEvent.asEndElement().getName().getLocalPart().equals(XML_TAG_RECEIPTID)) {
                     if (existReturnSaleRequest != null) existReturnSaleRequest.setReceiptId(receiptId);
                     continue;
                 }
-                if (xmlEvent.isEndElement() && xmlEvent.asEndElement().getName().getLocalPart().equals(REQUEST)) {
+                if (xmlEvent.isEndElement() && xmlEvent.asEndElement().getName().getLocalPart().equals(XML_TAG_MAIN)) {
                     break;
                 }
             }
 
         } catch (FileNotFoundException | XMLStreamException exception) {
-            throw new XmlFileReadException(ResponseType
-                    .EXIST_RETURN_SALE_REQUEST_XML_FILE_READ_ERROR.getCode());
+            throw new XmlFileReadException(RESPONSE_CODE);
         }
 
         if (existReturnSaleRequest == null) {
-            throw new XmlFileReadException(ResponseType
-                    .EXIST_RETURN_SALE_REQUEST_XML_FILE_READ_ERROR.getCode());
+            throw new XmlFileReadException(RESPONSE_CODE);
         }
         if (existReturnSaleRequest.getSeq() == null ||
                 existReturnSaleRequest.getCrn() == null ||
                 existReturnSaleRequest.getReceiptId() == null) {
-            throw new XmlFileReadException(ResponseType
-                    .EXIST_RETURN_SALE_REQUEST_XML_FILE_READ_ERROR.getCode());
+            throw new XmlFileReadException(RESPONSE_CODE);
         }
         return existReturnSaleRequest;
     }

@@ -1,11 +1,11 @@
 package bsoftlabecr.request.receipt.sale;
 
 import bsoftlabecr.entity.Item;
-import bsoftlabecr.request.general.SequenceRequest;
+import bsoftlabecr.request.general.SequencedCashRegisterRequest;
 
 import java.util.List;
 
-public class NewSaleRequest extends SequenceRequest {
+public class NewSaleRequest extends SequencedCashRegisterRequest {
     private Double paidAmount = null;          // Առձեռն վճարված գումար
     private Double paidAmountCard = null;      // Անկանխիկ վճարված գումար
     private Double partialAmount = null;       // Մասնակի վճարման գումար

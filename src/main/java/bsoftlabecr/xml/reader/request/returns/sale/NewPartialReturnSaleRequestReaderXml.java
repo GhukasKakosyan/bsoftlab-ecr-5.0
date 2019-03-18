@@ -5,7 +5,10 @@ import bsoftlabecr.entity.ReturnItem;
 import bsoftlabecr.exception.XmlFileReadException;
 import bsoftlabecr.request.receipt.returns.sale.NewPartialReturnSaleRequest;
 
-import java.io.*;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
+
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
@@ -16,16 +19,19 @@ import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.events.XMLEvent;
 
 public class NewPartialReturnSaleRequestReaderXml {
-    private static final String REQUEST = "NewPartialReturnSaleRequest";
-    private static final String REQUEST_SEQ = "seq";
-    private static final String REQUEST_CRN = "crn";
-    private static final String REQUEST_RETURNTICKETID = "returnTicketId";
-    private static final String REQUEST_CASHAMOUNTFORRETURN = "cashAmountForReturn";
-    private static final String REQUEST_CARDAMOUNTFORRETURN = "cardAmountForReturn";
-    private static final String REQUEST_RETURNITEMLIST = "returnItemList";
-    private static final String REQUEST_RETURNITEM = "returnItem";
-    private static final String REQUEST_RPID = "rpid";
-    private static final String REQUEST_QUANTITY = "quantity";
+    private static final String XML_TAG_MAIN = "NewPartialReturnSaleRequest";
+    private static final String XML_TAG_SEQ = "seq";
+    private static final String XML_TAG_CRN = "crn";
+    private static final String XML_TAG_RETURNTICKETID = "returnTicketId";
+    private static final String XML_TAG_CASHAMOUNTFORRETURN = "cashAmountForReturn";
+    private static final String XML_TAG_CARDAMOUNTFORRETURN = "cardAmountForReturn";
+    private static final String XML_TAG_RETURNITEMLIST = "returnItemList";
+    private static final String XML_TAG_RETURNITEM = "returnItem";
+    private static final String XML_TAG_RPID = "rpid";
+    private static final String XML_TAG_QUANTITY = "quantity";
+
+    private static final Integer RESPONSE_CODE =
+            ResponseType.NEW_PARTIAL_RETURN_SALE_REQUEST_XML_FILE_READ_ERROR.getCode();
 
     private String fileName;
 
@@ -59,7 +65,7 @@ public class NewPartialReturnSaleRequestReaderXml {
 
             while (xmlEventReader.hasNext()) {
                 XMLEvent xmlEvent = xmlEventReader.nextEvent();
-                if (xmlEvent.isStartElement() && xmlEvent.asStartElement().getName().getLocalPart().equals(REQUEST)) {
+                if (xmlEvent.isStartElement() && xmlEvent.asStartElement().getName().getLocalPart().equals(XML_TAG_MAIN)) {
                     newPartialReturnSaleRequest = new NewPartialReturnSaleRequest();
                     newPartialReturnSaleRequest.setSeq(seq);
                     newPartialReturnSaleRequest.setCrn(crn);
@@ -69,7 +75,7 @@ public class NewPartialReturnSaleRequestReaderXml {
                     newPartialReturnSaleRequest.setReturnItemList(returnItemList);
                     continue;
                 }
-                if (xmlEvent.isStartElement() && xmlEvent.asStartElement().getName().getLocalPart().equals(REQUEST_SEQ)) {
+                if (xmlEvent.isStartElement() && xmlEvent.asStartElement().getName().getLocalPart().equals(XML_TAG_SEQ)) {
                     xmlEvent = xmlEventReader.nextEvent();
                     String seqString = xmlEvent.asCharacters().getData();
                     try {
@@ -79,20 +85,20 @@ public class NewPartialReturnSaleRequestReaderXml {
                     }
                     continue;
                 }
-                if (xmlEvent.isEndElement() && xmlEvent.asEndElement().getName().getLocalPart().equals(REQUEST_SEQ)) {
+                if (xmlEvent.isEndElement() && xmlEvent.asEndElement().getName().getLocalPart().equals(XML_TAG_SEQ)) {
                     if (newPartialReturnSaleRequest != null) newPartialReturnSaleRequest.setSeq(seq);
                     continue;
                 }
-                if (xmlEvent.isStartElement() && xmlEvent.asStartElement().getName().getLocalPart().equals(REQUEST_CRN)) {
+                if (xmlEvent.isStartElement() && xmlEvent.asStartElement().getName().getLocalPart().equals(XML_TAG_CRN)) {
                     xmlEvent = xmlEventReader.nextEvent();
                     crn = xmlEvent.asCharacters().getData();
                     continue;
                 }
-                if (xmlEvent.isEndElement() && xmlEvent.asEndElement().getName().getLocalPart().equals(REQUEST_CRN)) {
+                if (xmlEvent.isEndElement() && xmlEvent.asEndElement().getName().getLocalPart().equals(XML_TAG_CRN)) {
                     if (newPartialReturnSaleRequest != null) newPartialReturnSaleRequest.setCrn(crn);
                     continue;
                 }
-                if (xmlEvent.isStartElement() && xmlEvent.asStartElement().getName().getLocalPart().equals(REQUEST_RETURNTICKETID)) {
+                if (xmlEvent.isStartElement() && xmlEvent.asStartElement().getName().getLocalPart().equals(XML_TAG_RETURNTICKETID)) {
                     xmlEvent = xmlEventReader.nextEvent();
                     String returnTicketIdString = xmlEvent.asCharacters().getData();
                     try {
@@ -102,12 +108,12 @@ public class NewPartialReturnSaleRequestReaderXml {
                     }
                     continue;
                 }
-                if (xmlEvent.isEndElement() && xmlEvent.asEndElement().getName().getLocalPart().equals(REQUEST_RETURNTICKETID)) {
+                if (xmlEvent.isEndElement() && xmlEvent.asEndElement().getName().getLocalPart().equals(XML_TAG_RETURNTICKETID)) {
                     if (newPartialReturnSaleRequest != null)
                         newPartialReturnSaleRequest.setReturnTicketId(returnTicketId);
                     continue;
                 }
-                if (xmlEvent.isStartElement() && xmlEvent.asStartElement().getName().getLocalPart().equals(REQUEST_CASHAMOUNTFORRETURN)) {
+                if (xmlEvent.isStartElement() && xmlEvent.asStartElement().getName().getLocalPart().equals(XML_TAG_CASHAMOUNTFORRETURN)) {
                     xmlEvent = xmlEventReader.nextEvent();
                     String cashAmountForReturnString = xmlEvent.asCharacters().getData();
                     try {
@@ -118,12 +124,12 @@ public class NewPartialReturnSaleRequestReaderXml {
                     }
                     continue;
                 }
-                if (xmlEvent.isEndElement() && xmlEvent.asEndElement().getName().getLocalPart().equals(REQUEST_CASHAMOUNTFORRETURN)) {
+                if (xmlEvent.isEndElement() && xmlEvent.asEndElement().getName().getLocalPart().equals(XML_TAG_CASHAMOUNTFORRETURN)) {
                     if (newPartialReturnSaleRequest != null)
                         newPartialReturnSaleRequest.setCashAmountForReturn(cashAmountForReturn);
                     continue;
                 }
-                if (xmlEvent.isStartElement() && xmlEvent.asStartElement().getName().getLocalPart().equals(REQUEST_CARDAMOUNTFORRETURN)) {
+                if (xmlEvent.isStartElement() && xmlEvent.asStartElement().getName().getLocalPart().equals(XML_TAG_CARDAMOUNTFORRETURN)) {
                     xmlEvent = xmlEventReader.nextEvent();
                     String cardAmountForReturnString = xmlEvent.asCharacters().getData();
                     try {
@@ -134,16 +140,16 @@ public class NewPartialReturnSaleRequestReaderXml {
                     }
                     continue;
                 }
-                if (xmlEvent.isEndElement() && xmlEvent.asEndElement().getName().getLocalPart().equals(REQUEST_CARDAMOUNTFORRETURN)) {
+                if (xmlEvent.isEndElement() && xmlEvent.asEndElement().getName().getLocalPart().equals(XML_TAG_CARDAMOUNTFORRETURN)) {
                     if (newPartialReturnSaleRequest != null)
                         newPartialReturnSaleRequest.setCardAmountForReturn(cardAmountForReturn);
                     continue;
                 }
-                if (xmlEvent.isStartElement() && xmlEvent.asStartElement().getName().getLocalPart().equals(REQUEST_RETURNITEMLIST)) {
+                if (xmlEvent.isStartElement() && xmlEvent.asStartElement().getName().getLocalPart().equals(XML_TAG_RETURNITEMLIST)) {
                     returnItemList = new ArrayList<>();
                     continue;
                 }
-                if (xmlEvent.isStartElement() && xmlEvent.asStartElement().getName().getLocalPart().equals(REQUEST_RETURNITEM)) {
+                if (xmlEvent.isStartElement() && xmlEvent.asStartElement().getName().getLocalPart().equals(XML_TAG_RETURNITEM)) {
                     rpid = null;
                     quantity = null;
                     returnItem = new ReturnItem();
@@ -151,7 +157,7 @@ public class NewPartialReturnSaleRequestReaderXml {
                     returnItem.setQuantity(quantity);
                     continue;
                 }
-                if (xmlEvent.isStartElement() && xmlEvent.asStartElement().getName().getLocalPart().equals(REQUEST_RPID)) {
+                if (xmlEvent.isStartElement() && xmlEvent.asStartElement().getName().getLocalPart().equals(XML_TAG_RPID)) {
                     xmlEvent = xmlEventReader.nextEvent();
                     String rpidString = xmlEvent.asCharacters().getData();
                     try {
@@ -161,11 +167,11 @@ public class NewPartialReturnSaleRequestReaderXml {
                     }
                     continue;
                 }
-                if (xmlEvent.isEndElement() && xmlEvent.asEndElement().getName().getLocalPart().equals(REQUEST_RPID)) {
+                if (xmlEvent.isEndElement() && xmlEvent.asEndElement().getName().getLocalPart().equals(XML_TAG_RPID)) {
                     if (returnItem != null) returnItem.setRpid(rpid);
                     continue;
                 }
-                if (xmlEvent.isStartElement() && xmlEvent.asStartElement().getName().getLocalPart().equals(REQUEST_QUANTITY)) {
+                if (xmlEvent.isStartElement() && xmlEvent.asStartElement().getName().getLocalPart().equals(XML_TAG_QUANTITY)) {
                     xmlEvent = xmlEventReader.nextEvent();
                     String quantityString = xmlEvent.asCharacters().getData();
                     try {
@@ -175,17 +181,17 @@ public class NewPartialReturnSaleRequestReaderXml {
                     }
                     continue;
                 }
-                if (xmlEvent.isEndElement() && xmlEvent.asEndElement().getName().getLocalPart().equals(REQUEST_QUANTITY)) {
+                if (xmlEvent.isEndElement() && xmlEvent.asEndElement().getName().getLocalPart().equals(XML_TAG_QUANTITY)) {
                     if (returnItem != null) returnItem.setQuantity(quantity);
                     continue;
                 }
-                if (xmlEvent.isEndElement() && xmlEvent.asEndElement().getName().getLocalPart().equals(REQUEST_RETURNITEM)) {
+                if (xmlEvent.isEndElement() && xmlEvent.asEndElement().getName().getLocalPart().equals(XML_TAG_RETURNITEM)) {
                     if (!((returnItem != null) && (returnItem.getRpid() != -1) && (returnItem.getQuantity() != -1)))
                         returnItem = null;
                     if (returnItemList != null) returnItemList.add(returnItem);
                     continue;
                 }
-                if (xmlEvent.isEndElement() && xmlEvent.asEndElement().getName().getLocalPart().equals(REQUEST_RETURNITEMLIST)) {
+                if (xmlEvent.isEndElement() && xmlEvent.asEndElement().getName().getLocalPart().equals(XML_TAG_RETURNITEMLIST)) {
                     if ((returnItemList != null) && (returnItemList.size() > 0)) {
                         for (ReturnItem returnGood : returnItemList) {
                             if (returnGood == null) {
@@ -198,18 +204,16 @@ public class NewPartialReturnSaleRequestReaderXml {
                         newPartialReturnSaleRequest.setReturnItemList(returnItemList);
                     continue;
                 }
-                if (xmlEvent.isEndElement() && xmlEvent.asEndElement().getName().getLocalPart().equals(REQUEST)) {
+                if (xmlEvent.isEndElement() && xmlEvent.asEndElement().getName().getLocalPart().equals(XML_TAG_MAIN)) {
                     break;
                 }
             }
         } catch (FileNotFoundException | XMLStreamException exception) {
-            throw new XmlFileReadException(ResponseType
-                    .NEW_PARTIAL_RETURN_SALE_REQUEST_XML_FILE_READ_ERROR.getCode());
+            throw new XmlFileReadException(RESPONSE_CODE);
         }
 
         if (newPartialReturnSaleRequest == null) {
-            throw new XmlFileReadException(ResponseType
-                    .NEW_PARTIAL_RETURN_SALE_REQUEST_XML_FILE_READ_ERROR.getCode());
+            throw new XmlFileReadException(RESPONSE_CODE);
         }
         if (newPartialReturnSaleRequest.getSeq() == null ||
                 newPartialReturnSaleRequest.getCrn() == null ||
@@ -218,8 +222,7 @@ public class NewPartialReturnSaleRequestReaderXml {
                 newPartialReturnSaleRequest.getCardAmountForReturn() == null ||
                 newPartialReturnSaleRequest.getReturnItemList() == null ||
                 newPartialReturnSaleRequest.getReturnItemList().isEmpty()) {
-            throw new XmlFileReadException(ResponseType
-                    .NEW_PARTIAL_RETURN_SALE_REQUEST_XML_FILE_READ_ERROR.getCode());
+            throw new XmlFileReadException(RESPONSE_CODE);
         }
         return newPartialReturnSaleRequest;
     }

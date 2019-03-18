@@ -1,6 +1,6 @@
 package bsoftlabecr.request.general;
 
-public class SequenceRequest extends CashRegisterRequest {
+public class SequencedCashRegisterRequest extends CashRegisterRequest {
     private Integer seq = null;
 
     public Integer getSeq() {

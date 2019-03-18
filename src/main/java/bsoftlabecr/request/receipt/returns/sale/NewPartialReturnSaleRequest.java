@@ -1,12 +1,12 @@
 package bsoftlabecr.request.receipt.returns.sale;
 
 import bsoftlabecr.entity.ReturnItem;
-import bsoftlabecr.request.general.SequenceRequest;
+import bsoftlabecr.request.general.SequencedCashRegisterRequest;
 
 import java.math.BigDecimal;
 import java.util.List;
 
-public class NewPartialReturnSaleRequest extends SequenceRequest {
+public class NewPartialReturnSaleRequest extends SequencedCashRegisterRequest {
     private Integer returnTicketId = null;             // Վերադարձվող կտրոնի համար
     private String crn = null;                         // Սարքի գրանցման համար
     private BigDecimal cashAmountForReturn = null;     // Առձեռն վերադարձվող գումար: Տվյալը ուղարկվում է, եթե կատարվել է մասնակի վերադարձ

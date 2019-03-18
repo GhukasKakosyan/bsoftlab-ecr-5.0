@@ -20,13 +20,16 @@ import javax.xml.stream.events.XMLEvent;
 
 public class FiscalReportRequestReaderXml {
 
-    private static final String REQUEST = "FiscalReportRequest";
-    private static final String REQUEST_STARTDATE = "startDate";
-    private static final String REQUEST_ENDDATE = "endDate";
-    private static final String REQUEST_REPORTTYPE = "reportType";
-    private static final String REQUEST_CASHIERID = "cashierId";
-    private static final String REQUEST_DEPTID = "deptId";
-    private static final String REQUEST_TRANSACTIONTYPEID = "transactionTypeId";
+    private static final String XML_TAG_MAIN = "FiscalReportRequest";
+    private static final String XML_TAG_STARTDATE = "startDate";
+    private static final String XML_TAG_ENDDATE = "endDate";
+    private static final String XML_TAG_REPORTTYPE = "reportType";
+    private static final String XML_TAG_CASHIERID = "cashierId";
+    private static final String XML_TAG_DEPTID = "deptId";
+    private static final String XML_TAG_TRANSACTIONTYPEID = "transactionTypeId";
+
+    private static final Integer RESPONSE_CODE =
+            ResponseType.FISCAL_REPORT_REQUEST_XML_FILE_READ_ERROR.getCode();
 
     private String fileName;
 
@@ -56,7 +59,7 @@ public class FiscalReportRequestReaderXml {
 
             while (xmlEventReader.hasNext()) {
                 XMLEvent xmlEvent = xmlEventReader.nextEvent();
-                if (xmlEvent.isStartElement() && xmlEvent.asStartElement().getName().getLocalPart().equals(REQUEST)) {
+                if (xmlEvent.isStartElement() && xmlEvent.asStartElement().getName().getLocalPart().equals(XML_TAG_MAIN)) {
 
                     fiscalReportRequest = new FiscalReportRequest();
                     fiscalReportRequest.setStartDate(startDate);
@@ -67,7 +70,7 @@ public class FiscalReportRequestReaderXml {
                     fiscalReportRequest.setTransactionTypeId(transactionTypeId);
                     continue;
                 }
-                if (xmlEvent.isStartElement() && xmlEvent.asStartElement().getName().getLocalPart().equals(REQUEST_STARTDATE)) {
+                if (xmlEvent.isStartElement() && xmlEvent.asStartElement().getName().getLocalPart().equals(XML_TAG_STARTDATE)) {
                     xmlEvent = xmlEventReader.nextEvent();
                     String startDateString = xmlEvent.asCharacters().getData();
                     try {
@@ -78,11 +81,11 @@ public class FiscalReportRequestReaderXml {
                     }
                     continue;
                 }
-                if (xmlEvent.isEndElement() && xmlEvent.asEndElement().getName().getLocalPart().equals(REQUEST_STARTDATE)) {
+                if (xmlEvent.isEndElement() && xmlEvent.asEndElement().getName().getLocalPart().equals(XML_TAG_STARTDATE)) {
                     if (fiscalReportRequest != null) fiscalReportRequest.setStartDate(startDate);
                     continue;
                 }
-                if (xmlEvent.isStartElement() && xmlEvent.asStartElement().getName().getLocalPart().equals(REQUEST_ENDDATE)) {
+                if (xmlEvent.isStartElement() && xmlEvent.asStartElement().getName().getLocalPart().equals(XML_TAG_ENDDATE)) {
                     xmlEvent = xmlEventReader.nextEvent();
                     String endDateString = xmlEvent.asCharacters().getData();
                     try {
@@ -93,11 +96,11 @@ public class FiscalReportRequestReaderXml {
                     }
                     continue;
                 }
-                if (xmlEvent.isEndElement() && xmlEvent.asEndElement().getName().getLocalPart().equals(REQUEST_ENDDATE)) {
+                if (xmlEvent.isEndElement() && xmlEvent.asEndElement().getName().getLocalPart().equals(XML_TAG_ENDDATE)) {
                     if (fiscalReportRequest != null) fiscalReportRequest.setEndDate(endDate);
                     continue;
                 }
-                if (xmlEvent.isStartElement() && xmlEvent.asStartElement().getName().getLocalPart().equals(REQUEST_REPORTTYPE)) {
+                if (xmlEvent.isStartElement() && xmlEvent.asStartElement().getName().getLocalPart().equals(XML_TAG_REPORTTYPE)) {
                     xmlEvent = xmlEventReader.nextEvent();
                     String reportTypeString = xmlEvent.asCharacters().getData();
                     try {
@@ -107,11 +110,11 @@ public class FiscalReportRequestReaderXml {
                     }
                     continue;
                 }
-                if (xmlEvent.isEndElement() && xmlEvent.asEndElement().getName().getLocalPart().equals(REQUEST_REPORTTYPE)) {
+                if (xmlEvent.isEndElement() && xmlEvent.asEndElement().getName().getLocalPart().equals(XML_TAG_REPORTTYPE)) {
                     if (fiscalReportRequest != null) fiscalReportRequest.setReportType(reportType);
                     continue;
                 }
-                if (xmlEvent.isStartElement() && xmlEvent.asStartElement().getName().getLocalPart().equals(REQUEST_CASHIERID)) {
+                if (xmlEvent.isStartElement() && xmlEvent.asStartElement().getName().getLocalPart().equals(XML_TAG_CASHIERID)) {
                     xmlEvent = xmlEventReader.nextEvent();
                     String cashierIdString = xmlEvent.asCharacters().getData();
                     try {
@@ -121,11 +124,11 @@ public class FiscalReportRequestReaderXml {
                     }
                     continue;
                 }
-                if (xmlEvent.isEndElement() && xmlEvent.asEndElement().getName().getLocalPart().equals(REQUEST_CASHIERID)) {
+                if (xmlEvent.isEndElement() && xmlEvent.asEndElement().getName().getLocalPart().equals(XML_TAG_CASHIERID)) {
                     if (fiscalReportRequest != null) fiscalReportRequest.setCashierId(cashierId);
                     continue;
                 }
-                if (xmlEvent.isStartElement() && xmlEvent.asStartElement().getName().getLocalPart().equals(REQUEST_DEPTID)) {
+                if (xmlEvent.isStartElement() && xmlEvent.asStartElement().getName().getLocalPart().equals(XML_TAG_DEPTID)) {
                     xmlEvent = xmlEventReader.nextEvent();
                     String deptIdString = xmlEvent.asCharacters().getData();
                     try {
@@ -135,11 +138,11 @@ public class FiscalReportRequestReaderXml {
                     }
                     continue;
                 }
-                if (xmlEvent.isEndElement() && xmlEvent.asEndElement().getName().getLocalPart().equals(REQUEST_DEPTID)) {
+                if (xmlEvent.isEndElement() && xmlEvent.asEndElement().getName().getLocalPart().equals(XML_TAG_DEPTID)) {
                     if (fiscalReportRequest != null) fiscalReportRequest.setDeptId(deptId);
                     continue;
                 }
-                if (xmlEvent.isStartElement() && xmlEvent.asStartElement().getName().getLocalPart().equals(REQUEST_TRANSACTIONTYPEID)) {
+                if (xmlEvent.isStartElement() && xmlEvent.asStartElement().getName().getLocalPart().equals(XML_TAG_TRANSACTIONTYPEID)) {
                     xmlEvent = xmlEventReader.nextEvent();
                     String transactionTypeIdString = xmlEvent.asCharacters().getData();
                     try {
@@ -149,29 +152,26 @@ public class FiscalReportRequestReaderXml {
                     }
                     continue;
                 }
-                if (xmlEvent.isEndElement() && xmlEvent.asEndElement().getName().getLocalPart().equals(REQUEST_TRANSACTIONTYPEID)) {
+                if (xmlEvent.isEndElement() && xmlEvent.asEndElement().getName().getLocalPart().equals(XML_TAG_TRANSACTIONTYPEID)) {
                     if (fiscalReportRequest != null) fiscalReportRequest.setTransactionTypeId(transactionTypeId);
                     continue;
                 }
-                if (xmlEvent.isEndElement() && xmlEvent.asEndElement().getName().getLocalPart().equals(REQUEST)) {
+                if (xmlEvent.isEndElement() && xmlEvent.asEndElement().getName().getLocalPart().equals(XML_TAG_MAIN)) {
                     break;
                 }
             }
 
         } catch (FileNotFoundException | XMLStreamException exception) {
-            throw new XmlFileReadException(ResponseType
-                    .FISCAL_REPORT_REQUEST_XML_FILE_READ_ERROR.getCode());
+            throw new XmlFileReadException(RESPONSE_CODE);
         }
 
         if (fiscalReportRequest == null) {
-            throw new XmlFileReadException(ResponseType
-                    .FISCAL_REPORT_REQUEST_XML_FILE_READ_ERROR.getCode());
+            throw new XmlFileReadException(RESPONSE_CODE);
         }
         if (fiscalReportRequest.getStartDate() == null ||
                 fiscalReportRequest.getEndDate() == null ||
                 fiscalReportRequest.getReportType() == null) {
-            throw new XmlFileReadException(ResponseType
-                    .FISCAL_REPORT_REQUEST_XML_FILE_READ_ERROR.getCode());
+            throw new XmlFileReadException(RESPONSE_CODE);
         }
         return fiscalReportRequest;
     }

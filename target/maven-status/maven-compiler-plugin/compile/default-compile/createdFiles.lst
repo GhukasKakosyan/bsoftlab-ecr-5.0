@@ -1,4 +1,5 @@
 bsoftlabecr\xml\writer\response\sale\ExistSaleResponseWriterXml.class
+bsoftlabecr\request\general\SequencedCashRegisterRequest.class
 bsoftlabecr\request\cashier\LoginCashierRequest.class
 bsoftlabecr\response\cashier\LoginCashierResponse.class
 bsoftlabecr\response\receipt\returns\prepayment\ExistReturnPrepaymentResponse.class
@@ -21,7 +22,6 @@ bsoftlabecr\entity\Cashier.class
 bsoftlabecr\exception\XmlFileReadException.class
 bsoftlabecr\entity\ReturnItem.class
 bsoftlabecr\request\receipt\prepayment\NewPrepaymentRequest.class
-bsoftlabecr\request\general\SequenceRequest.class
 bsoftlabecr\xml\reader\request\report\FiscalReportRequestReaderXml.class
 bsoftlabecr\xml\reader\constants\ConstantsReaderXml.class
 bsoftlabecr\request\cashier\LogoutCashierRequest.class

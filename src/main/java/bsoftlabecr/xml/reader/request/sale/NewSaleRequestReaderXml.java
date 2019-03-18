@@ -21,27 +21,30 @@ import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.events.XMLEvent;
 
 public class NewSaleRequestReaderXml {
-    private static final String REQUEST = "NewSaleRequest";
-    private static final String REQUEST_SEQ = "seq";
-    private static final String REQUEST_PAIDAMOUNT = "paidAmount";
-    private static final String REQUEST_PAIDAMOUNTCARD = "paidAmountCard";
-    private static final String REQUEST_PARTIALAMOUNT = "partialAmount";
-    private static final String REQUEST_PREPAYMENTAMOUNT = "prePaymentAmount";
-    private static final String REQUEST_MODE = "mode";
-    private static final String REQUEST_USEEXTPOS = "useExtPOS";
-    private static final String REQUEST_ITEMS = "items";
-    private static final String REQUEST_ITEM = "item";
-    private static final String REQUEST_DEP = "dep";
-    private static final String REQUEST_ADGCODE = "adgCode";
-    private static final String REQUEST_PRODUCTCODE = "productCode";
-    private static final String REQUEST_PRODUCTNAME = "productName";
-    private static final String REQUEST_UNIT = "unit";
-    private static final String REQUEST_QTY = "qty";
-    private static final String REQUEST_PRICE = "price";
-    private static final String REQUEST_DISCOUNT = "discount";
-    private static final String REQUEST_DISCOUNTTYPE = "discountType";
-    private static final String REQUEST_ADDITIONALDISCOUNT = "additionalDiscount";
-    private static final String REQUEST_ADDITIONALDISCOUNTTYPE = "additionalDiscountType";
+    private static final String XML_TAG_MAIN = "NewSaleRequest";
+    private static final String XML_TAG_SEQ = "seq";
+    private static final String XML_TAG_PAIDAMOUNT = "paidAmount";
+    private static final String XML_TAG_PAIDAMOUNTCARD = "paidAmountCard";
+    private static final String XML_TAG_PARTIALAMOUNT = "partialAmount";
+    private static final String XML_TAG_PREPAYMENTAMOUNT = "prePaymentAmount";
+    private static final String XML_TAG_MODE = "mode";
+    private static final String XML_TAG_USEEXTPOS = "useExtPOS";
+    private static final String XML_TAG_ITEMS = "items";
+    private static final String XML_TAG_ITEM = "item";
+    private static final String XML_TAG_DEP = "dep";
+    private static final String XML_TAG_ADGCODE = "adgCode";
+    private static final String XML_TAG_PRODUCTCODE = "productCode";
+    private static final String XML_TAG_PRODUCTNAME = "productName";
+    private static final String XML_TAG_UNIT = "unit";
+    private static final String XML_TAG_QTY = "qty";
+    private static final String XML_TAG_PRICE = "price";
+    private static final String XML_TAG_DISCOUNT = "discount";
+    private static final String XML_TAG_DISCOUNTTYPE = "discountType";
+    private static final String XML_TAG_ADDITIONALDISCOUNT = "additionalDiscount";
+    private static final String XML_TAG_ADDITIONALDISCOUNTTYPE = "additionalDiscountType";
+
+    private static final Integer RESPONSE_CODE =
+            ResponseType.NEW_SALE_REQUEST_XML_FILE_READ_ERROR.getCode();
 
     private String fileName;
 
@@ -86,7 +89,7 @@ public class NewSaleRequestReaderXml {
 
             while (xmlEventReader.hasNext()) {
                 XMLEvent xmlEvent = xmlEventReader.nextEvent();
-                if (xmlEvent.isStartElement() && xmlEvent.asStartElement().getName().getLocalPart().equals(REQUEST)) {
+                if (xmlEvent.isStartElement() && xmlEvent.asStartElement().getName().getLocalPart().equals(XML_TAG_MAIN)) {
                     newSaleRequest = new NewSaleRequest();
                     newSaleRequest.setSeq(seq);
                     newSaleRequest.setPaidAmount(paidAmount);
@@ -98,7 +101,7 @@ public class NewSaleRequestReaderXml {
                     newSaleRequest.setItems(items);
                     continue;
                 }
-                if (xmlEvent.isStartElement() && xmlEvent.asStartElement().getName().getLocalPart().equals(REQUEST_SEQ)) {
+                if (xmlEvent.isStartElement() && xmlEvent.asStartElement().getName().getLocalPart().equals(XML_TAG_SEQ)) {
                     xmlEvent = xmlEventReader.nextEvent();
                     String seqString = xmlEvent.asCharacters().getData();
                     try {
@@ -108,11 +111,11 @@ public class NewSaleRequestReaderXml {
                     }
                     continue;
                 }
-                if (xmlEvent.isEndElement() && xmlEvent.asEndElement().getName().getLocalPart().equals(REQUEST_SEQ)) {
+                if (xmlEvent.isEndElement() && xmlEvent.asEndElement().getName().getLocalPart().equals(XML_TAG_SEQ)) {
                     if (newSaleRequest != null) newSaleRequest.setSeq(seq);
                     continue;
                 }
-                if (xmlEvent.isStartElement() && xmlEvent.asStartElement().getName().getLocalPart().equals(REQUEST_PAIDAMOUNT)) {
+                if (xmlEvent.isStartElement() && xmlEvent.asStartElement().getName().getLocalPart().equals(XML_TAG_PAIDAMOUNT)) {
                     xmlEvent = xmlEventReader.nextEvent();
                     String paidAmountString = xmlEvent.asCharacters().getData();
                     try {
@@ -122,11 +125,11 @@ public class NewSaleRequestReaderXml {
                     }
                     continue;
                 }
-                if (xmlEvent.isEndElement() && xmlEvent.asEndElement().getName().getLocalPart().equals(REQUEST_PAIDAMOUNT)) {
+                if (xmlEvent.isEndElement() && xmlEvent.asEndElement().getName().getLocalPart().equals(XML_TAG_PAIDAMOUNT)) {
                     if (newSaleRequest != null) newSaleRequest.setPaidAmount(paidAmount);
                     continue;
                 }
-                if (xmlEvent.isStartElement() && xmlEvent.asStartElement().getName().getLocalPart().equals(REQUEST_PAIDAMOUNTCARD)) {
+                if (xmlEvent.isStartElement() && xmlEvent.asStartElement().getName().getLocalPart().equals(XML_TAG_PAIDAMOUNTCARD)) {
                     xmlEvent = xmlEventReader.nextEvent();
                     String paidAmountCardString = xmlEvent.asCharacters().getData();
                     try {
@@ -136,11 +139,11 @@ public class NewSaleRequestReaderXml {
                     }
                     continue;
                 }
-                if (xmlEvent.isEndElement() && xmlEvent.asEndElement().getName().getLocalPart().equals(REQUEST_PAIDAMOUNTCARD)) {
+                if (xmlEvent.isEndElement() && xmlEvent.asEndElement().getName().getLocalPart().equals(XML_TAG_PAIDAMOUNTCARD)) {
                     if (newSaleRequest != null) newSaleRequest.setPaidAmountCard(paidAmountCard);
                     continue;
                 }
-                if (xmlEvent.isStartElement() && xmlEvent.asStartElement().getName().getLocalPart().equals(REQUEST_PARTIALAMOUNT)) {
+                if (xmlEvent.isStartElement() && xmlEvent.asStartElement().getName().getLocalPart().equals(XML_TAG_PARTIALAMOUNT)) {
                     xmlEvent = xmlEventReader.nextEvent();
                     String partialAmountString = xmlEvent.asCharacters().getData();
                     try {
@@ -150,11 +153,11 @@ public class NewSaleRequestReaderXml {
                     }
                     continue;
                 }
-                if (xmlEvent.isEndElement() && xmlEvent.asEndElement().getName().getLocalPart().equals(REQUEST_PARTIALAMOUNT)) {
+                if (xmlEvent.isEndElement() && xmlEvent.asEndElement().getName().getLocalPart().equals(XML_TAG_PARTIALAMOUNT)) {
                     if (newSaleRequest != null) newSaleRequest.setPartialAmount(partialAmount);
                     continue;
                 }
-                if (xmlEvent.isStartElement() && xmlEvent.asStartElement().getName().getLocalPart().equals(REQUEST_PREPAYMENTAMOUNT)) {
+                if (xmlEvent.isStartElement() && xmlEvent.asStartElement().getName().getLocalPart().equals(XML_TAG_PREPAYMENTAMOUNT)) {
                     xmlEvent = xmlEventReader.nextEvent();
                     String prePaymentAmountString = xmlEvent.asCharacters().getData();
                     try {
@@ -164,11 +167,11 @@ public class NewSaleRequestReaderXml {
                     }
                     continue;
                 }
-                if (xmlEvent.isEndElement() && xmlEvent.asEndElement().getName().getLocalPart().equals(REQUEST_PREPAYMENTAMOUNT)) {
+                if (xmlEvent.isEndElement() && xmlEvent.asEndElement().getName().getLocalPart().equals(XML_TAG_PREPAYMENTAMOUNT)) {
                     if (newSaleRequest != null) newSaleRequest.setPrePaymentAmount(prePaymentAmount);
                     continue;
                 }
-                if (xmlEvent.isStartElement() && xmlEvent.asStartElement().getName().getLocalPart().equals(REQUEST_MODE)) {
+                if (xmlEvent.isStartElement() && xmlEvent.asStartElement().getName().getLocalPart().equals(XML_TAG_MODE)) {
                     xmlEvent = xmlEventReader.nextEvent();
                     String modeString = xmlEvent.asCharacters().getData();
                     try {
@@ -178,25 +181,25 @@ public class NewSaleRequestReaderXml {
                     }
                     continue;
                 }
-                if (xmlEvent.isEndElement() && xmlEvent.asEndElement().getName().getLocalPart().equals(REQUEST_MODE)) {
+                if (xmlEvent.isEndElement() && xmlEvent.asEndElement().getName().getLocalPart().equals(XML_TAG_MODE)) {
                     if (newSaleRequest != null) newSaleRequest.setMode(mode);
                     continue;
                 }
-                if (xmlEvent.isStartElement() && xmlEvent.asStartElement().getName().getLocalPart().equals(REQUEST_USEEXTPOS)) {
+                if (xmlEvent.isStartElement() && xmlEvent.asStartElement().getName().getLocalPart().equals(XML_TAG_USEEXTPOS)) {
                     xmlEvent = xmlEventReader.nextEvent();
                     String useExtPOSString = xmlEvent.asCharacters().getData();
                     useExtPOS = Boolean.parseBoolean(useExtPOSString);
                     continue;
                 }
-                if (xmlEvent.isEndElement() && xmlEvent.asEndElement().getName().getLocalPart().equals(REQUEST_USEEXTPOS)) {
+                if (xmlEvent.isEndElement() && xmlEvent.asEndElement().getName().getLocalPart().equals(XML_TAG_USEEXTPOS)) {
                     if (newSaleRequest != null) newSaleRequest.setUseExtPOS(useExtPOS);
                     continue;
                 }
-                if (xmlEvent.isStartElement() && xmlEvent.asStartElement().getName().getLocalPart().equals(REQUEST_ITEMS)) {
+                if (xmlEvent.isStartElement() && xmlEvent.asStartElement().getName().getLocalPart().equals(XML_TAG_ITEMS)) {
                     items = new ArrayList<>();
                     continue;
                 }
-                if (xmlEvent.isStartElement() && xmlEvent.asStartElement().getName().getLocalPart().equals(REQUEST_ITEM)) {
+                if (xmlEvent.isStartElement() && xmlEvent.asStartElement().getName().getLocalPart().equals(XML_TAG_ITEM)) {
                     dep = null;
                     adgCode = null;
                     productCode = null;
@@ -223,7 +226,7 @@ public class NewSaleRequestReaderXml {
                     item.setAdditionalDiscountType(additionalDiscountType);
                     continue;
                 }
-                if (xmlEvent.isStartElement() && xmlEvent.asStartElement().getName().getLocalPart().equals(REQUEST_DEP)) {
+                if (xmlEvent.isStartElement() && xmlEvent.asStartElement().getName().getLocalPart().equals(XML_TAG_DEP)) {
                     xmlEvent = xmlEventReader.nextEvent();
                     String depString = xmlEvent.asCharacters().getData();
                     try {
@@ -233,51 +236,51 @@ public class NewSaleRequestReaderXml {
                     }
                     continue;
                 }
-                if (xmlEvent.isEndElement() && xmlEvent.asEndElement().getName().getLocalPart().equals(REQUEST_DEP)) {
+                if (xmlEvent.isEndElement() && xmlEvent.asEndElement().getName().getLocalPart().equals(XML_TAG_DEP)) {
                     if (item != null) item.setDep(dep);
                     continue;
                 }
-                if (xmlEvent.isStartElement() && xmlEvent.asStartElement().getName().getLocalPart().equals(REQUEST_ADGCODE)) {
+                if (xmlEvent.isStartElement() && xmlEvent.asStartElement().getName().getLocalPart().equals(XML_TAG_ADGCODE)) {
                     xmlEvent = xmlEventReader.nextEvent();
                     adgCode = xmlEvent.asCharacters().getData();
                     continue;
                 }
-                if (xmlEvent.isEndElement() && xmlEvent.asEndElement().getName().getLocalPart().equals(REQUEST_ADGCODE)) {
+                if (xmlEvent.isEndElement() && xmlEvent.asEndElement().getName().getLocalPart().equals(XML_TAG_ADGCODE)) {
                     if (item != null) item.setAdgCode(adgCode);
                     continue;
                 }
-                if (xmlEvent.isStartElement() && xmlEvent.asStartElement().getName().getLocalPart().equals(REQUEST_PRODUCTCODE)) {
+                if (xmlEvent.isStartElement() && xmlEvent.asStartElement().getName().getLocalPart().equals(XML_TAG_PRODUCTCODE)) {
                     xmlEvent = xmlEventReader.nextEvent();
                     productCode = xmlEvent.asCharacters().getData();
                     continue;
                 }
-                if (xmlEvent.isEndElement() && xmlEvent.asEndElement().getName().getLocalPart().equals(REQUEST_PRODUCTCODE)) {
+                if (xmlEvent.isEndElement() && xmlEvent.asEndElement().getName().getLocalPart().equals(XML_TAG_PRODUCTCODE)) {
                     if (item != null) item.setProductCode(productCode);
                     continue;
                 }
-                if (xmlEvent.isStartElement() && xmlEvent.asStartElement().getName().getLocalPart().equals(REQUEST_PRODUCTNAME)) {
+                if (xmlEvent.isStartElement() && xmlEvent.asStartElement().getName().getLocalPart().equals(XML_TAG_PRODUCTNAME)) {
                     xmlEvent = xmlEventReader.nextEvent();
                     String productNameCodering = xmlEvent.asCharacters().getData();
                     productName = CoderingsConverter.convert(productNameCodering);
                     continue;
                 }
-                if (xmlEvent.isEndElement() && xmlEvent.asEndElement().getName().getLocalPart().equals(REQUEST_PRODUCTNAME)) {
+                if (xmlEvent.isEndElement() && xmlEvent.asEndElement().getName().getLocalPart().equals(XML_TAG_PRODUCTNAME)) {
                     if (item != null) item.setProductName(productName);
                     continue;
                 }
-                if (xmlEvent.isStartElement() && xmlEvent.asStartElement().getName().getLocalPart().equals(REQUEST_UNIT)) {
+                if (xmlEvent.isStartElement() && xmlEvent.asStartElement().getName().getLocalPart().equals(XML_TAG_UNIT)) {
                     xmlEvent = xmlEventReader.nextEvent();
                     String unitCodering = xmlEvent.asCharacters().getData();
                     unit = CoderingsConverter.convert(unitCodering);
                     continue;
                 }
-                if (xmlEvent.isEndElement() && xmlEvent.asEndElement().getName().getLocalPart().equals(REQUEST_UNIT)) {
+                if (xmlEvent.isEndElement() && xmlEvent.asEndElement().getName().getLocalPart().equals(XML_TAG_UNIT)) {
                     if (item != null && unit != null) {
                         item.setUnit(unit);
                     }
                     continue;
                 }
-                if (xmlEvent.isStartElement() && xmlEvent.asStartElement().getName().getLocalPart().equals(REQUEST_QTY)) {
+                if (xmlEvent.isStartElement() && xmlEvent.asStartElement().getName().getLocalPart().equals(XML_TAG_QTY)) {
                     xmlEvent = xmlEventReader.nextEvent();
                     String qtyString = xmlEvent.asCharacters().getData();
                     try {
@@ -288,11 +291,11 @@ public class NewSaleRequestReaderXml {
                     }
                     continue;
                 }
-                if (xmlEvent.isEndElement() && xmlEvent.asEndElement().getName().getLocalPart().equals(REQUEST_QTY)) {
+                if (xmlEvent.isEndElement() && xmlEvent.asEndElement().getName().getLocalPart().equals(XML_TAG_QTY)) {
                     if (item != null) item.setQty(qty);
                     continue;
                 }
-                if (xmlEvent.isStartElement() && xmlEvent.asStartElement().getName().getLocalPart().equals(REQUEST_PRICE)) {
+                if (xmlEvent.isStartElement() && xmlEvent.asStartElement().getName().getLocalPart().equals(XML_TAG_PRICE)) {
                     xmlEvent = xmlEventReader.nextEvent();
                     String priceString = xmlEvent.asCharacters().getData();
                     try {
@@ -303,11 +306,11 @@ public class NewSaleRequestReaderXml {
                     }
                     continue;
                 }
-                if (xmlEvent.isEndElement() && xmlEvent.asEndElement().getName().getLocalPart().equals(REQUEST_PRICE)) {
+                if (xmlEvent.isEndElement() && xmlEvent.asEndElement().getName().getLocalPart().equals(XML_TAG_PRICE)) {
                     if (item != null) item.setPrice(price);
                     continue;
                 }
-                if (xmlEvent.isStartElement() && xmlEvent.asStartElement().getName().getLocalPart().equals(REQUEST_DISCOUNT)) {
+                if (xmlEvent.isStartElement() && xmlEvent.asStartElement().getName().getLocalPart().equals(XML_TAG_DISCOUNT)) {
                     xmlEvent = xmlEventReader.nextEvent();
                     String discountString = xmlEvent.asCharacters().getData();
                     try {
@@ -318,11 +321,11 @@ public class NewSaleRequestReaderXml {
                     }
                     continue;
                 }
-                if (xmlEvent.isEndElement() && xmlEvent.asEndElement().getName().getLocalPart().equals(REQUEST_DISCOUNT)) {
+                if (xmlEvent.isEndElement() && xmlEvent.asEndElement().getName().getLocalPart().equals(XML_TAG_DISCOUNT)) {
                     if (item != null) item.setDiscount(discount);
                     continue;
                 }
-                if (xmlEvent.isStartElement() && xmlEvent.asStartElement().getName().getLocalPart().equals(REQUEST_DISCOUNTTYPE)) {
+                if (xmlEvent.isStartElement() && xmlEvent.asStartElement().getName().getLocalPart().equals(XML_TAG_DISCOUNTTYPE)) {
                     xmlEvent = xmlEventReader.nextEvent();
                     String discountTypeString = xmlEvent.asCharacters().getData();
                     try {
@@ -332,11 +335,11 @@ public class NewSaleRequestReaderXml {
                     }
                     continue;
                 }
-                if (xmlEvent.isEndElement() && xmlEvent.asEndElement().getName().getLocalPart().equals(REQUEST_DISCOUNTTYPE)) {
+                if (xmlEvent.isEndElement() && xmlEvent.asEndElement().getName().getLocalPart().equals(XML_TAG_DISCOUNTTYPE)) {
                     if (item != null) item.setDiscountType(discountType);
                     continue;
                 }
-                if (xmlEvent.isStartElement() && xmlEvent.asStartElement().getName().getLocalPart().equals(REQUEST_ADDITIONALDISCOUNT)) {
+                if (xmlEvent.isStartElement() && xmlEvent.asStartElement().getName().getLocalPart().equals(XML_TAG_ADDITIONALDISCOUNT)) {
                     xmlEvent = xmlEventReader.nextEvent();
                     String additionalDiscountString = xmlEvent.asCharacters().getData();
                     try {
@@ -347,11 +350,11 @@ public class NewSaleRequestReaderXml {
                     }
                     continue;
                 }
-                if (xmlEvent.isEndElement() && xmlEvent.asEndElement().getName().getLocalPart().equals(REQUEST_ADDITIONALDISCOUNT)) {
+                if (xmlEvent.isEndElement() && xmlEvent.asEndElement().getName().getLocalPart().equals(XML_TAG_ADDITIONALDISCOUNT)) {
                     if (item != null) item.setAdditionalDiscount(additionalDiscount);
                     continue;
                 }
-                if (xmlEvent.isStartElement() && xmlEvent.asStartElement().getName().getLocalPart().equals(REQUEST_ADDITIONALDISCOUNTTYPE)) {
+                if (xmlEvent.isStartElement() && xmlEvent.asStartElement().getName().getLocalPart().equals(XML_TAG_ADDITIONALDISCOUNTTYPE)) {
                     xmlEvent = xmlEventReader.nextEvent();
                     String additionalDiscountTypeString = xmlEvent.asCharacters().getData();
                     try {
@@ -361,18 +364,18 @@ public class NewSaleRequestReaderXml {
                     }
                     continue;
                 }
-                if (xmlEvent.isEndElement() && xmlEvent.asEndElement().getName().getLocalPart().equals(REQUEST_ADDITIONALDISCOUNTTYPE)) {
+                if (xmlEvent.isEndElement() && xmlEvent.asEndElement().getName().getLocalPart().equals(XML_TAG_ADDITIONALDISCOUNTTYPE)) {
                     if (item != null) item.setAdditionalDiscountType(additionalDiscountType);
                     continue;
                 }
-                if (xmlEvent.isEndElement() && xmlEvent.asEndElement().getName().getLocalPart().equals(REQUEST_ITEM)) {
+                if (xmlEvent.isEndElement() && xmlEvent.asEndElement().getName().getLocalPart().equals(XML_TAG_ITEM)) {
                     if (!((item != null) && (item.getDep() != -1) && (item.getProductCode() != null)
                             && (item.getProductName() != null) && (item.getUnit() != null)
                             && (item.getQty() != null) && (item.getPrice() != null))) item = null;
                     if (items != null) items.add(item);
                     continue;
                 }
-                if (xmlEvent.isEndElement() && xmlEvent.asEndElement().getName().getLocalPart().equals(REQUEST_ITEMS)) {
+                if (xmlEvent.isEndElement() && xmlEvent.asEndElement().getName().getLocalPart().equals(XML_TAG_ITEMS)) {
                     if (items != null && items.size() > 0) {
                         for (Item good : items) {
                             if (good == null) {
@@ -384,19 +387,17 @@ public class NewSaleRequestReaderXml {
                     if (newSaleRequest != null) newSaleRequest.setItems(items);
                     continue;
                 }
-                if (xmlEvent.isEndElement() && xmlEvent.asEndElement().getName().getLocalPart().equals(REQUEST)) {
+                if (xmlEvent.isEndElement() && xmlEvent.asEndElement().getName().getLocalPart().equals(XML_TAG_MAIN)) {
                     break;
                 }
             }
 
         } catch (FileNotFoundException | XMLStreamException exception) {
-            throw new XmlFileReadException(ResponseType
-                    .NEW_SALE_REQUEST_XML_FILE_READ_ERROR.getCode());
+            throw new XmlFileReadException(RESPONSE_CODE);
         }
 
         if (newSaleRequest == null) {
-            throw new XmlFileReadException(ResponseType
-                    .NEW_SALE_REQUEST_XML_FILE_READ_ERROR.getCode());
+            throw new XmlFileReadException(RESPONSE_CODE);
         }
         if (newSaleRequest.getSeq() == null ||
                 newSaleRequest.getPaidAmount() == null ||
@@ -406,8 +407,7 @@ public class NewSaleRequestReaderXml {
                 newSaleRequest.getMode() == null ||
                 newSaleRequest.getItems() == null ||
                 newSaleRequest.getItems().isEmpty()) {
-            throw new XmlFileReadException(ResponseType
-                    .NEW_SALE_REQUEST_XML_FILE_READ_ERROR.getCode());
+            throw new XmlFileReadException(RESPONSE_CODE);
         }
         return newSaleRequest;
     }

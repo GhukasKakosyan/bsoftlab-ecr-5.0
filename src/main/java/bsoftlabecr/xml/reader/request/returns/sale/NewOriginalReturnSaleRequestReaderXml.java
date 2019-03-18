@@ -14,10 +14,13 @@ import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.events.XMLEvent;
 
 public class NewOriginalReturnSaleRequestReaderXml {
-    private static final String REQUEST = "NewOriginalReturnSaleRequest";
-    private static final String REQUEST_SEQ = "seq";
-    private static final String REQUEST_CRN = "crn";
-    private static final String REQUEST_RETURNTICKETID = "returnTicketId";
+    private static final String XML_TAG_MAIN = "NewOriginalReturnSaleRequest";
+    private static final String XML_TAG_SEQ = "seq";
+    private static final String XML_TAG_CRN = "crn";
+    private static final String XML_TAG_RETURNTICKETID = "returnTicketId";
+
+    private static final Integer RESPONSE_CODE =
+            ResponseType.NEW_ORIGINAL_RETURN_SALE_REQUEST_XML_FILE_READ_ERROR.getCode();
 
     private String fileName;
 
@@ -44,14 +47,14 @@ public class NewOriginalReturnSaleRequestReaderXml {
 
             while (xmlEventReader.hasNext()) {
                 XMLEvent xmlEvent = xmlEventReader.nextEvent();
-                if (xmlEvent.isStartElement() && xmlEvent.asStartElement().getName().getLocalPart().equals(REQUEST)) {
+                if (xmlEvent.isStartElement() && xmlEvent.asStartElement().getName().getLocalPart().equals(XML_TAG_MAIN)) {
                     newOriginalReturnSaleRequest = new NewOriginalReturnSaleRequest();
                     newOriginalReturnSaleRequest.setSeq(seq);
                     newOriginalReturnSaleRequest.setCrn(crn);
                     newOriginalReturnSaleRequest.setReturnTicketId(returnTicketId);
                     continue;
                 }
-                if (xmlEvent.isStartElement() && xmlEvent.asStartElement().getName().getLocalPart().equals(REQUEST_SEQ)) {
+                if (xmlEvent.isStartElement() && xmlEvent.asStartElement().getName().getLocalPart().equals(XML_TAG_SEQ)) {
                     xmlEvent = xmlEventReader.nextEvent();
                     String seqString = xmlEvent.asCharacters().getData();
                     try {
@@ -61,20 +64,20 @@ public class NewOriginalReturnSaleRequestReaderXml {
                     }
                     continue;
                 }
-                if (xmlEvent.isEndElement() && xmlEvent.asEndElement().getName().getLocalPart().equals(REQUEST_SEQ)) {
+                if (xmlEvent.isEndElement() && xmlEvent.asEndElement().getName().getLocalPart().equals(XML_TAG_SEQ)) {
                     if (newOriginalReturnSaleRequest != null) newOriginalReturnSaleRequest.setSeq(seq);
                     continue;
                 }
-                if (xmlEvent.isStartElement() && xmlEvent.asStartElement().getName().getLocalPart().equals(REQUEST_CRN)) {
+                if (xmlEvent.isStartElement() && xmlEvent.asStartElement().getName().getLocalPart().equals(XML_TAG_CRN)) {
                     xmlEvent = xmlEventReader.nextEvent();
                     crn = xmlEvent.asCharacters().getData();
                     continue;
                 }
-                if (xmlEvent.isEndElement() && xmlEvent.asEndElement().getName().getLocalPart().equals(REQUEST_CRN)) {
+                if (xmlEvent.isEndElement() && xmlEvent.asEndElement().getName().getLocalPart().equals(XML_TAG_CRN)) {
                     if (newOriginalReturnSaleRequest != null) newOriginalReturnSaleRequest.setCrn(crn);
                     continue;
                 }
-                if (xmlEvent.isStartElement() && xmlEvent.asStartElement().getName().getLocalPart().equals(REQUEST_RETURNTICKETID)) {
+                if (xmlEvent.isStartElement() && xmlEvent.asStartElement().getName().getLocalPart().equals(XML_TAG_RETURNTICKETID)) {
                     xmlEvent = xmlEventReader.nextEvent();
                     String returnTicketIdString = xmlEvent.asCharacters().getData();
                     try {
@@ -84,30 +87,27 @@ public class NewOriginalReturnSaleRequestReaderXml {
                     }
                     continue;
                 }
-                if (xmlEvent.isEndElement() && xmlEvent.asEndElement().getName().getLocalPart().equals(REQUEST_RETURNTICKETID)) {
+                if (xmlEvent.isEndElement() && xmlEvent.asEndElement().getName().getLocalPart().equals(XML_TAG_RETURNTICKETID)) {
                     if (newOriginalReturnSaleRequest != null)
                         newOriginalReturnSaleRequest.setReturnTicketId(returnTicketId);
                     continue;
                 }
-                if (xmlEvent.isEndElement() && xmlEvent.asEndElement().getName().getLocalPart().equals(REQUEST)) {
+                if (xmlEvent.isEndElement() && xmlEvent.asEndElement().getName().getLocalPart().equals(XML_TAG_MAIN)) {
                     break;
                 }
             }
 
         } catch (FileNotFoundException | XMLStreamException exception) {
-            throw new XmlFileReadException(ResponseType
-                    .NEW_ORIGINAL_RETURN_SALE_REQUEST_XML_FILE_READ_ERROR.getCode());
+            throw new XmlFileReadException(RESPONSE_CODE);
         }
 
         if (newOriginalReturnSaleRequest == null) {
-            throw new XmlFileReadException(ResponseType
-                    .NEW_ORIGINAL_RETURN_SALE_REQUEST_XML_FILE_READ_ERROR.getCode());
+            throw new XmlFileReadException(RESPONSE_CODE);
         }
         if (newOriginalReturnSaleRequest.getSeq() == null ||
                 newOriginalReturnSaleRequest.getCrn() == null ||
                 newOriginalReturnSaleRequest.getReturnTicketId() == null) {
-            throw new XmlFileReadException(ResponseType
-                    .NEW_ORIGINAL_RETURN_SALE_REQUEST_XML_FILE_READ_ERROR.getCode());
+            throw new XmlFileReadException(RESPONSE_CODE);
         }
         return newOriginalReturnSaleRequest;
     }

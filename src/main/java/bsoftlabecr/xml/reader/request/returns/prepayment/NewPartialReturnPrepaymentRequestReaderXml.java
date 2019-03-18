@@ -16,12 +16,15 @@ import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.events.XMLEvent;
 
 public class NewPartialReturnPrepaymentRequestReaderXml {
-    private static final String REQUEST = "NewPartialReturnPrepaymentRequest";
-    private static final String REQUEST_SEQ = "seq";
-    private static final String REQUEST_CRN = "crn";
-    private static final String REQUEST_RETURNTICKETID = "returnTicketId";
-    private static final String REQUEST_CASHAMOUNTFORRETURN = "cashAmountForReturn";
-    private static final String REQUEST_CARDAMOUNTFORRETURN = "cardAmountForReturn";
+    private static final String XML_TAG_MAIN = "NewPartialReturnPrepaymentRequest";
+    private static final String XML_TAG_SEQ = "seq";
+    private static final String XML_TAG_CRN = "crn";
+    private static final String XML_TAG_RETURNTICKETID = "returnTicketId";
+    private static final String XML_TAG_CASHAMOUNTFORRETURN = "cashAmountForReturn";
+    private static final String XML_TAG_CARDAMOUNTFORRETURN = "cardAmountForReturn";
+
+    private static final Integer RESPONSE_CODE = ResponseType
+            .NEW_PARTIAL_RETURN_PREPAYMENT_REQUEST_XML_FILE_READ_ERROR.getCode();
 
     private String fileName;
 
@@ -50,7 +53,7 @@ public class NewPartialReturnPrepaymentRequestReaderXml {
 
             while (xmlEventReader.hasNext()) {
                 XMLEvent xmlEvent = xmlEventReader.nextEvent();
-                if (xmlEvent.isStartElement() && xmlEvent.asStartElement().getName().getLocalPart().equals(REQUEST)) {
+                if (xmlEvent.isStartElement() && xmlEvent.asStartElement().getName().getLocalPart().equals(XML_TAG_MAIN)) {
                     newPartialReturnPrepaymentRequest = new NewPartialReturnPrepaymentRequest();
                     newPartialReturnPrepaymentRequest.setSeq(seq);
                     newPartialReturnPrepaymentRequest.setCrn(crn);
@@ -59,7 +62,7 @@ public class NewPartialReturnPrepaymentRequestReaderXml {
                     newPartialReturnPrepaymentRequest.setCardAmountForReturn(cardAmountForReturn);
                     continue;
                 }
-                if (xmlEvent.isStartElement() && xmlEvent.asStartElement().getName().getLocalPart().equals(REQUEST_SEQ)) {
+                if (xmlEvent.isStartElement() && xmlEvent.asStartElement().getName().getLocalPart().equals(XML_TAG_SEQ)) {
                     xmlEvent = xmlEventReader.nextEvent();
                     String seqString = xmlEvent.asCharacters().getData();
                     try {
@@ -69,20 +72,20 @@ public class NewPartialReturnPrepaymentRequestReaderXml {
                     }
                     continue;
                 }
-                if (xmlEvent.isEndElement() && xmlEvent.asEndElement().getName().getLocalPart().equals(REQUEST_SEQ)) {
+                if (xmlEvent.isEndElement() && xmlEvent.asEndElement().getName().getLocalPart().equals(XML_TAG_SEQ)) {
                     if (newPartialReturnPrepaymentRequest != null) newPartialReturnPrepaymentRequest.setSeq(seq);
                     continue;
                 }
-                if (xmlEvent.isStartElement() && xmlEvent.asStartElement().getName().getLocalPart().equals(REQUEST_CRN)) {
+                if (xmlEvent.isStartElement() && xmlEvent.asStartElement().getName().getLocalPart().equals(XML_TAG_CRN)) {
                     xmlEvent = xmlEventReader.nextEvent();
                     crn = xmlEvent.asCharacters().getData();
                     continue;
                 }
-                if (xmlEvent.isEndElement() && xmlEvent.asEndElement().getName().getLocalPart().equals(REQUEST_CRN)) {
+                if (xmlEvent.isEndElement() && xmlEvent.asEndElement().getName().getLocalPart().equals(XML_TAG_CRN)) {
                     if (newPartialReturnPrepaymentRequest != null) newPartialReturnPrepaymentRequest.setCrn(crn);
                     continue;
                 }
-                if (xmlEvent.isStartElement() && xmlEvent.asStartElement().getName().getLocalPart().equals(REQUEST_RETURNTICKETID)) {
+                if (xmlEvent.isStartElement() && xmlEvent.asStartElement().getName().getLocalPart().equals(XML_TAG_RETURNTICKETID)) {
                     xmlEvent = xmlEventReader.nextEvent();
                     String returnTicketIdString = xmlEvent.asCharacters().getData();
                     try {
@@ -92,12 +95,12 @@ public class NewPartialReturnPrepaymentRequestReaderXml {
                     }
                     continue;
                 }
-                if (xmlEvent.isEndElement() && xmlEvent.asEndElement().getName().getLocalPart().equals(REQUEST_RETURNTICKETID)) {
+                if (xmlEvent.isEndElement() && xmlEvent.asEndElement().getName().getLocalPart().equals(XML_TAG_RETURNTICKETID)) {
                     if (newPartialReturnPrepaymentRequest != null)
                         newPartialReturnPrepaymentRequest.setReturnTicketId(returnTicketId);
                     continue;
                 }
-                if (xmlEvent.isStartElement() && xmlEvent.asStartElement().getName().getLocalPart().equals(REQUEST_CASHAMOUNTFORRETURN)) {
+                if (xmlEvent.isStartElement() && xmlEvent.asStartElement().getName().getLocalPart().equals(XML_TAG_CASHAMOUNTFORRETURN)) {
                     xmlEvent = xmlEventReader.nextEvent();
                     String cashAmountForReturnString = xmlEvent.asCharacters().getData();
                     try {
@@ -108,12 +111,12 @@ public class NewPartialReturnPrepaymentRequestReaderXml {
                     }
                     continue;
                 }
-                if (xmlEvent.isEndElement() && xmlEvent.asEndElement().getName().getLocalPart().equals(REQUEST_CASHAMOUNTFORRETURN)) {
+                if (xmlEvent.isEndElement() && xmlEvent.asEndElement().getName().getLocalPart().equals(XML_TAG_CASHAMOUNTFORRETURN)) {
                     if (newPartialReturnPrepaymentRequest != null)
                         newPartialReturnPrepaymentRequest.setCashAmountForReturn(cashAmountForReturn);
                     continue;
                 }
-                if (xmlEvent.isStartElement() && xmlEvent.asStartElement().getName().getLocalPart().equals(REQUEST_CARDAMOUNTFORRETURN)) {
+                if (xmlEvent.isStartElement() && xmlEvent.asStartElement().getName().getLocalPart().equals(XML_TAG_CARDAMOUNTFORRETURN)) {
                     xmlEvent = xmlEventReader.nextEvent();
                     String cardAmountForReturnString = xmlEvent.asCharacters().getData();
                     try {
@@ -124,31 +127,28 @@ public class NewPartialReturnPrepaymentRequestReaderXml {
                     }
                     continue;
                 }
-                if (xmlEvent.isEndElement() && xmlEvent.asEndElement().getName().getLocalPart().equals(REQUEST_CARDAMOUNTFORRETURN)) {
+                if (xmlEvent.isEndElement() && xmlEvent.asEndElement().getName().getLocalPart().equals(XML_TAG_CARDAMOUNTFORRETURN)) {
                     if (newPartialReturnPrepaymentRequest != null)
                         newPartialReturnPrepaymentRequest.setCardAmountForReturn(cardAmountForReturn);
                     continue;
                 }
-                if (xmlEvent.isEndElement() && xmlEvent.asEndElement().getName().getLocalPart().equals(REQUEST)) {
+                if (xmlEvent.isEndElement() && xmlEvent.asEndElement().getName().getLocalPart().equals(XML_TAG_MAIN)) {
                     break;
                 }
             }
         } catch (FileNotFoundException | XMLStreamException exception) {
-            throw new XmlFileReadException(ResponseType
-                    .NEW_PARTIAL_RETURN_PREPAYMENT_REQUEST_XML_FILE_READ_ERROR.getCode());
+            throw new XmlFileReadException(RESPONSE_CODE);
         }
 
         if (newPartialReturnPrepaymentRequest == null) {
-            throw new XmlFileReadException(ResponseType
-                    .NEW_PARTIAL_RETURN_PREPAYMENT_REQUEST_XML_FILE_READ_ERROR.getCode());
+            throw new XmlFileReadException(RESPONSE_CODE);
         }
         if (newPartialReturnPrepaymentRequest.getSeq() == null ||
                 newPartialReturnPrepaymentRequest.getCrn() == null ||
                 newPartialReturnPrepaymentRequest.getReturnTicketId() == null ||
                 newPartialReturnPrepaymentRequest.getCashAmountForReturn() == null ||
                 newPartialReturnPrepaymentRequest.getCardAmountForReturn() == null) {
-            throw new XmlFileReadException(ResponseType
-                    .NEW_PARTIAL_RETURN_PREPAYMENT_REQUEST_XML_FILE_READ_ERROR.getCode());
+            throw new XmlFileReadException(RESPONSE_CODE);
         }
         return newPartialReturnPrepaymentRequest;
     }

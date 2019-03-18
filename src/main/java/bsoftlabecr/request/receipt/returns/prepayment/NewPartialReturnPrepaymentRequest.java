@@ -1,10 +1,10 @@
 package bsoftlabecr.request.receipt.returns.prepayment;
 
-import bsoftlabecr.request.general.SequenceRequest;
+import bsoftlabecr.request.general.SequencedCashRegisterRequest;
 
 import java.math.BigDecimal;
 
-public class NewPartialReturnPrepaymentRequest extends SequenceRequest {
+public class NewPartialReturnPrepaymentRequest extends SequencedCashRegisterRequest {
     private Integer returnTicketId = null;             // Վերադարձվող կտրոնի համար
     private String crn = null;                         // Սարքի գրանցման համար
     private BigDecimal cashAmountForReturn = null;     // Առձեռն վերադարձվող գումար: Տվյալը ուղարկվում է, եթե կատարվել է մասնակի վերադարձ

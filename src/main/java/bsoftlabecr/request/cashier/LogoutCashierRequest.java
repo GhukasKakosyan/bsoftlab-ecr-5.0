@@ -1,5 +1,5 @@
 package bsoftlabecr.request.cashier;
 
-import bsoftlabecr.request.general.SequenceRequest;
+import bsoftlabecr.request.general.SequencedCashRegisterRequest;
 
-public class LogoutCashierRequest extends SequenceRequest {}
+public class LogoutCashierRequest extends SequencedCashRegisterRequest {}

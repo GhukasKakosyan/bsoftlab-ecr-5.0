@@ -3,29 +3,33 @@
   <component name="ChangeListManager">
     <list default="true" id="9553f8bf-0a4a-49fd-8025-c7d73f29c7df" name="Default" comment="Fundamental changes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bsoftlabecr/ExistPrepayment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/ExistPrepayment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bsoftlabecr/ExistReturnPrepayment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/ExistReturnPrepayment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bsoftlabecr/ExistReturnSale.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/ExistReturnSale.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bsoftlabecr/ExistSale.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/ExistSale.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bsoftlabecr/FiscalReport.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/FiscalReport.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bsoftlabecr/NewOriginalReturnPrepayment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/NewOriginalReturnPrepayment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bsoftlabecr/NewOriginalReturnSale.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/NewOriginalReturnSale.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bsoftlabecr/NewPartialReturnPrepayment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/NewPartialReturnPrepayment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bsoftlabecr/NewPartialReturnSale.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/NewPartialReturnSale.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bsoftlabecr/NewPrepayment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/NewPrepayment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bsoftlabecr/NewSale.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/NewSale.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/bsoftlabecr/client/CashRegisterClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/client/CashRegisterClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bsoftlabecr/response/cashier/CashiersAndDepsResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/response/cashier/CashiersAndDepsResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bsoftlabecr/response/cashier/LoginCashierResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/response/cashier/LoginCashierResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bsoftlabecr/response/cashier/LogoutCashierResponse.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bsoftlabecr/response/general/CashRegisterResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/response/general/CashRegisterResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bsoftlabecr/response/headerfooter/HeaderFooterResponse.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bsoftlabecr/response/receipt/general/ExistReceiptResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/response/receipt/general/ExistReceiptResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bsoftlabecr/response/receipt/general/NewReceiptResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/response/receipt/general/NewReceiptResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bsoftlabecr/response/report/FiscalReportResponse.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bsoftlabecr/xml/writer/response/returns/sale/ExistReturnSaleResponseWriterXml.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/xml/writer/response/returns/sale/ExistReturnSaleResponseWriterXml.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bsoftlabecr/xml/writer/response/sale/ExistSaleResponseWriterXml.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/xml/writer/response/sale/ExistSaleResponseWriterXml.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bsoftlab-src-client-5.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bsoftlabecr/request/cashier/LogoutCashierRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/request/cashier/LogoutCashierRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bsoftlabecr/request/general/SequenceRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/request/general/SequencedCashRegisterRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bsoftlabecr/request/receipt/prepayment/ExistPrepaymentRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/request/receipt/prepayment/ExistPrepaymentRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bsoftlabecr/request/receipt/prepayment/NewPrepaymentRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/request/receipt/prepayment/NewPrepaymentRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bsoftlabecr/request/receipt/returns/prepayment/ExistReturnPrepaymentRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/request/receipt/returns/prepayment/ExistReturnPrepaymentRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bsoftlabecr/request/receipt/returns/prepayment/NewOriginalReturnPrepaymentRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/request/receipt/returns/prepayment/NewOriginalReturnPrepaymentRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bsoftlabecr/request/receipt/returns/prepayment/NewPartialReturnPrepaymentRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/request/receipt/returns/prepayment/NewPartialReturnPrepaymentRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bsoftlabecr/request/receipt/returns/sale/ExistReturnSaleRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/request/receipt/returns/sale/ExistReturnSaleRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bsoftlabecr/request/receipt/returns/sale/NewOriginalReturnSaleRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/request/receipt/returns/sale/NewOriginalReturnSaleRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bsoftlabecr/request/receipt/returns/sale/NewPartialReturnSaleRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/request/receipt/returns/sale/NewPartialReturnSaleRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bsoftlabecr/request/receipt/sale/ExistSaleRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/request/receipt/sale/ExistSaleRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bsoftlabecr/request/receipt/sale/NewSaleRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/request/receipt/sale/NewSaleRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bsoftlabecr/request/report/FiscalReportRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/request/report/FiscalReportRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bsoftlabecr/xml/reader/constants/ConstantsReaderXml.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/xml/reader/constants/ConstantsReaderXml.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bsoftlabecr/xml/reader/request/prepayment/ExistPrepaymentRequestReaderXml.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/xml/reader/request/prepayment/ExistPrepaymentRequestReaderXml.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bsoftlabecr/xml/reader/request/prepayment/NewPrepaymentRequestReaderXml.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/xml/reader/request/prepayment/NewPrepaymentRequestReaderXml.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bsoftlabecr/xml/reader/request/report/FiscalReportRequestReaderXml.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/xml/reader/request/report/FiscalReportRequestReaderXml.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bsoftlabecr/xml/reader/request/returns/prepayment/ExistReturnPrepaymentRequestReaderXml.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/xml/reader/request/returns/prepayment/ExistReturnPrepaymentRequestReaderXml.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bsoftlabecr/xml/reader/request/returns/prepayment/NewOriginalReturnPrepaymentRequestReaderXml.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/xml/reader/request/returns/prepayment/NewOriginalReturnPrepaymentRequestReaderXml.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bsoftlabecr/xml/reader/request/returns/prepayment/NewPartialReturnPrepaymentRequestReaderXml.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/xml/reader/request/returns/prepayment/NewPartialReturnPrepaymentRequestReaderXml.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bsoftlabecr/xml/reader/request/returns/sale/ExistReturnSaleRequestReaderXml.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/xml/reader/request/returns/sale/ExistReturnSaleRequestReaderXml.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bsoftlabecr/xml/reader/request/returns/sale/NewOriginalReturnSaleRequestReaderXml.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/xml/reader/request/returns/sale/NewOriginalReturnSaleRequestReaderXml.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bsoftlabecr/xml/reader/request/returns/sale/NewPartialReturnSaleRequestReaderXml.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/xml/reader/request/returns/sale/NewPartialReturnSaleRequestReaderXml.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bsoftlabecr/xml/reader/request/sale/ExistSaleRequestReaderXml.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/xml/reader/request/sale/ExistSaleRequestReaderXml.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bsoftlabecr/xml/reader/request/sale/NewSaleRequestReaderXml.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/xml/reader/request/sale/NewSaleRequestReaderXml.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bsoftlab-src-client-5.0.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/bsoftlab-src-client-5.0.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/bsoftlabecr/ExistPrepayment.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bsoftlabecr/ExistPrepayment.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/bsoftlabecr/ExistReturnPrepayment.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bsoftlabecr/ExistReturnPrepayment.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/bsoftlabecr/ExistReturnSale.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bsoftlabecr/ExistReturnSale.class" afterDir="false" />
@@ -38,19 +42,34 @@
       <change beforePath="$PROJECT_DIR$/target/classes/bsoftlabecr/NewPrepayment.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bsoftlabecr/NewPrepayment.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/bsoftlabecr/NewSale.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bsoftlabecr/NewSale.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/bsoftlabecr/client/CashRegisterClient.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bsoftlabecr/client/CashRegisterClient.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/bsoftlabecr/response/cashier/CashiersAndDepsResponse.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bsoftlabecr/response/cashier/CashiersAndDepsResponse.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/bsoftlabecr/response/cashier/LoginCashierResponse.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bsoftlabecr/response/cashier/LoginCashierResponse.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/bsoftlabecr/response/cashier/LogoutCashierResponse.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/bsoftlabecr/response/general/CashRegisterResponse.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bsoftlabecr/response/general/CashRegisterResponse.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/bsoftlabecr/response/headerfooter/HeaderFooterResponse.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/bsoftlabecr/response/receipt/general/ExistReceiptResponse$SubTotal.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bsoftlabecr/response/receipt/general/ExistReceiptResponse$SubTotal.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/bsoftlabecr/response/receipt/general/ExistReceiptResponse.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bsoftlabecr/response/receipt/general/ExistReceiptResponse.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/bsoftlabecr/response/receipt/general/NewReceiptResponse.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bsoftlabecr/response/receipt/general/NewReceiptResponse.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/bsoftlabecr/response/report/FiscalReportResponse.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/bsoftlabecr/request/cashier/LogoutCashierRequest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bsoftlabecr/request/cashier/LogoutCashierRequest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/bsoftlabecr/request/general/SequenceRequest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/bsoftlabecr/request/receipt/prepayment/ExistPrepaymentRequest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bsoftlabecr/request/receipt/prepayment/ExistPrepaymentRequest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/bsoftlabecr/request/receipt/prepayment/NewPrepaymentRequest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bsoftlabecr/request/receipt/prepayment/NewPrepaymentRequest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/bsoftlabecr/request/receipt/returns/prepayment/ExistReturnPrepaymentRequest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bsoftlabecr/request/receipt/returns/prepayment/ExistReturnPrepaymentRequest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/bsoftlabecr/request/receipt/returns/prepayment/NewOriginalReturnPrepaymentRequest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bsoftlabecr/request/receipt/returns/prepayment/NewOriginalReturnPrepaymentRequest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/bsoftlabecr/request/receipt/returns/prepayment/NewPartialReturnPrepaymentRequest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bsoftlabecr/request/receipt/returns/prepayment/NewPartialReturnPrepaymentRequest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/bsoftlabecr/request/receipt/returns/sale/ExistReturnSaleRequest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bsoftlabecr/request/receipt/returns/sale/ExistReturnSaleRequest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/bsoftlabecr/request/receipt/returns/sale/NewOriginalReturnSaleRequest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bsoftlabecr/request/receipt/returns/sale/NewOriginalReturnSaleRequest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/bsoftlabecr/request/receipt/returns/sale/NewPartialReturnSaleRequest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bsoftlabecr/request/receipt/returns/sale/NewPartialReturnSaleRequest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/bsoftlabecr/request/receipt/sale/ExistSaleRequest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bsoftlabecr/request/receipt/sale/ExistSaleRequest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/bsoftlabecr/request/receipt/sale/NewSaleRequest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bsoftlabecr/request/receipt/sale/NewSaleRequest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/bsoftlabecr/request/report/FiscalReportRequest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bsoftlabecr/request/report/FiscalReportRequest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/bsoftlabecr/xml/reader/constants/ConstantsReaderXml.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bsoftlabecr/xml/reader/constants/ConstantsReaderXml.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/bsoftlabecr/xml/reader/request/prepayment/ExistPrepaymentRequestReaderXml.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bsoftlabecr/xml/reader/request/prepayment/ExistPrepaymentRequestReaderXml.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/bsoftlabecr/xml/reader/request/prepayment/NewPrepaymentRequestReaderXml.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bsoftlabecr/xml/reader/request/prepayment/NewPrepaymentRequestReaderXml.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/bsoftlabecr/xml/reader/request/report/FiscalReportRequestReaderXml.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bsoftlabecr/xml/reader/request/report/FiscalReportRequestReaderXml.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/bsoftlabecr/xml/reader/request/returns/prepayment/ExistReturnPrepaymentRequestReaderXml.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bsoftlabecr/xml/reader/request/returns/prepayment/ExistReturnPrepaymentRequestReaderXml.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/bsoftlabecr/xml/reader/request/returns/prepayment/NewOriginalReturnPrepaymentRequestReaderXml.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bsoftlabecr/xml/reader/request/returns/prepayment/NewOriginalReturnPrepaymentRequestReaderXml.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/bsoftlabecr/xml/reader/request/returns/prepayment/NewPartialReturnPrepaymentRequestReaderXml.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bsoftlabecr/xml/reader/request/returns/prepayment/NewPartialReturnPrepaymentRequestReaderXml.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/bsoftlabecr/xml/reader/request/returns/sale/ExistReturnSaleRequestReaderXml.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bsoftlabecr/xml/reader/request/returns/sale/ExistReturnSaleRequestReaderXml.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/bsoftlabecr/xml/reader/request/returns/sale/NewOriginalReturnSaleRequestReaderXml.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bsoftlabecr/xml/reader/request/returns/sale/NewOriginalReturnSaleRequestReaderXml.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/bsoftlabecr/xml/reader/request/returns/sale/NewPartialReturnSaleRequestReaderXml.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bsoftlabecr/xml/reader/request/returns/sale/NewPartialReturnSaleRequestReaderXml.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/bsoftlabecr/xml/reader/request/sale/ExistSaleRequestReaderXml.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bsoftlabecr/xml/reader/request/sale/ExistSaleRequestReaderXml.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/bsoftlabecr/xml/reader/request/sale/NewSaleRequestReaderXml.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bsoftlabecr/xml/reader/request/sale/NewSaleRequestReaderXml.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -91,8 +110,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/bsoftlabecr/exception/EncryptionException.java" />
-        <option value="$PROJECT_DIR$/src/main/java/bsoftlabecr/exception/DecryptionException.java" />
         <option value="$PROJECT_DIR$/src/main/java/bsoftlabecr/response/general/CommonResponse.java" />
         <option value="$PROJECT_DIR$/src/main/java/bsoftlabecr/response/receipt/prepayment/ExistPrepaymentResponse.java" />
         <option value="$PROJECT_DIR$/src/main/java/bsoftlabecr/response/receipt/prepayment/NewPrepaymentResponse.java" />
@@ -101,19 +118,6 @@
         <option value="$PROJECT_DIR$/src/main/java/bsoftlabecr/xml/writer/response/general/CommonResponseWriterXml.java" />
         <option value="$PROJECT_DIR$/src/main/java/bsoftlabecr/exception/XmlFileReadException.java" />
         <option value="$PROJECT_DIR$/src/main/java/bsoftlabecr/exception/XmlFileWriteException.java" />
-        <option value="$PROJECT_DIR$/src/main/java/bsoftlabecr/xml/reader/constants/ConstantsReaderXml.java" />
-        <option value="$PROJECT_DIR$/src/main/java/bsoftlabecr/xml/reader/request/prepayment/NewPrepaymentRequestReaderXml.java" />
-        <option value="$PROJECT_DIR$/src/main/java/bsoftlabecr/xml/reader/request/prepayment/ExistPrepaymentRequestReaderXml.java" />
-        <option value="$PROJECT_DIR$/src/main/java/bsoftlabecr/xml/reader/request/report/FiscalReportRequestReaderXml.java" />
-        <option value="$PROJECT_DIR$/src/main/java/bsoftlabecr/xml/reader/request/returns/prepayment/ExistReturnPrepaymentRequestReaderXml.java" />
-        <option value="$PROJECT_DIR$/src/main/java/bsoftlabecr/xml/reader/request/returns/prepayment/NewOriginalReturnPrepaymentRequestReaderXml.java" />
-        <option value="$PROJECT_DIR$/src/main/java/bsoftlabecr/xml/reader/request/returns/prepayment/NewPartialReturnPrepaymentRequestReaderXml.java" />
-        <option value="$PROJECT_DIR$/src/main/java/bsoftlabecr/xml/reader/request/returns/sale/ExistReturnSaleRequestReaderXml.java" />
-        <option value="$PROJECT_DIR$/src/main/java/bsoftlabecr/xml/reader/request/returns/sale/NewPartialReturnSaleRequestReaderXml.java" />
-        <option value="$PROJECT_DIR$/src/main/java/bsoftlabecr/xml/reader/request/sale/ExistSaleRequestReaderXml.java" />
-        <option value="$PROJECT_DIR$/src/main/java/bsoftlabecr/xml/reader/request/sale/NewSaleRequestReaderXml.java" />
-        <option value="$PROJECT_DIR$/src/main/java/bsoftlabecr/xml/reader/request/returns/sale/NewOriginalReturnSaleRequestReaderXml.java" />
-        <option value="$PROJECT_DIR$/src/main/java/bsoftlabecr/entity/ResponseType.java" />
         <option value="$PROJECT_DIR$/src/main/java/bsoftlabecr/xml/writer/response/prepayment/ExistPrepaymentResponseWriterXml.java" />
         <option value="$PROJECT_DIR$/src/main/java/bsoftlabecr/xml/writer/response/prepayment/NewPrepaymentResponseWriterXml.java" />
         <option value="$PROJECT_DIR$/src/main/java/bsoftlabecr/response/receipt/general/ExistReceiptResponse.java" />
@@ -137,11 +141,26 @@
         <option value="$PROJECT_DIR$/src/main/java/bsoftlabecr/NewPrepayment.java" />
         <option value="$PROJECT_DIR$/src/main/java/bsoftlabecr/NewSale.java" />
         <option value="$PROJECT_DIR$/src/main/java/bsoftlabecr/response/general/CashRegisterResponse.java" />
-        <option value="$PROJECT_DIR$/src/main/java/bsoftlabecr/client/CashRegisterClient.java" />
         <option value="$PROJECT_DIR$/src/main/java/bsoftlabecr/response/cashier/LoginCashierResponse.java" />
         <option value="$PROJECT_DIR$/src/main/java/bsoftlabecr/response/cashier/CashiersAndDepsResponse.java" />
         <option value="$PROJECT_DIR$/src/main/java/bsoftlabecr/xml/writer/response/sale/ExistSaleResponseWriterXml.java" />
         <option value="$PROJECT_DIR$/src/main/java/bsoftlabecr/xml/writer/response/returns/sale/ExistReturnSaleResponseWriterXml.java" />
+        <option value="$PROJECT_DIR$/src/main/java/bsoftlabecr/xml/reader/request/prepayment/ExistReceiptRequestReaderXml.java" />
+        <option value="$PROJECT_DIR$/src/main/java/bsoftlabecr/xml/reader/request/prepayment/ExistPrepaymentRequestReaderXml.java" />
+        <option value="$PROJECT_DIR$/src/main/java/bsoftlabecr/xml/reader/request/prepayment/NewPrepaymentRequestReaderXml.java" />
+        <option value="$PROJECT_DIR$/src/main/java/bsoftlabecr/xml/reader/constants/ConstantsReaderXml.java" />
+        <option value="$PROJECT_DIR$/src/main/java/bsoftlabecr/xml/reader/request/report/FiscalReportRequestReaderXml.java" />
+        <option value="$PROJECT_DIR$/src/main/java/bsoftlabecr/xml/reader/request/returns/prepayment/ExistReturnPrepaymentRequestReaderXml.java" />
+        <option value="$PROJECT_DIR$/src/main/java/bsoftlabecr/xml/reader/request/returns/prepayment/NewOriginalReturnPrepaymentRequestReaderXml.java" />
+        <option value="$PROJECT_DIR$/src/main/java/bsoftlabecr/xml/reader/request/returns/prepayment/NewPartialReturnPrepaymentRequestReaderXml.java" />
+        <option value="$PROJECT_DIR$/src/main/java/bsoftlabecr/xml/reader/request/returns/sale/ExistReturnSaleRequestReaderXml.java" />
+        <option value="$PROJECT_DIR$/src/main/java/bsoftlabecr/xml/reader/request/returns/sale/NewOriginalReturnSaleRequestReaderXml.java" />
+        <option value="$PROJECT_DIR$/src/main/java/bsoftlabecr/xml/reader/request/returns/sale/NewPartialReturnSaleRequestReaderXml.java" />
+        <option value="$PROJECT_DIR$/src/main/java/bsoftlabecr/xml/reader/request/sale/ExistSaleRequestReaderXml.java" />
+        <option value="$PROJECT_DIR$/src/main/java/bsoftlabecr/xml/reader/request/sale/NewSaleRequestReaderXml.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/bsoftlabecr/entity/ResponseType.java" />
+        <option value="$PROJECT_DIR$/src/main/java/bsoftlabecr/client/CashRegisterClient.java" />
       </list>
     </option>
   </component>
@@ -189,6 +208,46 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="bsoftlabsrc" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bsoftlabsrc" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="bsoftlabsrc" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bsoftlabsrc" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="bsoftlabsrc" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bsoftlabsrc" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="bsoftlabsrc" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bsoftlabsrc" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="PackagesPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="bsoftlabsrc" type="58d84e3e:PackageViewProjectNode" />
+              <item name="bsoftlabsrc" type="616d4139:PackageViewModuleNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
       <pane id="Scope">
         <subPane subId="Scope 'Tests'; set:Tests; class com.intellij.psi.search.scope.TestsScope">
           <expand>
@@ -279,50 +338,10 @@
           <select />
         </subPane>
       </pane>
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="bsoftlabsrc" type="b2602c69:ProjectViewProjectNode" />
-              <item name="bsoftlabsrc" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="bsoftlabsrc" type="b2602c69:ProjectViewProjectNode" />
-              <item name="bsoftlabsrc" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="bsoftlabsrc" type="b2602c69:ProjectViewProjectNode" />
-              <item name="bsoftlabsrc" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="bsoftlabsrc" type="b2602c69:ProjectViewProjectNode" />
-              <item name="bsoftlabsrc" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="PackagesPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="bsoftlabsrc" type="58d84e3e:PackageViewProjectNode" />
-              <item name="bsoftlabsrc" type="616d4139:PackageViewModuleNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1552841007888" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1552902748576" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
@@ -441,7 +460,21 @@
       <option name="project" value="LOCAL" />
       <updated>1552833813569</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Fundamental changes">
+      <created>1552840948604</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1552840948604</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Fundamental changes">
+      <created>1552841381129</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1552841381129</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -534,212 +567,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/bsoftlabecr/NewOriginalReturnSale.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="33" column="13" selection-start-line="33" selection-start-column="13" selection-end-line="33" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/bsoftlabecr/NewPartialReturnPrepayment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="167">
-          <caret line="21" column="57" selection-start-line="21" selection-start-column="57" selection-end-line="21" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/bsoftlabecr/NewPartialReturnSale.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="167">
-          <caret line="21" column="57" selection-start-line="21" selection-start-column="57" selection-end-line="21" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/bsoftlabecr/NewPrepayment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="167">
-          <caret line="21" column="57" selection-start-line="21" selection-start-column="57" selection-end-line="21" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/bsoftlabecr/NewSale.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="167">
-          <caret line="19" selection-start-line="19" selection-end-line="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/bsoftlabecr/response/cashier/LogoutCashierResponse.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="40">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/bsoftlabecr/response/headerfooter/HeaderFooterResponse.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/bsoftlabecr/response/receipt/returns/sale/NewOriginalReturnSaleResponse.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/bsoftlabecr/response/receipt/returns/sale/NewPartialReturnSaleResponse.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/bsoftlabecr/response/receipt/sale/ExistSaleResponse.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/bsoftlabecr/response/receipt/sale/NewSaleResponse.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/bsoftlabecr/response/report/FiscalReportResponse.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/bsoftlabecr/client/CashRegisterClient.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/bsoftlabecr/response/cashier/LoginCashierResponse.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="203">
-          <caret line="13" column="4" selection-start-line="13" selection-start-column="4" selection-end-line="13" selection-end-column="4" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/bsoftlabecr/response/cashier/CashiersAndDepsResponse.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="18" column="4" selection-start-line="18" selection-start-column="4" selection-end-line="18" selection-end-column="4" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/bsoftlabecr/response/general/CashRegisterResponse.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="3" column="32" selection-start-line="3" selection-start-column="32" selection-end-line="3" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/bsoftlabecr/ExistPrepayment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="660">
-          <caret line="33" column="13" selection-start-line="33" selection-start-column="13" selection-end-line="33" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/bsoftlabecr/xml/reader/request/prepayment/ExistPrepaymentRequestReaderXml.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/bsoftlabecr/request/general/CashRegisterRequest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="40">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/bsoftlabecr/request/general/SequenceRequest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="40">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/bsoftlabecr/request/receipt/prepayment/ExistPrepaymentRequest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/bsoftlabecr/request/receipt/prepayment/NewPrepaymentRequest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/bsoftlabecr/request/headerfooter/HeaderFooterRequest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/bsoftlabecr/request/receipt/returns/prepayment/ExistReturnPrepaymentRequest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/bsoftlabecr/request/receipt/returns/prepayment/NewOriginalReturnPrepaymentRequest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/bsoftlabecr/request/receipt/returns/prepayment/NewPartialReturnPrepaymentRequest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/bsoftlabecr/request/receipt/returns/sale/ExistReturnSaleRequest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/bsoftlabecr/request/receipt/returns/sale/NewOriginalReturnSaleRequest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="80">
@@ -775,34 +602,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/bsoftlabecr/response/receipt/general/NewReceiptResponse.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="960">
-          <caret line="96" column="50" selection-start-line="96" selection-start-column="50" selection-end-line="96" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/bsoftlabecr/response/receipt/general/ExistReceiptResponse.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="860">
-          <caret line="90" column="5" selection-start-line="90" selection-start-column="5" selection-end-line="90" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/bsoftlabecr/response/receipt/prepayment/ExistPrepaymentResponse.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/bsoftlabecr/response/receipt/prepayment/NewPrepaymentResponse.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/bsoftlabecr/response/receipt/returns/prepayment/ExistReturnPrepaymentResponse.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="80">
@@ -818,13 +617,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/bsoftlabecr/response/receipt/returns/prepayment/NewPartialReturnPrepaymentResponse.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/bsoftlabecr/response/receipt/returns/sale/ExistReturnSaleResponse.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="80">
           <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
@@ -879,23 +671,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/bsoftlabecr/xml/writer/response/sale/ExistSaleResponseWriterXml.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="328">
-          <caret line="130" column="62" selection-start-line="130" selection-start-column="62" selection-end-line="130" selection-end-column="62" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/bsoftlabecr/xml/writer/response/sale/NewSaleResponseWriterXml.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="353">
-          <caret line="99" column="46" selection-start-line="99" selection-start-column="46" selection-end-line="99" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/bsoftlabecr/xml/writer/response/returns/sale/ExistReturnSaleResponseWriterXml.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="140">
@@ -923,13 +698,289 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/bsoftlabecr/ExistPrepayment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="20" lean-forward="true" selection-start-column="20" selection-end-column="20" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/bsoftlabecr/xml/reader/request/prepayment/ExistReceiptRequestReaderXml.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="21" selection-start-line="21" selection-end-line="21" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#856#857#0" expanded="true" />
+            <element signature="e#896#897#0" expanded="true" />
+            <element signature="e#899#900#0" expanded="true" />
+            <element signature="e#935#936#0" expanded="true" />
+            <element signature="e#969#970#0" expanded="true" />
+            <element signature="e#1009#1010#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/bsoftlabecr/response/receipt/general/NewReceiptResponse.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="960">
+          <caret line="96" column="50" selection-start-line="96" selection-start-column="50" selection-end-line="96" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/bsoftlabecr/response/receipt/general/ExistReceiptResponse.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="546">
+          <caret line="90" column="5" selection-start-line="90" selection-start-column="5" selection-end-line="90" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/bsoftlabecr/response/receipt/prepayment/NewPrepaymentResponse.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/bsoftlabecr/response/receipt/prepayment/ExistPrepaymentResponse.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/bsoftlabecr/xml/reader/request/report/FiscalReportRequestReaderXml.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/bsoftlabecr/xml/reader/request/returns/prepayment/ExistReturnPrepaymentRequestReaderXml.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="379">
+          <caret line="19" selection-start-line="19" selection-end-line="19" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/bsoftlabecr/xml/reader/request/returns/prepayment/NewOriginalReturnPrepaymentRequestReaderXml.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="19" column="74" lean-forward="true" selection-start-line="19" selection-start-column="74" selection-end-line="19" selection-end-column="74" />
+          <folding>
+            <element signature="e#931#932#0" expanded="true" />
+            <element signature="e#971#972#0" expanded="true" />
+            <element signature="e#1006#1007#0" expanded="true" />
+            <element signature="e#1042#1043#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/bsoftlabecr/xml/reader/request/returns/prepayment/NewPartialReturnPrepaymentRequestReaderXml.java">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/bsoftlabecr/xml/reader/request/returns/sale/ExistReturnSaleRequestReaderXml.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/bsoftlabecr/xml/reader/request/returns/sale/NewOriginalReturnSaleRequestReaderXml.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/bsoftlabecr/xml/reader/request/returns/sale/NewPartialReturnSaleRequestReaderXml.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/bsoftlabecr/xml/reader/request/sale/NewSaleRequestReaderXml.java">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/bsoftlabecr/xml/reader/request/sale/ExistSaleRequestReaderXml.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="15" selection-start-line="15" selection-end-line="15" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="223">
+          <caret line="81" column="49" selection-start-line="81" selection-start-column="49" selection-end-line="81" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/bsoftlabecr/xml/writer/response/sale/ExistSaleResponseWriterXml.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2520">
+          <caret line="130" column="62" selection-start-line="130" selection-start-column="62" selection-end-line="130" selection-end-column="62" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/bsoftlabecr/entity/ResponseType.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="13" column="39" lean-forward="true" selection-start-line="13" selection-start-column="39" selection-end-line="13" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/bsoftlabecr/request/general/CashRegisterRequest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="40">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/bsoftlabecr/request/receipt/prepayment/NewPrepaymentRequest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/bsoftlabecr/xml/writer/response/general/CashRegisterResponseWriterXml.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
+        <state relative-caret-position="880">
           <caret line="48" column="58" lean-forward="true" selection-start-line="48" selection-start-column="58" selection-end-line="48" selection-end-column="58" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/bsoftlabecr/client/CashRegisterClient.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/bsoftlabecr/entity/ArmenianLetter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="40">
+          <caret line="2" column="12" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/bsoftlabecr/entity/Cashier.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="40">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/bsoftlabecr/request/general/SequencedCashRegisterRequest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="40">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/bsoftlabecr/request/headerfooter/HeaderFooterRequest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/bsoftlabecr/request/receipt/prepayment/ExistPrepaymentRequest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/bsoftlabecr/response/receipt/returns/sale/ExistReturnSaleResponse.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/bsoftlabecr/response/receipt/returns/sale/NewOriginalReturnSaleResponse.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/bsoftlabecr/response/receipt/returns/sale/NewPartialReturnSaleResponse.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/bsoftlabecr/xml/reader/constants/ConstantsReaderXml.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="241">
+          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/bsoftlabecr/xml/reader/request/prepayment/ExistPrepaymentRequestReaderXml.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/bsoftlabecr/xml/reader/request/prepayment/NewPrepaymentRequestReaderXml.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="775">
+          <caret line="48" selection-start-line="48" selection-end-line="48" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/bsoftlabecr/NewSale.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2452">
+          <caret line="32" column="13" selection-start-line="32" selection-start-column="13" selection-end-line="32" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/bsoftlabecr/xml/writer/response/sale/NewSaleResponseWriterXml.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1198">
+          <caret line="99" column="46" selection-start-line="99" selection-start-column="46" selection-end-line="99" selection-end-column="46" />
         </state>
       </provider>
     </entry>

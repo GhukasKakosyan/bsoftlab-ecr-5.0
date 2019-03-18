@@ -32,7 +32,6 @@ C:\Users\BSOFTLAB\Documents\Visual Foxpro projects\Analitikaplus\bsoftlabsrc\src
 C:\Users\BSOFTLAB\Documents\Visual Foxpro projects\Analitikaplus\bsoftlabsrc\src\main\java\bsoftlabecr\exception\XmlFileWriteException.java
 C:\Users\BSOFTLAB\Documents\Visual Foxpro projects\Analitikaplus\bsoftlabsrc\src\main\java\bsoftlabecr\NewPrepayment.java
 C:\Users\BSOFTLAB\Documents\Visual Foxpro projects\Analitikaplus\bsoftlabsrc\src\main\java\bsoftlabecr\response\receipt\returns\prepayment\NewPartialReturnPrepaymentResponse.java
-C:\Users\BSOFTLAB\Documents\Visual Foxpro projects\Analitikaplus\bsoftlabsrc\src\main\java\bsoftlabecr\request\general\SequenceRequest.java
 C:\Users\BSOFTLAB\Documents\Visual Foxpro projects\Analitikaplus\bsoftlabsrc\src\main\java\bsoftlabecr\entity\Item.java
 C:\Users\BSOFTLAB\Documents\Visual Foxpro projects\Analitikaplus\bsoftlabsrc\src\main\java\bsoftlabecr\entity\Department.java
 C:\Users\BSOFTLAB\Documents\Visual Foxpro projects\Analitikaplus\bsoftlabsrc\src\main\java\bsoftlabecr\xml\reader\request\returns\sale\NewOriginalReturnSaleRequestReaderXml.java
@@ -59,6 +58,7 @@ C:\Users\BSOFTLAB\Documents\Visual Foxpro projects\Analitikaplus\bsoftlabsrc\src
 C:\Users\BSOFTLAB\Documents\Visual Foxpro projects\Analitikaplus\bsoftlabsrc\src\main\java\bsoftlabecr\response\receipt\returns\prepayment\ExistReturnPrepaymentResponse.java
 C:\Users\BSOFTLAB\Documents\Visual Foxpro projects\Analitikaplus\bsoftlabsrc\src\main\java\bsoftlabecr\xml\writer\response\prepayment\NewPrepaymentResponseWriterXml.java
 C:\Users\BSOFTLAB\Documents\Visual Foxpro projects\Analitikaplus\bsoftlabsrc\src\main\java\bsoftlabecr\request\cashier\LoginCashierRequest.java
+C:\Users\BSOFTLAB\Documents\Visual Foxpro projects\Analitikaplus\bsoftlabsrc\src\main\java\bsoftlabecr\request\general\SequencedCashRegisterRequest.java
 C:\Users\BSOFTLAB\Documents\Visual Foxpro projects\Analitikaplus\bsoftlabsrc\src\main\java\bsoftlabecr\response\receipt\sale\ExistSaleResponse.java
 C:\Users\BSOFTLAB\Documents\Visual Foxpro projects\Analitikaplus\bsoftlabsrc\src\main\java\bsoftlabecr\client\CashRegisterClient.java
 C:\Users\BSOFTLAB\Documents\Visual Foxpro projects\Analitikaplus\bsoftlabsrc\src\main\java\bsoftlabecr\request\receipt\returns\sale\NewPartialReturnSaleRequest.java

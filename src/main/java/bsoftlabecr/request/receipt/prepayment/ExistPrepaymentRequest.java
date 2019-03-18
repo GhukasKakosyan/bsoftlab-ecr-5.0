@@ -1,8 +1,8 @@
 package bsoftlabecr.request.receipt.prepayment;
 
-import bsoftlabecr.request.general.SequenceRequest;
+import bsoftlabecr.request.general.SequencedCashRegisterRequest;
 
-public class ExistPrepaymentRequest extends SequenceRequest {
+public class ExistPrepaymentRequest extends SequencedCashRegisterRequest {
     private String crn = null;             // Վերադարձվող կտրոնի տպած սարքի գրանցման համար
     private String receiptId = null;       // Վերադարձվող կտրոնի համար
 

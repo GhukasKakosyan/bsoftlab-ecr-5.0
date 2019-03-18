@@ -240,7 +240,7 @@ public class CashRegisterClient {
      * @param encryptedRequestByteBuffer    encrypted ByteBuffer of request to be sent
      * @return                              encrypted ByteBuffer of response to be received
      * @throws NetworkException             Network Exception
-     * @throws OperationException           Invalid response code Exception
+     * @throws OperationException           Operation Exception
      */
     private ByteBuffer sendRequestReceiveResponse(
             ByteBuffer encryptedRequestByteBuffer)
@@ -281,7 +281,7 @@ public class CashRegisterClient {
      * Get cashiers and departments list
      * @param cashiersAndDepsRequest            Cashiers and departments list request
      * @return                                  Cashiers and departments list response
-     * @throws OperationException               Cash Register Exception
+     * @throws OperationException               Operation Exception
      */
     public CashiersAndDepsResponse getCashiersAndDepsResponse(
             CashiersAndDepsRequest cashiersAndDepsRequest) throws OperationException {
@@ -319,7 +319,7 @@ public class CashRegisterClient {
      * Logs in given cashier and returns cashier response with session key
      * @param loginCashierRequest               Cashier login request
      * @return                                  Cashier login response with session key
-     * @throws OperationException               Cash Register Exception
+     * @throws OperationException               Operation Exception
      */
     public LoginCashierResponse getLoginCashierResponse(
             LoginCashierRequest loginCashierRequest) throws OperationException {
@@ -355,10 +355,10 @@ public class CashRegisterClient {
     /**
      * Logout current cashier
      * @param logoutCashierRequest              Logout cashier request
-     * @throws OperationException               Cash Register Exception
+     * @throws OperationException               Operation Exception
      */
-    public void logoutCashier(
-            LogoutCashierRequest logoutCashierRequest) throws OperationException {
+    public void logoutCashier(LogoutCashierRequest logoutCashierRequest)
+            throws OperationException {
 
         try {
             byte[] requestByteArray =
@@ -384,7 +384,7 @@ public class CashRegisterClient {
     /**
      * Setup header and footer for request
      * @param headerFooterRequest               Setup headers and footers request
-     * @throws OperationException               Cash Register Exception
+     * @throws OperationException               Operation Exception
      */
     public void setupHeaderFooter(HeaderFooterRequest headerFooterRequest)
             throws OperationException {
@@ -412,10 +412,10 @@ public class CashRegisterClient {
     /**
      * Prints fiscal report.
      * @param fiscalReportRequest               Fiscal Report Request
-     * @throws OperationException               Cash Register Exception
+     * @throws OperationException               Operation Exception
      **/
-    public void printFiscalReport(
-            FiscalReportRequest fiscalReportRequest) throws OperationException {
+    public void printFiscalReport(FiscalReportRequest fiscalReportRequest)
+            throws OperationException {
 
         try {
             byte[] requestByteArray =
@@ -441,7 +441,7 @@ public class CashRegisterClient {
      * Get existing prepayment request response
      * @param existPrepaymentRequest            Existing Prepayment Request
      * @return                                  Existing Prepayment Response
-     * @throws OperationException               Cash Register Exception
+     * @throws OperationException               Operation Exception
      */
     public ExistPrepaymentResponse getExistPrepaymentResponse(
             ExistPrepaymentRequest existPrepaymentRequest) throws OperationException {
@@ -477,7 +477,7 @@ public class CashRegisterClient {
      * Get existing return prepayment request response
      * @param existReturnPrepaymentRequest      Existing Return Prepayment Request
      * @return                                  Existing Return Prepayment Response
-     * @throws OperationException               Cash Register Exception
+     * @throws OperationException               Operation Exception
      */
     public ExistReturnPrepaymentResponse getExistReturnPrepaymentResponse(
             ExistReturnPrepaymentRequest existReturnPrepaymentRequest)
@@ -514,7 +514,7 @@ public class CashRegisterClient {
      * Get existing return sale request response
      * @param existReturnSaleRequest            Existing Return Sale Request
      * @return                                  Existing Return Sale Response
-     * @throws OperationException               Cash Register Exception
+     * @throws OperationException               Operation Exception
      */
     public ExistReturnSaleResponse getExistReturnSaleResponse(
             ExistReturnSaleRequest existReturnSaleRequest)
@@ -552,7 +552,7 @@ public class CashRegisterClient {
      * Get existing sale request response
      * @param existSaleRequest                  Existing Sale Request
      * @return                                  Existing Sale Response
-     * @throws OperationException               Cash Register Exception
+     * @throws OperationException               Operation Exception
      */
     public ExistSaleResponse getExistSaleResponse(ExistSaleRequest existSaleRequest)
             throws OperationException {
@@ -589,7 +589,7 @@ public class CashRegisterClient {
      * Get new prepayment request response
      * @param newPrepaymentRequest              New Prepayment Request
      * @return                                  New Prepayment Response
-     * @throws OperationException               Cash Register Exception
+     * @throws OperationException               Operation Exception
      */
     public NewPrepaymentResponse getNewPrepaymentResponse(
             NewPrepaymentRequest newPrepaymentRequest) throws OperationException {
@@ -625,7 +625,7 @@ public class CashRegisterClient {
      * Get new partial return prepayment request response
      * @param newPartialReturnPrepaymentRequest New Partial Return Prepayment Request
      * @return                                  New Partial Return Prepayment Response
-     * @throws OperationException               Cash Register Exception
+     * @throws OperationException               Operation Exception
      */
     public NewPartialReturnPrepaymentResponse getNewPartialReturnPrepaymentResponse(
             NewPartialReturnPrepaymentRequest newPartialReturnPrepaymentRequest)
@@ -662,7 +662,7 @@ public class CashRegisterClient {
      * Get new original return prepayment request response
      * @param newOriginalReturnPrepaymentRequest  New Original Return Prepayment Request
      * @return                                    New Original Return Prepayment Response
-     * @throws OperationException                 Cash Register Exception
+     * @throws OperationException                 Operation Exception
      */
     public NewOriginalReturnPrepaymentResponse getNewOriginalReturnPrepaymentResponse(
             NewOriginalReturnPrepaymentRequest newOriginalReturnPrepaymentRequest)
@@ -699,7 +699,7 @@ public class CashRegisterClient {
      * Get new partial return sale request response
      * @param newPartialReturnSaleRequest         New Partial Return Sale Request
      * @return                                    New Partial Return Sale Response
-     * @throws OperationException                 Cash Register Exception
+     * @throws OperationException                 Operation Exception
      */
     public NewPartialReturnSaleResponse getNewPartialReturnSaleResponse(
             NewPartialReturnSaleRequest newPartialReturnSaleRequest)
@@ -736,7 +736,7 @@ public class CashRegisterClient {
      * Get new original return sale request response
      * @param newOriginalReturnSaleRequest        New Original Return Sale Request
      * @return                                    New Original Return Sale Response
-     * @throws OperationException                 Cash Register Exception
+     * @throws OperationException                 Operation Exception
      */
     public NewOriginalReturnSaleResponse getNewOriginalReturnSaleResponse(
             NewOriginalReturnSaleRequest newOriginalReturnSaleRequest)
@@ -773,7 +773,7 @@ public class CashRegisterClient {
      * Get new sale request response
      * @param newSaleRequest                      New Sale Request
      * @return                                    New Sale Response
-     * @throws OperationException                 Cash Register Exception
+     * @throws OperationException                 Operation Exception
      */
     public NewSaleResponse getNewSaleResponse(NewSaleRequest newSaleRequest)
             throws OperationException {
@@ -795,8 +795,8 @@ public class CashRegisterClient {
             byte[] encryptedResponseByteArray = encryptedResponseByteBuffer.array();
             byte[] decryptedResponseByteArray
                     = this.getDecryptedByteArrayBySessionKey(encryptedResponseByteArray);
-            return this.objectMapper.readValue(decryptedResponseByteArray,
-                    NewSaleResponse.class);
+            return this.objectMapper.readValue(
+                    decryptedResponseByteArray, NewSaleResponse.class);
         } catch (IOException ioException) {
             throw new OperationException(ResponseType.SERIALIZATION_ERROR.getCode());
         } catch (DecryptionException | EncryptionException |

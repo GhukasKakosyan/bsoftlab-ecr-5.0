@@ -1,10 +1,10 @@
 package bsoftlabecr.request.report;
 
-import bsoftlabecr.request.general.SequenceRequest;
+import bsoftlabecr.request.general.SequencedCashRegisterRequest;
 
 import java.util.Date;
 
-public class FiscalReportRequest extends SequenceRequest {
+public class FiscalReportRequest extends SequencedCashRegisterRequest {
     private Date startDate = null;                 // Ժամանակահատվածի սկիզբ
     private Date endDate = null;                   // Ժամանակահատվածի վերջ
     private Integer reportType = null;             // Հաշվետվության տեսակի ընտրություն: 1 - X հաշվետվություն; 2 - Z հաշվետվություն:
