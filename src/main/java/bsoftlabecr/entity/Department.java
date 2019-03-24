@@ -24,4 +24,12 @@ public class Department {
     public void setType(Integer type) {
         this.type = type;
     }
+
+    @Override
+    public String toString() {
+        return "[" +
+                this.id + ", " +
+                this.name + ", " +
+                this.type + "]";
+    }
 }

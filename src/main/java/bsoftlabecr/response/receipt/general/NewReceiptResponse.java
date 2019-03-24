@@ -95,4 +95,23 @@ public class NewReceiptResponse extends CashRegisterResponse {
         this.change = change;
     }
     public void setQr(String qr) { this.qr = qr; }
+
+    @Override
+    public String toString() {
+        return "[" +
+                this.getResponseCode() + ", " +
+                this.rseq + ", " +
+                this.crn + ", " +
+                this.sn + ", " +
+                this.tin + ", " +
+                this.taxpayer + ", " +
+                this.address + ", " +
+                this.time + ", " +
+                this.fiscal + ", " +
+                this.lottery + ", " +
+                this.prize + ", " +
+                this.total + ", " +
+                this.change + ", " +
+                this.qr + "]";
+    }
 }

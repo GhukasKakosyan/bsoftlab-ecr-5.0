@@ -37,4 +37,15 @@ public class FiscalReportRequest extends SequencedCashRegisterRequest {
     public void setCashierId(Integer cashierId) {this.cashierId = cashierId;}
     public void setDeptId(Integer deptId) {this.deptId = deptId;}
     public void setTransactionTypeId(Integer transactionTypeId) {this.transactionTypeId = transactionTypeId;}
+
+    @Override
+    public String toString() {
+        return "[" + this.getSeq() + ", " +
+                this.startDate + ", " +
+                this.endDate + ", " +
+                this.reportType + ", " +
+                this.cashierId + ", " +
+                this.deptId + ", " +
+                this.transactionTypeId + "]";
+    }
 }

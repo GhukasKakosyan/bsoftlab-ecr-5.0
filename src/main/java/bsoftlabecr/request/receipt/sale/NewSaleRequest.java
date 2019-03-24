@@ -57,4 +57,17 @@ public class NewSaleRequest extends SequencedCashRegisterRequest {
     public void setItems(List<Item> items) {
         this.items = items;
     }
+
+    @Override
+    public String toString() {
+        return "[" +
+                this.getSeq() + ", " +
+                this.paidAmount + ", " +
+                this.paidAmountCard + ", " +
+                this.partialAmount + ", " +
+                this.prePaymentAmount + ", " +
+                this.mode + ", " +
+                this.useExtPOS + ", " +
+                this.items + "]";
+    }
 }

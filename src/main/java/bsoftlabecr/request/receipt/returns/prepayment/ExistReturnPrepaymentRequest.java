@@ -19,4 +19,11 @@ public class ExistReturnPrepaymentRequest extends SequencedCashRegisterRequest {
     public void setReceiptId (String receiptId) {
         this.receiptId = receiptId;
     }
+
+    @Override
+    public String toString() {
+        return "[" + this.getSeq() +
+                this.crn + ", " +
+                this.receiptId + "]";
+    }
 }

@@ -13,14 +13,21 @@ public class CashiersAndDepsResponse extends CashRegisterResponse {
     public List<Department> getD() {
         return this.d;
     }
-    public void setD(List<Department> d) {
-        this.d = d;
-    }
-
     public List<Cashier> getC() {
         return this.c;
     }
+
+    public void setD(List<Department> d) {
+        this.d = d;
+    }
     public void setC(List<Cashier> c) {
         this.c = c;
+    }
+
+    @Override
+    public String toString() {
+        return "[" + this.getResponseCode() + ", " +
+                this.c + ", " + this.d + "]";
+
     }
 }

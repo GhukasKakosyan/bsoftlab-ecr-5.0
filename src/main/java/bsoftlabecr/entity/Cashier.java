@@ -1,5 +1,7 @@
 package bsoftlabecr.entity;
 
+import java.util.Arrays;
+
 public class Cashier {
     private Integer id = null;
     private String name = null;
@@ -23,5 +25,13 @@ public class Cashier {
     }
     public void setDeps(Integer[] deps) {
         this.deps = deps;
+    }
+
+    @Override
+    public String toString() {
+        return "[" +
+                this.id + ", " +
+                this.name + ", " +
+                Arrays.toString(this.deps) + "]";
     }
 }

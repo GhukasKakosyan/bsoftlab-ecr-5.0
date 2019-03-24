@@ -23,4 +23,11 @@ public class HeaderFooterRequest extends CashRegisterRequest {
     public void setFooters(List<HeaderFooter> footers) {
         this.footers = footers;
     }
+
+    @Override
+    public String toString() {
+        return "[" +
+                this.headers + ", " +
+                this.footers + "]";
+    }
 }

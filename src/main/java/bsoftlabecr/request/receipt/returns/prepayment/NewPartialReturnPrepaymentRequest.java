@@ -35,4 +35,14 @@ public class NewPartialReturnPrepaymentRequest extends SequencedCashRegisterRequ
     public void setCardAmountForReturn(BigDecimal cardAmountForReturn) {
         this.cardAmountForReturn = cardAmountForReturn;
     }
+
+    @Override
+    public String toString() {
+        return "[" +
+                this.getSeq() + ", " +
+                this.returnTicketId + ", " +
+                this.crn + ", " +
+                this.cashAmountForReturn + ", " +
+                this.cardAmountForReturn + "]";
+    }
 }

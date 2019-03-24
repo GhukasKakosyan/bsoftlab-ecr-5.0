@@ -45,4 +45,15 @@ public class Constants {
     public void setCashierPassword(String cashierPassword) {
         this.cashierPassword = cashierPassword;
     }
+
+    @Override
+    public String toString() {
+        return "[" +
+                this.crn + ", " +
+                this.ip + ", " +
+                this.port + ", " +
+                this.password + ", " +
+                this.cashierId + ", " +
+                this.cashierPassword + "]";
+    }
 }

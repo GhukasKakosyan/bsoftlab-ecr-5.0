@@ -45,4 +45,14 @@ public class NewPartialReturnSaleRequest extends SequencedCashRegisterRequest {
         this.returnItemList = returnItemList;
     }
 
+    @Override
+    public String toString() {
+        return "[" +
+                this.getSeq() + ", " +
+                this.returnTicketId + ", " +
+                this.crn + ", "+
+                this.cashAmountForReturn + ", " +
+                this.cardAmountForReturn + ", " +
+                this.returnItemList + "]";
+    }
 }

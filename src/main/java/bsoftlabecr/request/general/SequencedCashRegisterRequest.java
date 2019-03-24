@@ -9,4 +9,9 @@ public class SequencedCashRegisterRequest extends CashRegisterRequest {
     public void setSeq(Integer seq) {
         this.seq = seq;
     }
+
+    @Override
+    public String toString() {
+        return "[" + this.seq + "]";
+    }
 }

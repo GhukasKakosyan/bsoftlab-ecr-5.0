@@ -5,6 +5,8 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonUnwrapped;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
+import java.util.Arrays;
+
 @JsonIgnoreProperties({"error"})
 public class ExistReceiptResponse extends CashRegisterResponse {
 
@@ -19,6 +21,10 @@ public class ExistReceiptResponse extends CashRegisterResponse {
     private String refcrn = null;           // Վերադարձվող կտրոն տպած ՀԴՄ-ի գրանցման համար
     private String saleType = null;         // Գործարքի տիպ՝ 0 – Վաճառք, 2 – Վերադարձ, 3 – Կանխավճար
     private String type = null;             // Գործարքի տիպ՝ 0 – Վաճառք, 2 – Վերադարձ, 3 – Կանխավճար
+
+    @JsonDeserialize(as = SubTotal[].class)
+    @JsonUnwrapped
+    public SubTotal[] totals;
 
     public ExistReceiptResponse() {}
 
@@ -55,6 +61,7 @@ public class ExistReceiptResponse extends CashRegisterResponse {
     public String getType() {
         return this.type;
     }
+    public SubTotal[] getTotals() { return this.totals; }
 
     public void setCid(String cid) {
         this.cid = cid;
@@ -89,10 +96,27 @@ public class ExistReceiptResponse extends CashRegisterResponse {
     public void setType(String type) {
         this.type = type;
     }
+    public void setTotals(SubTotal[] totals) {
+        this.totals = totals;
+    }
 
-    @JsonDeserialize(as = SubTotal[].class)
-    @JsonUnwrapped
-    public SubTotal[] totals;
+    @Override
+    public String toString() {
+        return "[" +
+                this.getResponseCode() + ", " +
+                this.cid + ", " +
+                this.time + ", " +
+                this.ta + ", " +
+                this.cash + ", " +
+                this.card + ", " +
+                this.ppa + ", " +
+                this.ppu + ", " +
+                this.ref + ", " +
+                this.refcrn + ", " +
+                this.saleType + ", " +
+                this.type + ", " +
+                Arrays.toString(this.totals) + "]";
+    }
 
     public static class SubTotal {
         private String did = null;     //Բաժնի համար
@@ -203,6 +227,26 @@ public class ExistReceiptResponse extends CashRegisterResponse {
         }
         public void setRpid(String rpid) {
             this.rpid = rpid;
+        }
+
+        @Override
+        public String toString() {
+            return "[" +
+                    this.did + ", " +
+                    this.dt + ", " +
+                    this.dtm + ", " +
+                    this.t + ", " +
+                    this.tt + ", " +
+                    this.gc + ", " +
+                    this.gn + ", " +
+                    this.qty + ", " +
+                    this.p + ", " +
+                    this.adg + ", " +
+                    this.mu + ", " +
+                    this.dsc + ", " +
+                    this.adsc + ", " +
+                    this.dsct + ", " +
+                    this.rpid + "]";
         }
     }
 }

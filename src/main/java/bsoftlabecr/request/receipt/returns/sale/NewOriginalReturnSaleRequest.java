@@ -19,4 +19,12 @@ public class NewOriginalReturnSaleRequest extends SequencedCashRegisterRequest {
     public void setCrn(String crn) {
         this.crn = crn;
     }
+
+    @Override
+    public String toString() {
+        return "[" +
+                this.getSeq() + ", " +
+                this.returnTicketId + ", " +
+                this.crn + "]";
+    }
 }

@@ -53,4 +53,13 @@ public class HeaderFooter {
     public void setText(String text) {
         this.text = text;
     }
+
+    @Override
+    public String toString() {
+        return "[" +
+                this.align + ", " +
+                this.bold + ", " +
+                this.fsize + ", " +
+                this.text + "]";
+    }
 }

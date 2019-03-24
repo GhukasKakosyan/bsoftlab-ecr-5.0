@@ -24,4 +24,10 @@ public class LoginCashierResponse extends CashRegisterResponse {
             return null;
         }
     }
+
+    @Override
+    public String toString() {
+        return "[" + this.getResponseCode() + ", " +
+                this.key + "]";
+    }
 }

@@ -52,4 +52,11 @@ public enum ResponseType {
     public Integer getCode() {
         return this.code;
     }
+
+    @Override
+    public String toString() {
+        return "[" +
+                this.name() + ": " +
+                this.code + "]";
+    }
 }

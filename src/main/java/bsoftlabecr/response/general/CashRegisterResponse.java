@@ -11,4 +11,9 @@ public class CashRegisterResponse {
     public void setResponseCode(Integer responseCode) {
         this.responseCode = responseCode;
     }
+
+    @Override
+    public String toString() {
+        return "[" + this.responseCode + "]";
+    }
 }

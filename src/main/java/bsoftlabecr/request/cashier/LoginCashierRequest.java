@@ -26,4 +26,12 @@ public class LoginCashierRequest extends CashRegisterRequest {
     public void setPin(String pin) {
         this.pin = pin;
     }
+
+    @Override
+    public String toString() {
+        return "[" +
+                this.cashier + ", " +
+                this.password + ", " +
+                this.pin + "]";
+    }
 }

@@ -17,4 +17,10 @@ public class ReturnItem {
     public void setQuantity(Double quantity) {
         this.quantity = quantity;
     }
+
+    public String toString() {
+        return "[" +
+                this.rpid + ", " +
+                this.quantity + "]";
+    }
 }

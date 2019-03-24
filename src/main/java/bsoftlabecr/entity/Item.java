@@ -83,6 +83,22 @@ public class Item {
         this.additionalDiscountType = additionalDiscountType;
     }
 
+    @Override
+    public String toString() {
+        return "[" +
+                this.dep + ", " +
+                this.adgCode + ", " +
+                this.productCode + ", " +
+                this.productName + ", " +
+                this.unit + ", " +
+                this.qty + ", " +
+                this.price + ", " +
+                this.discount + ", " +
+                this.discountType + ", " +
+                this.additionalDiscount + ", " +
+                this.additionalDiscountType + "]";
+    }
+
     public enum ProductDiscountType {
         PERCENT(1),
         PRICE(2),

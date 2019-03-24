@@ -102,4 +102,12 @@ public enum ArmenianLetter {
     public String getLetter() {
         return this.letter;
     }
+
+    @Override
+    public String toString() {
+        return "[" +
+                this.name() + ": " +
+                this.codering + ", " +
+                this.letter + "]";
+    }
 }
