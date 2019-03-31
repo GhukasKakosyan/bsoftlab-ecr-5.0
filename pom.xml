@@ -2,12 +2,16 @@
 <project xmlns = "http://maven.apache.org/POM/4.0.0"
          xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation = "http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>am.bsoftlab</groupId>
     <artifactId>bsoftlab-src-client</artifactId>
     <version>5.0</version>
     <packaging>jar</packaging>
+    <name>bsoftlab-src-client</name>
+    <description>State Revenue Committee modules</description>
+    <url>http://www.bsoftlab.am</url>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -90,9 +94,6 @@
     </build>
 
     <!-- More Project Information -->
-    <name>bsoftlab-src-client</name>
-    <description>State Revenue Committee modules</description>
-    <url>http://www.bsoftlab.am</url>
     <licenses>
         <license>
             <name>BSOFTLAB License, Version 2.0</name>

@@ -3,67 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="9553f8bf-0a4a-49fd-8025-c7d73f29c7df" name="Default" comment="Fundamental changes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bsoftlabecr/entity/ArmenianLetter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/entity/ArmenianLetter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bsoftlabecr/entity/Cashier.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/entity/Cashier.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bsoftlabecr/entity/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/entity/Constants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bsoftlabecr/entity/Department.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/entity/Department.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bsoftlabecr/entity/HeaderFooter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/entity/HeaderFooter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bsoftlabecr/entity/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/entity/Item.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bsoftlabecr/entity/ResponseType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/entity/ResponseType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bsoftlabecr/entity/ReturnItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/entity/ReturnItem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bsoftlabecr/request/cashier/CashiersAndDepsRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/request/cashier/CashiersAndDepsRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bsoftlabecr/request/cashier/LoginCashierRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/request/cashier/LoginCashierRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bsoftlabecr/request/general/SequencedCashRegisterRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/request/general/SequencedCashRegisterRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bsoftlabecr/request/headerfooter/HeaderFooterRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/request/headerfooter/HeaderFooterRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bsoftlabecr/request/receipt/prepayment/ExistPrepaymentRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/request/receipt/prepayment/ExistPrepaymentRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bsoftlabecr/request/receipt/prepayment/NewPrepaymentRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/request/receipt/prepayment/NewPrepaymentRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bsoftlabecr/request/receipt/returns/prepayment/ExistReturnPrepaymentRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/request/receipt/returns/prepayment/ExistReturnPrepaymentRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bsoftlabecr/request/receipt/returns/prepayment/NewOriginalReturnPrepaymentRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/request/receipt/returns/prepayment/NewOriginalReturnPrepaymentRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bsoftlabecr/request/receipt/returns/prepayment/NewPartialReturnPrepaymentRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/request/receipt/returns/prepayment/NewPartialReturnPrepaymentRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bsoftlabecr/request/receipt/returns/sale/ExistReturnSaleRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/request/receipt/returns/sale/ExistReturnSaleRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bsoftlabecr/request/receipt/returns/sale/NewOriginalReturnSaleRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/request/receipt/returns/sale/NewOriginalReturnSaleRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bsoftlabecr/request/receipt/returns/sale/NewPartialReturnSaleRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/request/receipt/returns/sale/NewPartialReturnSaleRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bsoftlabecr/request/receipt/sale/ExistSaleRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/request/receipt/sale/ExistSaleRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bsoftlabecr/request/receipt/sale/NewSaleRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/request/receipt/sale/NewSaleRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bsoftlabecr/request/report/FiscalReportRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/request/report/FiscalReportRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bsoftlabecr/response/cashier/CashiersAndDepsResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/response/cashier/CashiersAndDepsResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bsoftlabecr/response/cashier/LoginCashierResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/response/cashier/LoginCashierResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bsoftlabecr/response/general/CashRegisterResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/response/general/CashRegisterResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bsoftlabecr/response/receipt/general/ExistReceiptResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/response/receipt/general/ExistReceiptResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bsoftlabecr/response/receipt/general/NewReceiptResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsoftlabecr/response/receipt/general/NewReceiptResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bsoftlab-src-client-5.0.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/bsoftlab-src-client-5.0.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/bsoftlabecr/entity/ArmenianLetter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bsoftlabecr/entity/ArmenianLetter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/bsoftlabecr/entity/Cashier.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bsoftlabecr/entity/Cashier.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/bsoftlabecr/entity/Constants.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bsoftlabecr/entity/Constants.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/bsoftlabecr/entity/Department.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bsoftlabecr/entity/Department.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/bsoftlabecr/entity/HeaderFooter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bsoftlabecr/entity/HeaderFooter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/bsoftlabecr/entity/Item$ProductAdditionalDiscountType.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bsoftlabecr/entity/Item$ProductAdditionalDiscountType.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/bsoftlabecr/entity/Item$ProductDiscountType.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bsoftlabecr/entity/Item$ProductDiscountType.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/bsoftlabecr/entity/Item.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bsoftlabecr/entity/Item.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/bsoftlabecr/entity/ResponseType.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bsoftlabecr/entity/ResponseType.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/bsoftlabecr/entity/ReturnItem.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bsoftlabecr/entity/ReturnItem.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/bsoftlabecr/request/cashier/CashiersAndDepsRequest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bsoftlabecr/request/cashier/CashiersAndDepsRequest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/bsoftlabecr/request/cashier/LoginCashierRequest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bsoftlabecr/request/cashier/LoginCashierRequest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/bsoftlabecr/request/general/SequencedCashRegisterRequest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bsoftlabecr/request/general/SequencedCashRegisterRequest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/bsoftlabecr/request/headerfooter/HeaderFooterRequest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bsoftlabecr/request/headerfooter/HeaderFooterRequest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/bsoftlabecr/request/receipt/prepayment/ExistPrepaymentRequest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bsoftlabecr/request/receipt/prepayment/ExistPrepaymentRequest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/bsoftlabecr/request/receipt/prepayment/NewPrepaymentRequest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bsoftlabecr/request/receipt/prepayment/NewPrepaymentRequest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/bsoftlabecr/request/receipt/returns/prepayment/ExistReturnPrepaymentRequest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bsoftlabecr/request/receipt/returns/prepayment/ExistReturnPrepaymentRequest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/bsoftlabecr/request/receipt/returns/prepayment/NewOriginalReturnPrepaymentRequest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bsoftlabecr/request/receipt/returns/prepayment/NewOriginalReturnPrepaymentRequest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/bsoftlabecr/request/receipt/returns/prepayment/NewPartialReturnPrepaymentRequest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bsoftlabecr/request/receipt/returns/prepayment/NewPartialReturnPrepaymentRequest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/bsoftlabecr/request/receipt/returns/sale/ExistReturnSaleRequest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bsoftlabecr/request/receipt/returns/sale/ExistReturnSaleRequest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/bsoftlabecr/request/receipt/returns/sale/NewOriginalReturnSaleRequest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bsoftlabecr/request/receipt/returns/sale/NewOriginalReturnSaleRequest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/bsoftlabecr/request/receipt/returns/sale/NewPartialReturnSaleRequest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bsoftlabecr/request/receipt/returns/sale/NewPartialReturnSaleRequest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/bsoftlabecr/request/receipt/sale/ExistSaleRequest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bsoftlabecr/request/receipt/sale/ExistSaleRequest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/bsoftlabecr/request/receipt/sale/NewSaleRequest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bsoftlabecr/request/receipt/sale/NewSaleRequest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/bsoftlabecr/request/report/FiscalReportRequest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bsoftlabecr/request/report/FiscalReportRequest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/bsoftlabecr/response/cashier/CashiersAndDepsResponse.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bsoftlabecr/response/cashier/CashiersAndDepsResponse.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/bsoftlabecr/response/cashier/LoginCashierResponse.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bsoftlabecr/response/cashier/LoginCashierResponse.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/bsoftlabecr/response/general/CashRegisterResponse.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bsoftlabecr/response/general/CashRegisterResponse.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/bsoftlabecr/response/receipt/general/ExistReceiptResponse$SubTotal.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bsoftlabecr/response/receipt/general/ExistReceiptResponse$SubTotal.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/bsoftlabecr/response/receipt/general/ExistReceiptResponse.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bsoftlabecr/response/receipt/general/ExistReceiptResponse.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/bsoftlabecr/response/receipt/general/NewReceiptResponse.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bsoftlabecr/response/receipt/general/NewReceiptResponse.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -202,46 +141,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="bsoftlabsrc" type="b2602c69:ProjectViewProjectNode" />
-              <item name="bsoftlabsrc" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="bsoftlabsrc" type="b2602c69:ProjectViewProjectNode" />
-              <item name="bsoftlabsrc" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="bsoftlabsrc" type="b2602c69:ProjectViewProjectNode" />
-              <item name="bsoftlabsrc" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="bsoftlabsrc" type="b2602c69:ProjectViewProjectNode" />
-              <item name="bsoftlabsrc" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="PackagesPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="bsoftlabsrc" type="58d84e3e:PackageViewProjectNode" />
-              <item name="bsoftlabsrc" type="616d4139:PackageViewModuleNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
       <pane id="Scope">
         <subPane subId="Scope 'Tests'; set:Tests; class com.intellij.psi.search.scope.TestsScope">
           <expand>
@@ -327,6 +226,46 @@
               <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
               <item name="main" type="9f88c78c:ScopeViewTreeModel$FileNode" />
               <item name="java" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="PackagesPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="bsoftlabsrc" type="58d84e3e:PackageViewProjectNode" />
+              <item name="bsoftlabsrc" type="616d4139:PackageViewModuleNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="bsoftlabsrc" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bsoftlabsrc" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="bsoftlabsrc" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bsoftlabsrc" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="bsoftlabsrc" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bsoftlabsrc" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="bsoftlabsrc" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bsoftlabsrc" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -475,13 +414,20 @@
       <option name="project" value="LOCAL" />
       <updated>1552903811426</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Fundamental changes">
+      <created>1553441591000</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1553441591000</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-5" y="-5" width="1376" height="738" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.31089258" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.31467474" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
