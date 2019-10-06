@@ -44,12 +44,12 @@ public enum ResponseType {
     EXIST_SALE_RESPONSE_XML_FILE_WRITE_ERROR(379),
     NEW_SALE_RESPONSE_XML_FILE_WRITE_ERROR(380);
 
-    private Integer code;
+    private int code;
 
     ResponseType(Integer code) {
         this.code = code;
     }
-    public Integer getCode() {
+    public int getCode() {
         return this.code;
     }
 

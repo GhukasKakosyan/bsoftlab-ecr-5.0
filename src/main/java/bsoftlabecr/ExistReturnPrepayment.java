@@ -157,6 +157,7 @@ public class ExistReturnPrepayment {
                     XmlFileWriteException exception) {
                 throw new CashRegisterException(exception.getResponseCode());
             }
+
         } catch (CashRegisterException cashRegisterException) {
             CashRegisterResponse cashRegisterResponse = new CashRegisterResponse();
             cashRegisterResponse.setResponseCode(cashRegisterException.getResponseCode());
