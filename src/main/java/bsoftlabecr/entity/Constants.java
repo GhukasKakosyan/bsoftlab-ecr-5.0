@@ -49,11 +49,11 @@ public class Constants {
     @Override
     public String toString() {
         return "[" +
-                this.crn + ", " +
-                this.ip + ", " +
-                this.port + ", " +
-                this.password + ", " +
-                this.cashierId + ", " +
-                this.cashierPassword + "]";
+                "crn: " + this.crn + ", " +
+                "ip: " + this.ip + ", " +
+                "port: " + this.port + ", " +
+                "password: " + this.password + ", " +
+                "cashierId: " + this.cashierId + ", " +
+                "cashierPassword: " + this.cashierPassword + "]";
     }
 }

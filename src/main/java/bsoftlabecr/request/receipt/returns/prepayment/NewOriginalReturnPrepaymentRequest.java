@@ -23,8 +23,8 @@ public class NewOriginalReturnPrepaymentRequest extends SequencedCashRegisterReq
     @Override
     public String toString() {
         return "[" +
-                this.getSeq() + ", " +
-                this.returnTicketId + ", " +
-                this.crn + "]";
+                "seq: " + this.getSeq() + ", " +
+                "returnTicketId: " + this.returnTicketId + ", " +
+                "crn: " + this.crn + "]";
     }
 }

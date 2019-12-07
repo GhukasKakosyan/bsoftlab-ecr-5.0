@@ -39,10 +39,10 @@ public class NewPartialReturnPrepaymentRequest extends SequencedCashRegisterRequ
     @Override
     public String toString() {
         return "[" +
-                this.getSeq() + ", " +
-                this.returnTicketId + ", " +
-                this.crn + ", " +
-                this.cashAmountForReturn + ", " +
-                this.cardAmountForReturn + "]";
+                "seq: " + this.getSeq() + ", " +
+                "returnTicketId: " + this.returnTicketId + ", " +
+                "crn: " + this.crn + ", " +
+                "cashAmountForReturn: " + this.cashAmountForReturn + ", " +
+                "cardAmountForReturn: " + this.cardAmountForReturn + "]";
     }
 }

@@ -30,8 +30,8 @@ public class Cashier {
     @Override
     public String toString() {
         return "[" +
-                this.id + ", " +
-                this.name + ", " +
-                Arrays.toString(this.deps) + "]";
+                "id: " + this.id + ", " +
+                "name: " + this.name + ", " +
+                "deps: " + Arrays.toString(this.deps) + "]";
     }
 }

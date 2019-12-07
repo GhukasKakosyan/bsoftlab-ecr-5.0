@@ -19,6 +19,7 @@ import javax.xml.stream.events.XMLEvent;
 public class NewPrepaymentRequestReaderXml {
     private static final String XML_TAG_MAIN = "NewPrepaymentRequest";
     private static final String XML_TAG_SEQ = "seq";
+    private static final String XML_TAG_PARTNERTIN = "partnerTin";
     private static final String XML_TAG_PAIDAMOUNT = "paidAmount";
     private static final String XML_TAG_PAIDAMOUNTCARD = "paidAmountCard";
     private static final String XML_TAG_PARTIALAMOUNT = "partialAmount";
@@ -41,6 +42,8 @@ public class NewPrepaymentRequestReaderXml {
 
     public NewPrepaymentRequest read() throws XmlFileReadException {
 
+        NewPrepaymentRequest newPrepaymentRequest = null;
+
         Boolean useExtPOS = null;
         Double paidAmount = null;
         Double paidAmountCard = null;
@@ -49,8 +52,7 @@ public class NewPrepaymentRequestReaderXml {
         Integer mode = null;
         Integer seq = null;
         List<Item> items = null;
-
-        NewPrepaymentRequest newPrepaymentRequest = null;
+        String partnerTin = null;
 
         try {
             XMLInputFactory xmlInputFactory = XMLInputFactory.newInstance();
@@ -62,6 +64,7 @@ public class NewPrepaymentRequestReaderXml {
                 if (xmlEvent.isStartElement() && xmlEvent.asStartElement().getName().getLocalPart().equals(XML_TAG_MAIN)) {
                     newPrepaymentRequest = new NewPrepaymentRequest();
                     newPrepaymentRequest.setSeq(seq);
+                    newPrepaymentRequest.setPartnerTin(partnerTin);
                     newPrepaymentRequest.setPaidAmount(paidAmount);
                     newPrepaymentRequest.setPaidAmountCard(paidAmountCard);
                     newPrepaymentRequest.setPartialAmount(partialAmount);
@@ -83,6 +86,15 @@ public class NewPrepaymentRequestReaderXml {
                 }
                 if (xmlEvent.isEndElement() && xmlEvent.asEndElement().getName().getLocalPart().equals(XML_TAG_SEQ)) {
                     if (newPrepaymentRequest != null) newPrepaymentRequest.setSeq(seq);
+                    continue;
+                }
+                if (xmlEvent.isStartElement() && xmlEvent.asStartElement().getName().getLocalPart().equals(XML_TAG_PARTNERTIN)) {
+                    xmlEvent = xmlEventReader.nextEvent();
+                    partnerTin = xmlEvent.asCharacters().getData();
+                    continue;
+                }
+                if (xmlEvent.isEndElement() && xmlEvent.asEndElement().getName().getLocalPart().equals(XML_TAG_PARTNERTIN)) {
+                    if (newPrepaymentRequest != null) newPrepaymentRequest.setPartnerTin(partnerTin);
                     continue;
                 }
                 if (xmlEvent.isStartElement() && xmlEvent.asStartElement().getName().getLocalPart().equals(XML_TAG_PAIDAMOUNT)) {

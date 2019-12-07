@@ -22,8 +22,9 @@ public class ExistReturnPrepaymentRequest extends SequencedCashRegisterRequest {
 
     @Override
     public String toString() {
-        return "[" + this.getSeq() +
-                this.crn + ", " +
-                this.receiptId + "]";
+        return "[" +
+                "seq: " + this.getSeq() +
+                "crn: " + this.crn + ", " +
+                "receiptId: " + this.receiptId + "]";
     }
 }

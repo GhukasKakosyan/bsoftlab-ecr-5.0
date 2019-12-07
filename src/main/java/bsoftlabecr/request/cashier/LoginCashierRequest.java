@@ -30,8 +30,8 @@ public class LoginCashierRequest extends CashRegisterRequest {
     @Override
     public String toString() {
         return "[" +
-                this.cashier + ", " +
-                this.password + ", " +
-                this.pin + "]";
+                "cashier: " + this.cashier + ", " +
+                "password: " + this.password + ", " +
+                "pin: " + this.pin + "]";
     }
 }

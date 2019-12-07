@@ -99,19 +99,19 @@ public class NewReceiptResponse extends CashRegisterResponse {
     @Override
     public String toString() {
         return "[" +
-                this.getResponseCode() + ", " +
-                this.rseq + ", " +
-                this.crn + ", " +
-                this.sn + ", " +
-                this.tin + ", " +
-                this.taxpayer + ", " +
-                this.address + ", " +
-                this.time + ", " +
-                this.fiscal + ", " +
-                this.lottery + ", " +
-                this.prize + ", " +
-                this.total + ", " +
-                this.change + ", " +
-                this.qr + "]";
+                "responseCode: " + this.getResponseCode() + ", " +
+                "rseq: " + this.rseq + ", " +
+                "crn: " + this.crn + ", " +
+                "sn: " + this.sn + ", " +
+                "tin: " + this.tin + ", " +
+                "taxpayer: " + this.taxpayer + ", " +
+                "address: " + this.address + ", " +
+                "time: " + this.time + ", " +
+                "fiscal: " + this.fiscal + ", " +
+                "lottery: " + this.lottery + ", " +
+                "prize: " + this.prize + ", " +
+                "total: " + this.total + ", " +
+                "change: " + this.change + ", " +
+                "qr: " + this.qr + "]";
     }
 }

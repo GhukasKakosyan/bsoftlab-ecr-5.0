@@ -11,9 +11,9 @@ public class Item {
     private BigDecimal qty = null;
     private BigDecimal price = null;
     private BigDecimal discount = null;
-    private Integer discountType = null;
+    private BigDecimal discountType = null;
     private BigDecimal additionalDiscount = null;
-    private Integer additionalDiscountType = null;
+    private BigDecimal additionalDiscountType = null;
 
     public Integer getDep() {
         return this.dep;
@@ -39,13 +39,13 @@ public class Item {
     public BigDecimal getDiscount() {
         return this.discount;
     }
-    public Integer getDiscountType() {
+    public BigDecimal getDiscountType() {
         return this.discountType;
     }
     public BigDecimal getAdditionalDiscount() {
         return this.additionalDiscount;
     }
-    public Integer getAdditionalDiscountType() {
+    public BigDecimal getAdditionalDiscountType() {
         return this.additionalDiscountType;
     }
 
@@ -73,30 +73,30 @@ public class Item {
     public void setDiscount(BigDecimal discount) {
         this.discount = discount;
     }
-    public void setDiscountType(Integer discountType) {
+    public void setDiscountType(BigDecimal discountType) {
         this.discountType = discountType;
     }
     public void setAdditionalDiscount(BigDecimal additionalDiscount) {
         this.additionalDiscount = additionalDiscount;
     }
-    public void setAdditionalDiscountType(Integer additionalDiscountType) {
+    public void setAdditionalDiscountType(BigDecimal additionalDiscountType) {
         this.additionalDiscountType = additionalDiscountType;
     }
 
     @Override
     public String toString() {
         return "[" +
-                this.dep + ", " +
-                this.adgCode + ", " +
-                this.productCode + ", " +
-                this.productName + ", " +
-                this.unit + ", " +
-                this.qty + ", " +
-                this.price + ", " +
-                this.discount + ", " +
-                this.discountType + ", " +
-                this.additionalDiscount + ", " +
-                this.additionalDiscountType + "]";
+                "dep: " + this.dep + ", " +
+                "adgCode: " + this.adgCode + ", " +
+                "productCode: " + this.productCode + ", " +
+                "productName: " + this.productName + ", " +
+                "unit: " + this.unit + ", " +
+                "qty: " + this.qty + ", " +
+                "price: " + this.price + ", " +
+                "discount: " + this.discount + ", " +
+                "discountType: " + this.discountType + ", " +
+                "additionalDiscount: " + this.additionalDiscount + ", " +
+                "additionalDiscountType: " + this.additionalDiscountType + "]";
     }
 
     public enum ProductDiscountType {

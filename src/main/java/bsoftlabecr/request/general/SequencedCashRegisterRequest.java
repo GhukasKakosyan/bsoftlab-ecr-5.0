@@ -12,6 +12,6 @@ public class SequencedCashRegisterRequest extends CashRegisterRequest {
 
     @Override
     public String toString() {
-        return "[" + this.seq + "]";
+        return "[ seq: " + this.seq + "]";
     }
 }

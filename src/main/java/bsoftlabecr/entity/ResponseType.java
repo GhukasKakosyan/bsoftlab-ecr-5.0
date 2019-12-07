@@ -56,7 +56,7 @@ public enum ResponseType {
     @Override
     public String toString() {
         return "[" +
-                this.name() + ": " +
-                this.code + "]";
+                "name " + this.name() + ": " +
+                "code " + this.code + "]";
     }
 }

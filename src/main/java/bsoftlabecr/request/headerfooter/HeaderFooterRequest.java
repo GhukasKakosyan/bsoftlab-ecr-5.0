@@ -27,7 +27,7 @@ public class HeaderFooterRequest extends CashRegisterRequest {
     @Override
     public String toString() {
         return "[" +
-                this.headers + ", " +
-                this.footers + "]";
+                "headers: " + this.headers.toString() + ", " +
+                "footers: " + this.footers.toString() + "]";
     }
 }

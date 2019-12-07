@@ -6,6 +6,7 @@ import bsoftlabecr.request.general.SequencedCashRegisterRequest;
 import java.util.List;
 
 public class NewPrepaymentRequest extends SequencedCashRegisterRequest {
+    private String partnerTin = null;          // Գնորդի ՀՎՀՀ
     private Double paidAmount = null;          // Առձեռն վճարված գումար
     private Double paidAmountCard = null;      // Անկանխիկ վճարված գումար
     private Double partialAmount = null;       // Մասնակի վճարման գումար (Ներկայումս պարտադիր պետք է լինի 0)
@@ -14,6 +15,9 @@ public class NewPrepaymentRequest extends SequencedCashRegisterRequest {
     private Boolean useExtPOS = null;          // Այլ վճարային տերմինալի օգտագործում
     private List<Item> items = null;           // Կտրոնի ապրանքներ
 
+    public String getPartnerTin() {
+        return this.partnerTin;
+    }
     public Double getPaidAmount() {
         return this.paidAmount;
     }
@@ -36,6 +40,9 @@ public class NewPrepaymentRequest extends SequencedCashRegisterRequest {
         return this.items;
     }
 
+    public void setPartnerTin(String partnerTin) {
+        this.partnerTin = partnerTin;
+    }
     public void setPaidAmount(Double paidAmount) {
         this.paidAmount = paidAmount;
     }
@@ -60,13 +67,15 @@ public class NewPrepaymentRequest extends SequencedCashRegisterRequest {
 
     @Override
     public String toString() {
-        return "[" + this.getSeq() + ", " +
-                this.paidAmount + ", " +
-                this.paidAmountCard + ", " +
-                this.partialAmount + ", " +
-                this.prePaymentAmount + ", " +
-                this.mode + ", " +
-                this.useExtPOS + ", " +
-                this.items + "]";
+        return "[" +
+                "seq: " + this.getSeq() + ", " +
+                "partnerTin: " + this.partnerTin + ", " +
+                "paidAmount: " + this.paidAmount + ", " +
+                "paidAmountCard: " + this.paidAmountCard + ", " +
+                "partialAmount: " + this.partialAmount + ", " +
+                "prePaymentAmount: " + this.prePaymentAmount + ", " +
+                "mode: " + this.mode + ", " +
+                "useExtPOS: " + this.useExtPOS + ", " +
+                "items: " + this.items.toString() + "]";
     }
 }

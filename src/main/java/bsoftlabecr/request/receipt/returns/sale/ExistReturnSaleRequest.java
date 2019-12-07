@@ -23,8 +23,8 @@ public class ExistReturnSaleRequest extends SequencedCashRegisterRequest {
     @Override
     public String toString() {
         return "[" +
-                this.getSeq() + ", " +
-                this.crn + ", " +
-                this.receiptId + "]";
+                "seq: " + this.getSeq() + ", " +
+                "crn: " + this.crn + ", " +
+                "receiptId: " + this.receiptId + "]";
     }
 }

@@ -103,19 +103,19 @@ public class ExistReceiptResponse extends CashRegisterResponse {
     @Override
     public String toString() {
         return "[" +
-                this.getResponseCode() + ", " +
-                this.cid + ", " +
-                this.time + ", " +
-                this.ta + ", " +
-                this.cash + ", " +
-                this.card + ", " +
-                this.ppa + ", " +
-                this.ppu + ", " +
-                this.ref + ", " +
-                this.refcrn + ", " +
-                this.saleType + ", " +
-                this.type + ", " +
-                Arrays.toString(this.totals) + "]";
+                "responseCode: " + this.getResponseCode() + ", " +
+                "cid: " + this.cid + ", " +
+                "time: " + this.time + ", " +
+                "ta: " + this.ta + ", " +
+                "cash: " + this.cash + ", " +
+                "card: " + this.card + ", " +
+                "ppa: " + this.ppa + ", " +
+                "ppu: " + this.ppu + ", " +
+                "ref: " + this.ref + ", " +
+                "refcrn: " + this.refcrn + ", " +
+                "saleType: " + this.saleType + ", " +
+                "type: " + this.type + ", " +
+                "totals: " + Arrays.toString(this.totals) + "]";
     }
 
     public static class SubTotal {
@@ -232,21 +232,21 @@ public class ExistReceiptResponse extends CashRegisterResponse {
         @Override
         public String toString() {
             return "[" +
-                    this.did + ", " +
-                    this.dt + ", " +
-                    this.dtm + ", " +
-                    this.t + ", " +
-                    this.tt + ", " +
-                    this.gc + ", " +
-                    this.gn + ", " +
-                    this.qty + ", " +
-                    this.p + ", " +
-                    this.adg + ", " +
-                    this.mu + ", " +
-                    this.dsc + ", " +
-                    this.adsc + ", " +
-                    this.dsct + ", " +
-                    this.rpid + "]";
+                    "did: " + this.did + ", " +
+                    "dt: " + this.dt + ", " +
+                    "dtm: " + this.dtm + ", " +
+                    "t: " + this.t + ", " +
+                    "tt: " + this.tt + ", " +
+                    "gc: " + this.gc + ", " +
+                    "gn: " + this.gn + ", " +
+                    "qty: " + this.qty + ", " +
+                    "p: " + this.p + ", " +
+                    "adg: " + this.adg + ", " +
+                    "mu: " + this.mu + ", " +
+                    "dsc: " + this.dsc + ", " +
+                    "adsc: " + this.adsc + ", " +
+                    "dsct: " + this.dsct + ", " +
+                    "rpid: " + this.rpid + "]";
         }
     }
 }

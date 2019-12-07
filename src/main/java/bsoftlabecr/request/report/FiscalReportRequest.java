@@ -41,11 +41,11 @@ public class FiscalReportRequest extends SequencedCashRegisterRequest {
     @Override
     public String toString() {
         return "[" + this.getSeq() + ", " +
-                this.startDate + ", " +
-                this.endDate + ", " +
-                this.reportType + ", " +
-                this.cashierId + ", " +
-                this.deptId + ", " +
-                this.transactionTypeId + "]";
+                "startDate: " + this.startDate + ", " +
+                "endDate: " + this.endDate + ", " +
+                "reportType: " + this.reportType + ", " +
+                "cashierId: " + this.cashierId + ", " +
+                "deptId: " + this.deptId + ", " +
+                "transactionTypeId: " + this.transactionTypeId + "]";
     }
 }

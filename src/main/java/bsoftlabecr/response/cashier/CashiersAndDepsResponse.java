@@ -26,8 +26,10 @@ public class CashiersAndDepsResponse extends CashRegisterResponse {
 
     @Override
     public String toString() {
-        return "[" + this.getResponseCode() + ", " +
-                this.c + ", " + this.d + "]";
+        return "[" +
+                "responseCode: " + this.getResponseCode() + ", " +
+                "cashiers: " + this.c.toString() + ", " +
+                "departments: " + this.d.toString() + "]";
 
     }
 }

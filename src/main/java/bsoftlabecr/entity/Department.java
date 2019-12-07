@@ -28,8 +28,8 @@ public class Department {
     @Override
     public String toString() {
         return "[" +
-                this.id + ", " +
-                this.name + ", " +
-                this.type + "]";
+                "id: " + this.id + ", " +
+                "name: " + this.name + ", " +
+                "type: " + this.type + "]";
     }
 }

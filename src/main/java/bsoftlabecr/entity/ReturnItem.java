@@ -20,7 +20,7 @@ public class ReturnItem {
 
     public String toString() {
         return "[" +
-                this.rpid + ", " +
-                this.quantity + "]";
+                "rpid: " + this.rpid + ", " +
+                "quantity: " + this.quantity + "]";
     }
 }

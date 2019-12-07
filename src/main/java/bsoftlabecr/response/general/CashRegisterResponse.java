@@ -14,6 +14,6 @@ public class CashRegisterResponse {
 
     @Override
     public String toString() {
-        return "[" + this.responseCode + "]";
+        return "[ responseCode: " + this.responseCode + "]";
     }
 }

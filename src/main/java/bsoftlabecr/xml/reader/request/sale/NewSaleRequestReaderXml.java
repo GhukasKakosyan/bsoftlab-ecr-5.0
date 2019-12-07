@@ -23,6 +23,7 @@ import javax.xml.stream.events.XMLEvent;
 public class NewSaleRequestReaderXml {
     private static final String XML_TAG_MAIN = "NewSaleRequest";
     private static final String XML_TAG_SEQ = "seq";
+    private static final String XML_TAG_PARTNERTIN = "partnerTin";
     private static final String XML_TAG_PAIDAMOUNT = "paidAmount";
     private static final String XML_TAG_PAIDAMOUNTCARD = "paidAmountCard";
     private static final String XML_TAG_PARTIALAMOUNT = "partialAmount";
@@ -58,6 +59,8 @@ public class NewSaleRequestReaderXml {
 
     public NewSaleRequest read() throws XmlFileReadException {
 
+        NewSaleRequest newSaleRequest = null;
+
         Boolean useExtPOS = null;
         Double paidAmount = null;
         Double paidAmountCard = null;
@@ -66,17 +69,17 @@ public class NewSaleRequestReaderXml {
         Integer dep = null;
         Integer mode = null;
         Integer seq = null;
+        String partnerTin = null;
 
         Item item = null;
         List<Item> items = null;
-        NewSaleRequest newSaleRequest = null;
 
         BigDecimal additionalDiscount = null;
+        BigDecimal additionalDiscountType = null;
         BigDecimal discount = null;
+        BigDecimal discountType = null;
         BigDecimal qty = null;
         BigDecimal price = null;
-        Integer additionalDiscountType = null;
-        Integer discountType = null;
         String adgCode = null;
         String productCode = null;
         String productName = null;
@@ -92,6 +95,7 @@ public class NewSaleRequestReaderXml {
                 if (xmlEvent.isStartElement() && xmlEvent.asStartElement().getName().getLocalPart().equals(XML_TAG_MAIN)) {
                     newSaleRequest = new NewSaleRequest();
                     newSaleRequest.setSeq(seq);
+                    newSaleRequest.setPartnerTin(partnerTin);
                     newSaleRequest.setPaidAmount(paidAmount);
                     newSaleRequest.setPaidAmountCard(paidAmountCard);
                     newSaleRequest.setPartialAmount(partialAmount);
@@ -113,6 +117,14 @@ public class NewSaleRequestReaderXml {
                 }
                 if (xmlEvent.isEndElement() && xmlEvent.asEndElement().getName().getLocalPart().equals(XML_TAG_SEQ)) {
                     if (newSaleRequest != null) newSaleRequest.setSeq(seq);
+                    continue;
+                }
+                if (xmlEvent.isStartElement() && xmlEvent.asStartElement().getName().getLocalPart().equals(XML_TAG_PARTNERTIN)) {
+                    xmlEvent = xmlEventReader.nextEvent();
+                    partnerTin = xmlEvent.asCharacters().getData();
+                }
+                if (xmlEvent.isEndElement() && xmlEvent.asEndElement().getName().getLocalPart().equals(XML_TAG_PARTNERTIN)) {
+                    if (newSaleRequest != null) newSaleRequest.setPartnerTin(partnerTin);
                     continue;
                 }
                 if (xmlEvent.isStartElement() && xmlEvent.asStartElement().getName().getLocalPart().equals(XML_TAG_PAIDAMOUNT)) {
@@ -329,7 +341,7 @@ public class NewSaleRequestReaderXml {
                     xmlEvent = xmlEventReader.nextEvent();
                     String discountTypeString = xmlEvent.asCharacters().getData();
                     try {
-                        discountType = Integer.parseInt(discountTypeString);
+                        discountType = BigDecimal.valueOf(Integer.parseInt(discountTypeString));
                     } catch (NumberFormatException numberFormatException) {
                         discountType = null;
                     }
@@ -358,7 +370,7 @@ public class NewSaleRequestReaderXml {
                     xmlEvent = xmlEventReader.nextEvent();
                     String additionalDiscountTypeString = xmlEvent.asCharacters().getData();
                     try {
-                        additionalDiscountType = Integer.parseInt(additionalDiscountTypeString);
+                        additionalDiscountType = BigDecimal.valueOf(Integer.parseInt(additionalDiscountTypeString));
                     } catch (NumberFormatException numberFormatException) {
                         additionalDiscountType = null;
                     }

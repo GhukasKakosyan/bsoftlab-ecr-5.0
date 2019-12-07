@@ -57,9 +57,9 @@ public class HeaderFooter {
     @Override
     public String toString() {
         return "[" +
-                this.align + ", " +
-                this.bold + ", " +
-                this.fsize + ", " +
-                this.text + "]";
+                "align: " + this.align + ", " +
+                "bold: " + this.bold + ", " +
+                "fsize: " + this.fsize + ", " +
+                "text: " + this.text + "]";
     }
 }

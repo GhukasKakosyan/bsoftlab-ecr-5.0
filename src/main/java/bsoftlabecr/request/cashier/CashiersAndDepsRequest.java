@@ -14,6 +14,6 @@ public class CashiersAndDepsRequest extends CashRegisterRequest {
 
     @Override
     public String toString() {
-        return "[" + this.password + "]";
+        return "[ password: " + this.password + "]";
     }
 }

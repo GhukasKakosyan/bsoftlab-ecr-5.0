@@ -106,8 +106,8 @@ public enum ArmenianLetter {
     @Override
     public String toString() {
         return "[" +
-                this.name() + ": " +
-                this.codering + ", " +
-                this.letter + "]";
+                "name " + this.name() + ": " +
+                "codering: " + this.codering + ", " +
+                "letter: " + this.letter + "]";
     }
 }
