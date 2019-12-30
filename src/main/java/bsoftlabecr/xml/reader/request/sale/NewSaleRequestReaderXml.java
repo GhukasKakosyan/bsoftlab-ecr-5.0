@@ -121,7 +121,13 @@ public class NewSaleRequestReaderXml {
                 }
                 if (xmlEvent.isStartElement() && xmlEvent.asStartElement().getName().getLocalPart().equals(XML_TAG_PARTNERTIN)) {
                     xmlEvent = xmlEventReader.nextEvent();
-                    partnerTin = xmlEvent.asCharacters().getData();
+                    try {
+                        partnerTin = xmlEvent.asCharacters().getData();
+                        Integer.parseInt(partnerTin);
+                    } catch (NumberFormatException numberFormatException) {
+                        partnerTin = null;
+                    }
+                    continue;
                 }
                 if (xmlEvent.isEndElement() && xmlEvent.asEndElement().getName().getLocalPart().equals(XML_TAG_PARTNERTIN)) {
                     if (newSaleRequest != null) newSaleRequest.setPartnerTin(partnerTin);
